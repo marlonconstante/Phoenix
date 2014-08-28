@@ -7,22 +7,33 @@ namespace Views.EnterpriseSelection
 	{
 		public EnterpriseSelectionItemCell()
 		{
-			var label = new Label {
+			var label = new Label
+			{
 				YAlign = TextAlignment.Center
 			};
-			label.SetBinding (Label.TextProperty, "Name");
+			label.SetBinding(Label.TextProperty, "Name");
 
 //			var tick = new Image {
 //				Source = FileImageSource.FromFile ("check.png"),
 //			};
 //			tick.SetBinding (Image.IsVisibleProperty, "Done");
 
-			var layout = new StackLayout {
+			var backgroundImage = new Image()
+			{
+				Source = ImageSource.FromFile("cemita.png"),
+			};
+
+			var layout = new StackLayout
+			{
 				Padding = new Thickness(20, 0, 0, 0),
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.StartAndExpand,
-				Children = {label}
+				Children =
+				{
+					label
+				}
 			};
+
 			View = layout;
 		}
 	}

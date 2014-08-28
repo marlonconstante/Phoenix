@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Models;
+using Views.Map;
 
 namespace Views.EnterpriseSelection
 {
@@ -40,6 +41,13 @@ namespace Views.EnterpriseSelection
 			layout.Children.Add(m_listView);
 			layout.VerticalOptions = LayoutOptions.FillAndExpand;
 			Content = layout;
+
+			m_listView.ItemSelected += (sender, e) => {
+				var enterprise = (Enterprise)e.SelectedItem;
+				var mapPage = new MapPage();
+//				mapPage.BindingContext = enterprise;
+				Navigation.PushAsync(mapPage);
+			};
 		}
 	}
 }
