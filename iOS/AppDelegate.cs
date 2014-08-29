@@ -17,6 +17,12 @@ namespace Phoenix.iOS
 	{
 		UIWindow window;
 
+		/// <summary>
+		/// Finisheds the launching.
+		/// </summary>
+		/// <returns><c>true</c>, if launching was finisheded, <c>false</c> otherwise.</returns>
+		/// <param name="app">App.</param>
+		/// <param name="options">Options.</param>
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			Forms.Init();
@@ -29,6 +35,18 @@ namespace Phoenix.iOS
 			window.MakeKeyAndVisible();
 			
 			return true;
+		}
+
+		/// <Docs>Reference to the UIApplication that invoked this delegate method.</Docs>
+		/// <summary>
+		/// Gets the supported interface orientations.
+		/// </summary>
+		/// <returns>The supported interface orientations.</returns>
+		/// <param name="application">Application.</param>
+		/// <param name="window">Window.</param>
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow window)
+		{
+			return UIInterfaceOrientationMask.Portrait;
 		}
 
 		/// <summary>

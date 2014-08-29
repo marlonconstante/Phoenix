@@ -15,9 +15,14 @@ using Xamarin.Forms.Labs;
 
 namespace Phoenix.Android
 {
-	[Activity(Label = "Phoenix.Android.Android", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
+	[Activity(Label = "Phoenix.Android.Android", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : XFormsApplicationDroid
 	{
+		/// <summary>
+		/// Raises the create event.
+		/// </summary>
+		/// <param name="bundle">Bundle.</param>
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);

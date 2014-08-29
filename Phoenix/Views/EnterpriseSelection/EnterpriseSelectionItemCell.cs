@@ -2,14 +2,19 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Labs;
 using Xamarin.Forms.Labs.Services;
+using Xamarin.Forms.Labs.Controls;
 
 namespace Phoenix.Views.EnterpriseSelection
 {
-	public class EnterpriseSelectionItemCell : ViewCell
+	public class EnterpriseSelectionItemCell : ExtendedViewCell
 	{
 		public EnterpriseSelectionItemCell()
 		{
 			var display = Resolver.Resolve<IDisplay>();
+			var width = display.Width;
+
+			ShowSeparator = false;
+			ShowDisclousure = false;
 
 			var label = new Label {
 				YAlign = TextAlignment.Center,
@@ -26,7 +31,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			var grid = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition() {
-						Width = display.Width / 2
+						Width = Device.OnPlatform(width / 2, width, width)
 					}
 				},
 				RowDefinitions = {
