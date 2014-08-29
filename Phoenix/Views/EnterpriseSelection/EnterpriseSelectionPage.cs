@@ -1,11 +1,11 @@
 ﻿using System;
 using Xamarin.Forms;
 using Models;
-using Views.Map;
+using Phoenix.Views.Map;
 using Xamarin.Forms.Labs;
 using Xamarin.Forms.Labs.Services;
 
-namespace Views.EnterpriseSelection
+namespace Phoenix.Views.EnterpriseSelection
 {
 	public class EnterpriseSelectionPage : ContentPage
 	{

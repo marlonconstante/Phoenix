@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Labs;
 using Xamarin.Forms.Labs.Services;
 
-namespace Views.EnterpriseSelection
+namespace Phoenix.Views.EnterpriseSelection
 {
 	public class EnterpriseSelectionItemCell : ViewCell
 	{

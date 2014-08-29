@@ -1,6 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
-using Views.EnterpriseSelection;
+using Phoenix.Views.EnterpriseSelection;
 
 namespace Phoenix
 {
