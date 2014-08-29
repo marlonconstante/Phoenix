@@ -2,12 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina4.7.1" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Phoenix/Views/Map/MapPage.cs">
     <Files>
-      <File FileName="Phoenix/Views/Map/MapPage.cs" Line="73" Column="73" />
-      <File FileName="../../../Downloads/WorkingWithFiles-sample/WorkingWithFiles/LoadResourceXml.cs" Line="54" Column="54" />
-      <File FileName="../../../Downloads/WorkingWithFiles-sample/WorkingWithFiles/LoadResourceText.cs" Line="42" Column="42" />
-      <File FileName="Phoenix/Views/EnterpriseSelection/EnterpriseSelectionPage.cs" Line="60" Column="60" />
-      <File FileName="Phoenix/Views/EnterpriseSelection/EnterpriseSelectionItemCell.cs" Line="22" Column="22" />
-      <File FileName="Phoenix/App.cs" Line="18" Column="18" />
+      <File FileName="Phoenix/Views/Map/MapPage.cs" Line="4" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
