@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Labs;
 using Xamarin.Forms.Labs.Services;
 using Xamarin.Forms.Labs.Controls;
+using Phoenix.Utils;
 
 namespace Phoenix.Views.EnterpriseSelection
 {
@@ -19,6 +20,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			var label = new Label {
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center,
+				Font = Font.BoldSystemFontOfSize(NamedSize.Large),
 				TextColor = Color.White
 			};
 			label.SetBinding(Label.TextProperty, "Name");
@@ -28,10 +30,18 @@ namespace Phoenix.Views.EnterpriseSelection
 				Aspect = Aspect.AspectFill
 			};
 
+			var boxView = new BoxView {
+				VerticalOptions = LayoutOptions.End,
+				WidthRequest = DeviceScreen.Instance.DisplayWidth,
+				HeightRequest = 80,
+				BackgroundColor = Color.White,
+				Opacity = 0.5
+			};
+
 			var grid = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition() {
-						Width = Device.OnPlatform(width / 2, width, width)
+						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
 				RowDefinitions = {
@@ -41,6 +51,7 @@ namespace Phoenix.Views.EnterpriseSelection
 				},
 				Children = {
 					{ backgroundImage, 0, 0 },
+					{ boxView, 0, 0 },
 					{ label, 0, 0 }
 				}
 			};
