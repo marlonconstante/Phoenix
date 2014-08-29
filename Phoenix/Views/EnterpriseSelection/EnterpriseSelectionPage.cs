@@ -11,7 +11,6 @@ namespace Views.EnterpriseSelection
 	{
 		ListView m_listView;
 
-
 		public EnterpriseSelectionPage()
 		{
 			Title = "Selecione o Empreendimento";
@@ -20,9 +19,9 @@ namespace Views.EnterpriseSelection
 
 			m_listView = new ListView
 			{
-				RowHeight = 200
+				RowHeight = 200,
+				ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell))
 			};
-			m_listView.ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell));
 
 			// These commented-out lines were used to test the ListView prior to integrating the database
 			m_listView.ItemsSource = new Enterprise []
@@ -34,12 +33,12 @@ namespace Views.EnterpriseSelection
 				new Enterprise { Name = "Cemita 5" }
 			};
 
-
 			var layout = new StackLayout();
 			if (Device.OS == TargetPlatform.WinPhone)
 			{ // WinPhone doesn't have the title showing
 				layout.Children.Add(new Label{ Text = "Todo", Font = Font.BoldSystemFontOfSize(NamedSize.Large) });
 			}
+
 			layout.Children.Add(m_listView);
 			layout.VerticalOptions = LayoutOptions.FillAndExpand;
 			Content = layout;
@@ -47,7 +46,7 @@ namespace Views.EnterpriseSelection
 			m_listView.ItemSelected += (sender, e) => {
 				var enterprise = (Enterprise)e.SelectedItem;
 				var mapPage = new MapPage();
-//				mapPage.BindingContext = enterprise;
+				//mapPage.BindingContext = enterprise;
 				Navigation.PushAsync(mapPage);
 			};
 		}
