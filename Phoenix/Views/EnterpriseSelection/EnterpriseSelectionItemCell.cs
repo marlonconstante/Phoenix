@@ -1,5 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Labs;
+using Xamarin.Forms.Labs.Services;
 
 namespace Views.EnterpriseSelection
 {
@@ -7,34 +9,38 @@ namespace Views.EnterpriseSelection
 	{
 		public EnterpriseSelectionItemCell()
 		{
-			var label = new Label
-			{
-				YAlign = TextAlignment.Center
+			var display = Resolver.Resolve<IDisplay>();
+
+			var label = new Label {
+				YAlign = TextAlignment.Center,
+				XAlign = TextAlignment.Center,
+				TextColor = Color.White
 			};
 			label.SetBinding(Label.TextProperty, "Name");
 
-//			var tick = new Image {
-//				Source = FileImageSource.FromFile ("check.png"),
-//			};
-//			tick.SetBinding (Image.IsVisibleProperty, "Done");
-
-			var backgroundImage = new Image()
-			{
+			var backgroundImage = new Image() {
 				Source = ImageSource.FromFile("cemita.png"),
+				Aspect = Aspect.AspectFill
 			};
 
-			var layout = new StackLayout
-			{
-				Padding = new Thickness(20, 0, 0, 0),
-				Orientation = StackOrientation.Horizontal,
-				HorizontalOptions = LayoutOptions.StartAndExpand,
-				Children =
-				{
-					label
+			var grid = new Grid {
+				ColumnDefinitions = {
+					new ColumnDefinition() {
+						Width = display.Width / 2
+					}
+				},
+				RowDefinitions = {
+					new RowDefinition() {
+						Height = 200
+					}
+				},
+				Children = {
+					{ backgroundImage, 0, 0 },
+					{ label, 0, 0 }
 				}
 			};
 
-			View = layout;
+			View = grid;
 		}
 	}
 }

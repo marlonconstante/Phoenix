@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Models;
 using Views.Map;
+using Xamarin.Forms.Labs;
+using Xamarin.Forms.Labs.Services;
 
 namespace Views.EnterpriseSelection
 {
@@ -18,7 +20,7 @@ namespace Views.EnterpriseSelection
 
 			m_listView = new ListView
 			{
-				RowHeight = 40
+				RowHeight = 200
 			};
 			m_listView.ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell));
 
