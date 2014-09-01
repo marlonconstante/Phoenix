@@ -1,9 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Models;
 using Phoenix.Views.Map;
-using Xamarin.Forms.Labs;
-using Xamarin.Forms.Labs.Services;
 
 namespace Phoenix.Views.EnterpriseSelection
 {
@@ -41,6 +38,7 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			layout.Children.Add(m_listView);
 			layout.VerticalOptions = LayoutOptions.FillAndExpand;
+			layout.HorizontalOptions = LayoutOptions.FillAndExpand;
 			Content = layout;
 
 			m_listView.ItemSelected += (sender, e) => {

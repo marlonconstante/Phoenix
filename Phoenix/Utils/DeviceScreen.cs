@@ -20,7 +20,7 @@ namespace Phoenix.Utils
 		/// <value>The display width.</value>
 		public int DisplayWidth {
 			get {
-				return Device.OnPlatform(Display.Width / 2, Display.Width, Display.Width);
+				return Device.OnPlatform(Display.Width / 2, Display.Width / 2, Display.Width);
 			}
 		}
 
@@ -40,7 +40,7 @@ namespace Phoenix.Utils
 		/// <value>The display height of the visible.</value>
 		public int DisplayVisibleHeight {
 			get {
-				return Device.OnPlatform((Display.Height / 2) - 64, Display.Height - 100, Display.Height - 100);
+				return Device.OnPlatform((Display.Height / 2) - 64, (Display.Height / 2) - 100, Display.Height - 100);
 			}
 		}
 
