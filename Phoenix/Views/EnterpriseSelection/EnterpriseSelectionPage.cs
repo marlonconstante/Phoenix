@@ -11,6 +11,7 @@ namespace Phoenix.Views.EnterpriseSelection
 		public EnterpriseSelectionPage()
 		{
 			Title = "Selecione o Empreendimento";
+//			UINavigationBar.SetTitleTextAttributes
 
 			NavigationPage.SetHasNavigationBar(this, true);
 
@@ -33,10 +34,6 @@ namespace Phoenix.Views.EnterpriseSelection
 			};
 
 			var layout = new StackLayout();
-			if (Device.OS == TargetPlatform.WinPhone)
-			{ // WinPhone doesn't have the title showing
-				layout.Children.Add(new Label{ Text = "Todo", Font = Font.BoldSystemFontOfSize(NamedSize.Large) });
-			}
 
 			layout.Children.Add(m_listView);
 			layout.VerticalOptions = LayoutOptions.FillAndExpand;

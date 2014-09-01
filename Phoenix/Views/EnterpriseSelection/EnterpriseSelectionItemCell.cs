@@ -11,18 +11,30 @@ namespace Phoenix.Views.EnterpriseSelection
 	{
 		public EnterpriseSelectionItemCell()
 		{
-			var display = Resolver.Resolve<IDisplay>();
-
 			ShowSeparator = false;
 			ShowDisclousure = false;
 
-			var label = new Label
+			var label = new Label();
+
+			if (Device.OS == TargetPlatform.iOS)
 			{
-				YAlign = TextAlignment.Center,
-				XAlign = TextAlignment.Center,
-				Font = Font.OfSize("Source Sans Pro", NamedSize.Large).WithAttributes(FontAttributes.Bold),
-				TextColor = Color.White
-			};
+				label.YAlign = TextAlignment.Center;
+				label.XAlign = TextAlignment.Center;
+				label.Font = Font.OfSize("Source Sans Pro", NamedSize.Large).WithAttributes(FontAttributes.Bold);
+				label.TextColor = Color.White;
+			}
+			else
+			{
+				label = new ExtendedLabel
+				{
+					YAlign = TextAlignment.Center,
+					XAlign = TextAlignment.Center,
+					FontName = "Source Sans Pro",
+					FontSize = 22,
+					TextColor = Color.White
+				};
+			}
+
 			label.SetBinding(Label.TextProperty, "Name");
 
 			var backgroundImage = new Image()
@@ -68,4 +80,3 @@ namespace Phoenix.Views.EnterpriseSelection
 		}
 	}
 }
-

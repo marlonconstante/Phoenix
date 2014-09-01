@@ -8,10 +8,15 @@ namespace Phoenix
 	{
 		public static Page GetMainPage()
 		{	
-			var mainNav = new NavigationPage(new EnterpriseSelectionPage());
-
+			var mainNav = new NavigationPage(new EnterpriseSelectionPage())
+			{
+				BarBackgroundColor = Color.White,
+				BarTextColor = Color.FromRgb(56, 56, 56)
+			};
+					
 			return mainNav;
 		}
+			
 	}
 }
 
