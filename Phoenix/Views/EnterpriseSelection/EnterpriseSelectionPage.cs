@@ -46,7 +46,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			m_listView.ItemSelected += (sender, e) => {
 				var enterprise = (Enterprise)e.SelectedItem;
 				var mapPage = new MapPage();
-				//mapPage.BindingContext = enterprise;
+				mapPage.Title = enterprise.Name;
 				Navigation.PushAsync(mapPage);
 			};
 		}
