@@ -12,25 +12,27 @@ namespace Phoenix.Views.EnterpriseSelection
 		public EnterpriseSelectionItemCell()
 		{
 			var display = Resolver.Resolve<IDisplay>();
-			var width = display.Width;
 
 			ShowSeparator = false;
 			ShowDisclousure = false;
 
-			var label = new Label {
+			var label = new Label
+			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center,
-				Font = Font.BoldSystemFontOfSize(NamedSize.Large),
+				Font = Font.OfSize("Source Sans Pro", NamedSize.Large).WithAttributes(FontAttributes.Bold),
 				TextColor = Color.White
 			};
 			label.SetBinding(Label.TextProperty, "Name");
 
-			var backgroundImage = new Image() {
+			var backgroundImage = new Image()
+			{
 				Source = ImageSource.FromFile("cemita.png"),
 				Aspect = Aspect.AspectFill
 			};
 
-			var boxView = new BoxView {
+			var boxView = new BoxView
+			{
 				VerticalOptions = LayoutOptions.End,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 80,
@@ -38,18 +40,24 @@ namespace Phoenix.Views.EnterpriseSelection
 				Opacity = 0.5
 			};
 
-			var grid = new Grid {
-				ColumnDefinitions = {
-					new ColumnDefinition() {
+			var grid = new Grid
+			{
+				ColumnDefinitions =
+				{
+					new ColumnDefinition()
+					{
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions = {
-					new RowDefinition() {
+				RowDefinitions =
+				{
+					new RowDefinition()
+					{
 						Height = 200
 					}
 				},
-				Children = {
+				Children =
+				{
 					{ backgroundImage, 0, 0 },
 					{ boxView, 0, 0 },
 					{ label, 0, 0 }

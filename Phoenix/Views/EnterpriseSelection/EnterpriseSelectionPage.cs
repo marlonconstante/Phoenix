@@ -23,11 +23,13 @@ namespace Phoenix.Views.EnterpriseSelection
 			// These commented-out lines were used to test the ListView prior to integrating the database
 			m_listView.ItemsSource = new Enterprise []
 			{ 
-				new Enterprise { Name = "Cemita 1" }, 
-				new Enterprise { Name = "Cemita 2" },
-				new Enterprise { Name = "Cemita 3" }, 
-				new Enterprise { Name = "Cemita 4" },
-				new Enterprise { Name = "Cemita 5" }
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }
 			};
 
 			var layout = new StackLayout();
