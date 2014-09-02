@@ -12,6 +12,7 @@ namespace Phoenix.Views
 			Keyboard = Keyboard.Numeric;
 			TextChanged += OnTextChanged;
 			BackgroundColor = Color.FromHex("e8edf1");
+			TextColor = Color.FromHex("565656"); 
 		}
 
 		public Action OnCodeComplete { set; get; }

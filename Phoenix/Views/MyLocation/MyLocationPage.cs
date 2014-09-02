@@ -38,26 +38,26 @@ namespace Phoenix.Views.MyLocation
 			var input = new QrCodeEntry();
 			input.OnCodeComplete = () =>
 			{
-				//TODO: Chamar a camera.
-				DisplayAlert("Feito", "Chamar a camera.", "Ok");
+				//TODO: Chamar a mapa com os parametros.
+				DisplayAlert("Feito", "Preeencher os numeros e chamar o mapa.", "Ok");
 			};
 
+			var imgButtonSize = Device.OnPlatform(60, 130, 130);
+			var buttonSize = Device.OnPlatform(50, 80, 60);
 			var cameraButton = new ImageButton()
 			{
 				Source = ImageSource.FromFile("cameraButton.png"),
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
-				HeightRequest = 60,
-				WidthRequest = 60
+				ImageHeightRequest = imgButtonSize,
+				ImageWidthRequest = imgButtonSize,
+				BackgroundColor = Color.Transparent,
+				HeightRequest = buttonSize,
+				WidthRequest = buttonSize,
 			};
 
 			var photoLabel = new Label();
 
-
-			var emptyLineLabel = new Label()
-			{
-				Text = "\n"
-			};
 
 			if (Device.OS == TargetPlatform.iOS)
 			{
@@ -87,8 +87,8 @@ namespace Phoenix.Views.MyLocation
 
 			layout.Children.Add(label);
 			layout.Children.Add(input);
-			layout.Children.Add(cameraButton);
 //			layout.Children.Add(emptyLineLabel);
+			layout.Children.Add(cameraButton);
 			layout.Children.Add(photoLabel);
 			layout.VerticalOptions = LayoutOptions.Start;
 			layout.HorizontalOptions = LayoutOptions.Center;
