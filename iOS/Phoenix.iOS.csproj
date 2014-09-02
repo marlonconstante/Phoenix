@@ -118,6 +118,7 @@
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
     <BundleResource Include="Resources\pin.png" />
     <BundleResource Include="Resources\cameraButton.png" />
+    <BundleResource Include="Resources\SourceSansPro-Light.otf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

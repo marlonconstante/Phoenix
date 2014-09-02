@@ -14,7 +14,7 @@ namespace Phoenix.Views.Map
 		{
 			var browser = new WebView
 			{
-				Source = "http://gpmil.com/svg/CristoRei.svg",
+				Source = "https://cdn.rawgit.com/marlonconstante/Phoenix-Maps/master/dist/CristoRei.html",
 				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 

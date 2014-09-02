@@ -94,5 +94,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\SourceSansPro-Regular.otf" />
     <AndroidAsset Include="Assets\SourceSansPro-Bold.otf" />
+    <AndroidAsset Include="Assets\SourceSansPro-Light.otf" />
   </ItemGroup>
 </Project>
