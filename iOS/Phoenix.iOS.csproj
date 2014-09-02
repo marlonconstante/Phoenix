@@ -116,6 +116,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
+    <BundleResource Include="Resources\pin.png" />
+    <BundleResource Include="Resources\cameraButton.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

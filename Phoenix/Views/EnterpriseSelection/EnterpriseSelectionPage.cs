@@ -11,7 +11,6 @@ namespace Phoenix.Views.EnterpriseSelection
 		public EnterpriseSelectionPage()
 		{
 			Title = "Selecione o Empreendimento";
-//			UINavigationBar.SetTitleTextAttributes
 
 			NavigationPage.SetHasNavigationBar(this, true);
 

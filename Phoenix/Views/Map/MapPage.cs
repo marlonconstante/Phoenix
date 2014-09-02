@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using System.Reflection;
 using System.IO;
 using Phoenix.Utils;
+using Xamarin.Forms.Labs.Controls;
+using Phoenix.Views.MyLocation;
 
 namespace Phoenix.Views.Map
 {
@@ -24,13 +26,20 @@ namespace Phoenix.Views.Map
 				Placeholder = "Nome ou CPF",
 			};
 				
-			var whereButton = new Image
+			var pinButton = new ImageButton
 			{ 
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
-				Source = ImageSource.FromFile("cemita.png"),
+				Source = ImageSource.FromFile("pin.png"),
 				HeightRequest = 60,
-				WidthRequest = 60
+				WidthRequest = 60,
+			};
+
+			pinButton.Clicked += (sender, e) =>
+			{
+				var myLocationPage = new MyLocationPage();
+				myLocationPage.Title = Title;
+				Navigation.PushAsync(myLocationPage);
 			};
 					
 			var gridLayout = new Grid
@@ -52,7 +61,7 @@ namespace Phoenix.Views.Map
 				Children =
 				{
 					{ browser, 0, 0 },	
-					{ whereButton, 0, 0 },
+					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 }
 				}
 			};
