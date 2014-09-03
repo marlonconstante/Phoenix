@@ -10,7 +10,7 @@ namespace Phoenix.Views.EnterpriseSelection
 
 		public EnterpriseSelectionPage()
 		{
-			Title = "Selecione o Empreendimento";
+			Title = "Empreendimentos";
 
 			NavigationPage.SetHasNavigationBar(this, true);
 
@@ -20,24 +20,16 @@ namespace Phoenix.Views.EnterpriseSelection
 				ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell))
 			};
 
-			// These commented-out lines were used to test the ListView prior to integrating the database
 			m_listView.ItemsSource = new Enterprise []
 			{ 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }, 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei" }
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" }
 			};
-
-			var layout = new StackLayout();
-
-			layout.Children.Add(m_listView);
-			layout.VerticalOptions = LayoutOptions.FillAndExpand;
-			layout.HorizontalOptions = LayoutOptions.FillAndExpand;
-			Content = layout;
 
 			m_listView.ItemSelected += (sender, e) => {
 				var enterprise = (Enterprise)e.SelectedItem;
@@ -45,7 +37,16 @@ namespace Phoenix.Views.EnterpriseSelection
 				mapPage.Title = enterprise.Name;
 				Navigation.PushAsync(mapPage);
 			};
+
+			var layout = new StackLayout {
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				Children =
+				{
+					m_listView
+				}
+			};
+			Content = layout;
 		}
 	}
 }
-

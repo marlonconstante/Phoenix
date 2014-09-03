@@ -14,69 +14,107 @@ namespace Phoenix.Views.EnterpriseSelection
 			ShowSeparator = false;
 			ShowDisclousure = false;
 
-			var label = new Label();
-
-			if (Device.OS == TargetPlatform.iOS)
-			{
-				label.YAlign = TextAlignment.Center;
-				label.XAlign = TextAlignment.Center;
-				label.Font = Font.OfSize("Source Sans Pro", NamedSize.Large).WithAttributes(FontAttributes.Bold);
-				label.TextColor = Color.White;
-			}
-			else
-			{
-				label = new ExtendedLabel
-				{
-					YAlign = TextAlignment.Center,
-					XAlign = TextAlignment.Center,
-					FontName = "Source Sans Pro",
-					FontSize = 22,
-					TextColor = Color.White
-				};
-			}
-
-			label.SetBinding(Label.TextProperty, "Name");
-
-			var backgroundImage = new Image()
+			var backgroundImage = new Image
 			{
 				Source = ImageSource.FromFile("cemita.png"),
 				Aspect = Aspect.AspectFill
 			};
 
-			var boxView = new BoxView
+			var labelName = new ExtendedLabel
 			{
-				VerticalOptions = LayoutOptions.End,
-				WidthRequest = DeviceScreen.Instance.DisplayWidth,
-				HeightRequest = 80,
-				BackgroundColor = Color.White,
-				Opacity = 0.5
+				YAlign = TextAlignment.Center,
+				XAlign = TextAlignment.Center,
+				FontName = "SourceSansPro-Bold",
+				FontSize = 22.5,
+				TextColor = Color.White
 			};
+			labelName.SetBinding(Label.TextProperty, "Name");
 
-			var grid = new Grid
-			{
-				ColumnDefinitions =
-				{
-					new ColumnDefinition()
-					{
+			var grid = new Grid {
+				ColumnDefinitions = {
+					new ColumnDefinition {
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions =
-				{
-					new RowDefinition()
-					{
+				RowDefinitions = {
+					new RowDefinition {
 						Height = 200
 					}
 				},
-				Children =
-				{
+				Children = {
 					{ backgroundImage, 0, 0 },
-					{ boxView, 0, 0 },
-					{ label, 0, 0 }
+					{ BoxView, 0, 0 },
+					{ labelName, 0, 0 },
+					{ PlaceGrid, 0, 0 }
 				}
 			};
 
 			View = grid;
+		}
+
+		/// <summary>
+		/// Gets the box view.
+		/// </summary>
+		/// <value>The box view.</value>
+		BoxView BoxView {
+			get {
+				var boxView = new BoxView {
+					VerticalOptions = LayoutOptions.End,
+					WidthRequest = DeviceScreen.Instance.DisplayWidth,
+					HeightRequest = 32,
+					BackgroundColor = Color.FromRgb(0, 114, 188),
+					Opacity = 0.7
+				};
+				return boxView;
+			}
+		}
+
+		/// <summary>
+		/// Gets the place grid.
+		/// </summary>
+		/// <value>The place grid.</value>
+		Grid PlaceGrid {
+			get {
+				var pinImage = new Image {
+					Source = ImageSource.FromFile("pin-leaked.png"),
+					Aspect = Aspect.AspectFit,
+					WidthRequest = 14,
+					HeightRequest = 19
+				};
+
+				var labelPlaceName = new ExtendedLabel {
+					VerticalOptions = LayoutOptions.Center,
+					XAlign = TextAlignment.Start,
+					FontName = "SourceSansPro-Regular",
+					FontSize = 16,
+					TextColor = Color.White
+				};
+				labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
+
+				var placeGrid = new Grid {
+					HorizontalOptions = LayoutOptions.Center,
+					VerticalOptions = LayoutOptions.End,
+					ColumnDefinitions = {
+						new ColumnDefinition {
+							Width = pinImage.WidthRequest
+						},
+						new ColumnDefinition {
+							Width = GridLength.Auto
+						}
+					},
+					RowDefinitions = {
+						new RowDefinition {
+							Height = 32
+						}
+					},
+					Children = {
+						{ pinImage, 0, 0 },
+						{ labelPlaceName, 1, 0 }
+					}
+				};
+
+				return placeGrid;
+			}
 		}
 	}
 }

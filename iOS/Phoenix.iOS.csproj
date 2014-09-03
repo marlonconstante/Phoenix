@@ -122,9 +122,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
-    <BundleResource Include="Resources\pin.png" />
     <BundleResource Include="Resources\cameraButton.png" />
     <BundleResource Include="Resources\SourceSansPro-Light.otf" />
+    <BundleResource Include="Resources\pin%402x.png" />
+    <BundleResource Include="Resources\pin-leaked%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

@@ -18,26 +18,24 @@ namespace Phoenix.Views.Map
 				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 
-			var searchFamiliarField = new SearchBar()
+			var searchFamiliarField = new SearchBar
 			{ 
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 40,
-				Placeholder = "Nome ou CPF",
+				Placeholder = "Nome ou CPF"
 			};
-				
-			var imgButtonSize = Device.OnPlatform(50, 120, 120);
-			var buttonSize = Device.OnPlatform(50, 80, 60);
+
+			var pinSize = Device.OnPlatform(87, 87, 87);
 			var pinButton = new ImageButton
 			{ 
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				Source = ImageSource.FromFile("pin.png"),
-				ImageHeightRequest = imgButtonSize,
-				ImageWidthRequest = imgButtonSize,
-				BackgroundColor = Color.Transparent,
-				HeightRequest = buttonSize,
-				WidthRequest = buttonSize,
+				ImageWidthRequest = pinSize,
+				ImageHeightRequest = pinSize,
+				WidthRequest = pinSize,
+				HeightRequest = Device.OnPlatform(110, 110, 110)
 			};
 
 			pinButton.Clicked += (sender, e) =>
@@ -47,31 +45,26 @@ namespace Phoenix.Views.Map
 				Navigation.PushAsync(myLocationPage);
 			};
 					
-			var gridLayout = new Grid
+			var grid = new Grid
 			{
-				ColumnDefinitions =
-				{
-					new ColumnDefinition()
-					{
+				ColumnDefinitions = {
+					new ColumnDefinition {
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions =
-				{
-					new RowDefinition()
-					{
+				RowDefinitions = {
+					new RowDefinition {
 						Height = DeviceScreen.Instance.DisplayVisibleHeight
 					}
 				},
-				Children =
-				{
+				Children = {
 					{ browser, 0, 0 },	
 					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 }
 				}
 			};
 					
-			Content = gridLayout;
+			Content = grid;
 		}
 	}
 }
