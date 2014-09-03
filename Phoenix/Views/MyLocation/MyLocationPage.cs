@@ -60,7 +60,7 @@ namespace Phoenix.Views.MyLocation
 			{
 				var qrCodeReader = new QrCodeCameraPage();
 				qrCodeReader.Title = "Minha Localização";
-				Navigation.PushAsync(qrCodeReader);
+				Navigation.PushModalAsync(qrCodeReader);
 			};
 
 			var photoLabel = new Label();
@@ -102,6 +102,12 @@ namespace Phoenix.Views.MyLocation
 			Content = layout;
 
 		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+		}
+
 	}
 }
 
