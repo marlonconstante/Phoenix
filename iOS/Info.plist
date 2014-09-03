@@ -42,5 +42,10 @@
 		<string>SourceSansPro-Bold.otf</string>
 		<string>SourceSansPro-Light.otf</string>
 	</array>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>English</string>
+		<string>Portuguese</string>
+	</array>
 </dict>
 </plist>
