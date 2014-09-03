@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Phoenix.Views.MyLocation;
 using Renderers;
 using System.Threading.Tasks;
+using ZXing.Mobile;
 
 [assembly:ExportRenderer(typeof(QrCodeCameraPage), typeof(QrCodeCameraPageRenderer))]
 namespace Renderers
@@ -15,7 +16,14 @@ namespace Renderers
 			base.OnElementChanged(e);
 
 			var scanner = new ZXing.Mobile.MobileBarcodeScanner();
-			var task = scanner.Scan();
+
+			var options = new MobileBarcodeScanningOptions()
+			{
+				AutoRotate = false,
+				PossibleFormats = new System.Collections.Generic.List<ZXing.BarcodeFormat>() { ZXing.BarcodeFormat.QR_CODE }
+			};
+
+			var task = scanner.Scan(options);
 
 			task.Start();
 			task.Wait();
