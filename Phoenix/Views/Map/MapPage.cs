@@ -14,7 +14,7 @@ namespace Phoenix.Views.Map
 		{
 			var browser = new WebView
 			{
-				Source = "https://cdn.rawgit.com/marlonconstante/Phoenix-Maps/master/dist/CristoRei.html",
+				Source = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html?id=campoVerde",
 				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 
