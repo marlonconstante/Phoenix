@@ -75,6 +75,9 @@ namespace Phoenix.Android
 			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_range_middle = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_range_middle;
 			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_selectable = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_selectable;
 			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_today = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_today;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Phoenix.Android.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Phoenix.Android.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Phoenix.Android.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Attribute
@@ -228,6 +231,9 @@ namespace Phoenix.Android
 			// aapt resource value: 0x7f080000
 			public const int calendar_view = 2131230720;
 			
+			// aapt resource value: 0x7f080004
+			public const int contentFrame = 2131230724;
+			
 			// aapt resource value: 0x7f080001
 			public const int myButton = 2131230721;
 			
@@ -261,6 +267,12 @@ namespace Phoenix.Android
 			
 			// aapt resource value: 0x7f030004
 			public const int week = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int zxingscanneractivitylayout = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int zxingscannerfragmentlayout = 2130903046;
 			
 			static Layout()
 			{

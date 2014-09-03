@@ -56,6 +56,13 @@ namespace Phoenix.Views.MyLocation
 				WidthRequest = buttonSize,
 			};
 
+			cameraButton.Clicked  += (sender, e) =>
+			{
+				var qrCodeReader = new QrCodeCameraPage();
+				qrCodeReader.Title = "Minha Localização";
+				Navigation.PushAsync(qrCodeReader);
+			};
+
 			var photoLabel = new Label();
 
 

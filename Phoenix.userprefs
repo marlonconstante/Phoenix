@@ -1,18 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.0422313778" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Phoenix/App.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Phoenix/Views/MyLocation/MyLocationPage.cs">
     <Files>
-      <File FileName="Phoenix/App.cs" Line="45" Column="45" />
+      <File FileName="Phoenix/Views/MyLocation/MyLocationPage.cs" Line="34" Column="34" />
+      <File FileName="Phoenix/Views/Map/MapPage.cs" Line="6" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Phoenix.Android" selected="True" />
-          <Node name="Phoenix.iOS" expanded="True" />
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
