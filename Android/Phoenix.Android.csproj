@@ -95,6 +95,11 @@
     <AndroidResource Include="Resources\drawable\cemita.png" />
     <AndroidResource Include="Resources\drawable\pin.png" />
     <AndroidResource Include="Resources\drawable\cameraButton.png" />
+    <AndroidResource Include="Resources\drawable\CemiterioECrematorioMetropolitanoSaintHilaire.png" />
+    <AndroidResource Include="Resources\drawable\CemiterioParqueJardinSaoVicente.png" />
+    <AndroidResource Include="Resources\drawable\CemiterioParqueMemorialDaColina.png" />
+    <AndroidResource Include="Resources\drawable\CrematorioMetropolitanoCristoRei.png" />
+    <AndroidResource Include="Resources\drawable\CrematorioMetropolitanoSaoJose.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

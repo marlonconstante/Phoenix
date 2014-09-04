@@ -14,11 +14,12 @@ namespace Phoenix.Views.EnterpriseSelection
 			ShowSeparator = false;
 			ShowDisclousure = false;
 
+
 			var backgroundImage = new Image
 			{
-				Source = ImageSource.FromFile("cemita.png"),
 				Aspect = Aspect.AspectFill
 			};
+			backgroundImage.SetBinding(Image.SourceProperty, "ImageName");
 
 			var labelName = new ExtendedLabel
 			{
@@ -30,18 +31,24 @@ namespace Phoenix.Views.EnterpriseSelection
 			};
 			labelName.SetBinding(Label.TextProperty, "Name");
 
-			var grid = new Grid {
-				ColumnDefinitions = {
-					new ColumnDefinition {
+			var grid = new Grid
+			{
+				ColumnDefinitions =
+				{
+					new ColumnDefinition
+					{
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions = {
-					new RowDefinition {
+				RowDefinitions =
+				{
+					new RowDefinition
+					{
 						Height = 200
 					}
 				},
-				Children = {
+				Children =
+				{
 					{ backgroundImage, 0, 0 },
 					{ BoxView, 0, 0 },
 					{ labelName, 0, 0 },
@@ -56,9 +63,12 @@ namespace Phoenix.Views.EnterpriseSelection
 		/// Gets the box view.
 		/// </summary>
 		/// <value>The box view.</value>
-		BoxView BoxView {
-			get {
-				var boxView = new BoxView {
+		BoxView BoxView
+		{
+			get
+			{
+				var boxView = new BoxView
+				{
 					VerticalOptions = LayoutOptions.End,
 					WidthRequest = DeviceScreen.Instance.DisplayWidth,
 					HeightRequest = 32,
@@ -73,16 +83,20 @@ namespace Phoenix.Views.EnterpriseSelection
 		/// Gets the place grid.
 		/// </summary>
 		/// <value>The place grid.</value>
-		Grid PlaceGrid {
-			get {
-				var pinImage = new Image {
+		Grid PlaceGrid
+		{
+			get
+			{
+				var pinImage = new Image
+				{
 					Source = ImageSource.FromFile("pin-leaked.png"),
 					Aspect = Aspect.AspectFit,
 					WidthRequest = 14,
 					HeightRequest = 19
 				};
 
-				var labelPlaceName = new ExtendedLabel {
+				var labelPlaceName = new ExtendedLabel
+				{
 					VerticalOptions = LayoutOptions.Center,
 					XAlign = TextAlignment.Start,
 					FontName = "SourceSansPro-Regular",
@@ -91,23 +105,30 @@ namespace Phoenix.Views.EnterpriseSelection
 				};
 				labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
 
-				var placeGrid = new Grid {
+				var placeGrid = new Grid
+				{
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.End,
-					ColumnDefinitions = {
-						new ColumnDefinition {
+					ColumnDefinitions =
+					{
+						new ColumnDefinition
+						{
 							Width = pinImage.WidthRequest
 						},
-						new ColumnDefinition {
+						new ColumnDefinition
+						{
 							Width = GridLength.Auto
 						}
 					},
-					RowDefinitions = {
-						new RowDefinition {
+					RowDefinitions =
+					{
+						new RowDefinition
+						{
 							Height = 32
 						}
 					},
-					Children = {
+					Children =
+					{
 						{ pinImage, 0, 0 },
 						{ labelPlaceName, 1, 0 }
 					}

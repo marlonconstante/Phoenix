@@ -22,22 +22,22 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			m_listView.ItemsSource = new Enterprise []
 			{ 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" }
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html", ImageName = "CrematorioMetropolitanoCristoRei.png" },
+				new Enterprise { Name = "Cemitério E Crematório Metropolitano\nSaint Hilaire", PlaceName = "Viamão", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html", ImageName = "CemiterioECrematorioMetropolitanoSaintHilaire.png" },
+				new Enterprise { Name = "Cemitério Parque\nJardin São Vicente", PlaceName = "Canoas", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html", ImageName = "CemiterioParqueJardinSaoVicente.png" },
+				new Enterprise { Name = "Cemitério Parque\nMemorial da Colina", PlaceName = "Cachoerinha", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html", ImageName = "CemiterioParqueMemorialDaColina.png" },
+				new Enterprise { Name = "Crematório Metropolitano\nSão José", PlaceName = "Porto Alegre", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html", ImageName = "CrematorioMetropolitanoSaoJose.png" }
 			};
 
-			m_listView.ItemSelected += (sender, e) => {
-				var enterprise = (Enterprise) e.SelectedItem;
+			m_listView.ItemSelected += (sender, e) =>
+			{
+				var enterprise = (Enterprise)e.SelectedItem;
 				var mapPage = new MapPage(enterprise);
 				Navigation.PushAsync(mapPage);
 			};
 
-			var layout = new StackLayout {
+			var layout = new StackLayout
+			{
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Children =
