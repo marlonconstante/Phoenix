@@ -1,55 +1,35 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Labs.Controls;
+using Phoenix.Views.Map;
 
 namespace Phoenix.Views.MyLocation
 {
 	public class MyLocationPage : ContentPage
 	{
-
-		public  QrCodeEntry QrInput { set; get; }
-
 		public MyLocationPage()
 		{
 			BackgroundColor = Color.FromHex("15496f");
 
-			var label = new Label();
+			var label = new ExtendedLabel {
+				YAlign = TextAlignment.Center,
+				XAlign = TextAlignment.Center,
+				FontName = "Source Sans Pro",
+				FontSize = 17,
+				TextColor = Color.FromHex("e8edf1"),
+				Text = "\n\nDigite o código mais próximo\nda região que você se encontra\n\n"
 
-			if (Device.OS == TargetPlatform.iOS)
-			{
-				label.YAlign = TextAlignment.Center;
-				label.XAlign = TextAlignment.Center;
-				label.Font = Font.OfSize("Source Sans Pro", NamedSize.Medium);
-				label.TextColor = Color.White;
-
-			}
-			else
-			{
-				label = new ExtendedLabel
-				{
-					YAlign = TextAlignment.Center,
-					XAlign = TextAlignment.Center,
-					FontName = "Source Sans Pro",
-					FontSize = 17,
-					TextColor = Color.White
-				};
-			}
-
-			label.Text = "\n\nDigite o código mais próximo\nda região que você se encontra\n\n";
-			label.TextColor = Color.FromHex("e8edf1");
+			};
 
 			QrInput = new QrCodeEntry();
-
-			QrInput.OnCodeComplete = () =>
-			{
-				//TODO: Chamar a mapa com os parametros.
-				DisplayAlert("Feito", "Preeencher os numeros e chamar o mapa."+QrInput.Text, "Ok");
+			QrInput.OnCodeComplete = () => {
+				ParentPage.LocationCode = QrInput.Text;
+				Navigation.PopAsync();
 			};
 
 			var imgButtonSize = Device.OnPlatform(60, 130, 130);
 			var buttonSize = Device.OnPlatform(50, 80, 60);
-			var cameraButton = new ImageButton()
-			{
+			var cameraButton = new ImageButton {
 				Source = ImageSource.FromFile("cameraButton.png"),
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
@@ -60,8 +40,7 @@ namespace Phoenix.Views.MyLocation
 				WidthRequest = buttonSize,
 			};
 
-			cameraButton.Clicked  += (sender, e) =>
-			{
+			cameraButton.Clicked += (sender, e) => {
 				var qrCodeReader = new QrCodeCameraPage();
 				qrCodeReader.Title = "Minha Localização";
 				QrInput.Text = string.Empty;
@@ -69,50 +48,38 @@ namespace Phoenix.Views.MyLocation
 				Navigation.PushModalAsync(qrCodeReader);
 			};
 
-			var photoLabel = new Label();
+			var photoLabel = new ExtendedLabel {
+				YAlign = TextAlignment.Center,
+				XAlign = TextAlignment.Center,
+				FontName = "Source Sans Pro",
+				FontSize = 14,
+				TextColor = Color.FromHex("fcfbf9"),
+				Text = "\nOu fotografe o código presente na placa"
+			};
 
-
-			if (Device.OS == TargetPlatform.iOS)
-			{
-				photoLabel.YAlign = TextAlignment.Center;
-				photoLabel.XAlign = TextAlignment.Center;
-				photoLabel.Font = Font.OfSize("Source Sans Pro", NamedSize.Small);
-				photoLabel.TextColor = Color.White;
-
-			}
-			else
-			{
-				photoLabel = new ExtendedLabel
-				{
-					YAlign = TextAlignment.Center,
-					XAlign = TextAlignment.Center,
-					FontName = "Source Sans Pro",
-					FontSize = 14,
-					TextColor = Color.White
-				};
-			}
-
-			photoLabel.Text = "\nOu fotografe o código presente na placa";
-			photoLabel.TextColor = Color.FromHex("fcfbf9");
-
-
-			var layout = new StackLayout();
-
-			layout.Children.Add(label);
-			layout.Children.Add(QrInput);
-//			layout.Children.Add(emptyLineLabel);
-			layout.Children.Add(cameraButton);
-			layout.Children.Add(photoLabel);
-			layout.VerticalOptions = LayoutOptions.Start;
-			layout.HorizontalOptions = LayoutOptions.Center;
+			var layout = new StackLayout {
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.Center,
+				Children = {
+					label,
+					QrInput,
+					cameraButton,
+					photoLabel
+				}
+			};
 			Content = layout;
-
 		}
 
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
-		}
+		/// <summary>
+		/// Gets or sets the qr input.
+		/// </summary>
+		/// <value>The qr input.</value>
+		public QrCodeEntry QrInput { set; get; }
 
+		/// <summary>
+		/// Gets or sets the parent page.
+		/// </summary>
+		/// <value>The parent page.</value>
+		public MapPage ParentPage { set; get; }
 	}
 }
