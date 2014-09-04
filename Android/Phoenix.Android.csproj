@@ -108,6 +108,7 @@
     <AndroidAsset Include="Assets\SourceSansPro-Regular.otf" />
     <AndroidAsset Include="Assets\SourceSansPro-Bold.otf" />
     <AndroidAsset Include="Assets\SourceSansPro-Light.otf" />
+    <AndroidAsset Include="Assets\SourceSansPro-Semibold.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />

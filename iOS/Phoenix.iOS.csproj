@@ -131,6 +131,7 @@
     <BundleResource Include="Resources\CrematorioMetropolitanoCristoRei%402x.png" />
     <BundleResource Include="Resources\CrematorioMetropolitanoSaoJose%402x.png" />
     <BundleResource Include="Resources\pinLeaked%402x.png" />
+    <BundleResource Include="Resources\SourceSansPro-Semibold.otf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
