@@ -15,7 +15,7 @@ namespace Phoenix.Views.PersonSelection
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
-				FontName = "SourceSansPro-Bold",
+				FontName = "SourceSansPro-Semibold",
 				FontSize = 20,
 				TextColor = Color.FromHex("323233")
 			};
@@ -23,6 +23,7 @@ namespace Phoenix.Views.PersonSelection
 
 			var labelUnit = new ExtendedLabel
 			{
+				TranslationY = -2,
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular",
@@ -33,6 +34,7 @@ namespace Phoenix.Views.PersonSelection
 
 			var labelPlaceName = new ExtendedLabel
 			{
+				TranslationY = -10,
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular",
@@ -42,7 +44,7 @@ namespace Phoenix.Views.PersonSelection
 			labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
 
 			var layout = new StackLayout {
-				Padding = new Thickness(37f, 0f, 0f, 0f),
+				Padding = new Thickness(37f, 8f, 0f, 0f),
 				Children = {
 					labelName,
 					labelUnit,
