@@ -25,7 +25,7 @@ namespace Phoenix.Views.Map
 				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 
-			var searchFamiliarField = new SearchBar { 
+			var searchFamiliarField = new SearchBar {
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 40,
@@ -59,7 +59,7 @@ namespace Phoenix.Views.Map
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
-			var pinButton = new ImageButton { 
+			var pinButton = new ImageButton {
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				Source = ImageSource.FromFile("pin.png"),
@@ -74,7 +74,7 @@ namespace Phoenix.Views.Map
 				myLocationPage.Title = Title;
 				Navigation.PushAsync(myLocationPage);
 			};
-					
+
 			var grid = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition {
@@ -87,13 +87,13 @@ namespace Phoenix.Views.Map
 					}
 				},
 				Children = {
-					{ browser, 0, 0 },	
+					{ browser, 0, 0 },
 					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 },
 					{ listView, 0, 0 }
 				}
 			};
-					
+
 			Content = grid;
 		}
 
@@ -103,7 +103,7 @@ namespace Phoenix.Views.Map
 		/// <returns>The persons.</returns>
 		Person[] GetPersons()
 		{
-			return new Person[] { 
+			return new Person[] {
 				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },

@@ -11,26 +11,26 @@ namespace Renderers
 {
 	public class QrCodeCameraPageRenderer : PageRenderer
 	{
-		protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
+		protected async override void OnElementChanged(ElementChangedEventArgs<Page> e)
 		{
 			base.OnElementChanged(e);
-			var scanner = new ZXing.Mobile.MobileBarcodeScanner(Context);
+			var scanner = new MobileBarcodeScanner(Context);
 
 			var options = new MobileBarcodeScanningOptions()
 			{
 				AutoRotate = false,
 				PossibleFormats = new System.Collections.Generic.List<ZXing.BarcodeFormat>() { ZXing.BarcodeFormat.QR_CODE }
 			};
+					
+			var result = await scanner.Scan(options);
 
+			if (result != null)
+			{
+				var page = e.NewElement as QrCodeCameraPage;
+				page.SetQrCode(result.Text);
 
-			var task = scanner.Scan(options);
-			
-			task.Start();
-			task.Wait();
-			
-			if (task.Result != null)
-				Console.WriteLine("Scanned Barcode: " + task.Result.Text);
+				Console.WriteLine("Scanned Barcode: " + result.Text);
+			}
 		}
 	}
 }
-
