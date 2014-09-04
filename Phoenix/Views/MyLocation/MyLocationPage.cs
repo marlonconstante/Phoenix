@@ -66,7 +66,7 @@ namespace Phoenix.Views.MyLocation
 				qrCodeReader.Title = "Minha Localização";
 				QrInput.Text = string.Empty;
 				qrCodeReader.ParentPage = this;
-				Navigation.PushModalAsync(qrCodeReader);
+				Navigation.PushAsync(qrCodeReader);
 			};
 
 			var photoLabel = new Label();
