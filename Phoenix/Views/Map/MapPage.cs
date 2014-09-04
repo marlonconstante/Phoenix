@@ -14,16 +14,18 @@ namespace Phoenix.Views.Map
 {
 	public class MapPage : ContentPage
 	{
+		WebView m_browser;
+		ListView m_listView;
+		Enterprise m_enterprise;
+		string m_locationCode;
+
 		public MapPage(Enterprise enterprise)
 		{
 			Title = enterprise.Name;
 
-			var persons = GetPersons();
+			m_enterprise = enterprise;
 
-			var browser = new WebView {
-				Source = enterprise.UrlMap,
-				WidthRequest = DeviceScreen.Instance.DisplayWidth
-			};
+			var persons = GetPersons();
 
 			var searchFamiliarField = new SearchBar {
 				VerticalOptions = LayoutOptions.Start,
@@ -32,7 +34,7 @@ namespace Phoenix.Views.Map
 				Placeholder = "Buscar um Ente"
 			};
 
-			var listView = new ListView {
+			m_listView = new ListView {
 				TranslationY = searchFamiliarField.HeightRequest,
 				RowHeight = 88,
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
@@ -41,24 +43,27 @@ namespace Phoenix.Views.Map
 			};
 
 			searchFamiliarField.Focused += (sender, e) => {
-				listView.ItemsSource = persons;
-				listView.IsVisible = true;
+				m_listView.ItemsSource = persons;
+				m_listView.IsVisible = true;
 			};
 
 			searchFamiliarField.Unfocused += (sender, e) => {
 				searchFamiliarField.Text = string.Empty;
-				listView.IsVisible = false;
+				m_listView.IsVisible = false;
 			};
 
 			searchFamiliarField.TextChanged += (sender, e) => {
-				listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
+				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
 			};
 
-			listView.ItemSelected += (sender, e) => {
-				var person = (Person) e.SelectedItem;
-				browser.Source = string.Concat(enterprise.UrlMap, "?id=campoVerde");
-
+			m_listView.ItemSelected += (sender, e) => {
+				m_browser.Source = BrowserURL;
 				searchFamiliarField.Unfocus();
+			};
+
+			m_browser = new WebView {
+				Source = BrowserURL,
+				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
@@ -75,6 +80,7 @@ namespace Phoenix.Views.Map
 			pinButton.Clicked += (sender, e) => {
 				var myLocationPage = new MyLocationPage();
 				myLocationPage.Title = Title;
+				myLocationPage.ParentPage = this;
 				Navigation.PushAsync(myLocationPage);
 			};
 
@@ -90,10 +96,10 @@ namespace Phoenix.Views.Map
 					}
 				},
 				Children = {
-					{ browser, 0, 0 },
+					{ m_browser, 0, 0 },
 					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 },
-					{ listView, 0, 0 }
+					{ m_listView, 0, 0 }
 				}
 			};
 
@@ -113,6 +119,67 @@ namespace Phoenix.Views.Map
 				new Person { Name = "Bernardete Fonseca", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
 				new Person { Name = "Claudio Gonçalves", Unit = "Unidade 123456", PlaceName = "São Leopoldo" }
 			};
+		}
+
+		/// <summary>
+		/// Gets or sets the location code.
+		/// </summary>
+		/// <value>The location code.</value>
+		public string LocationCode {
+			get {
+				return m_locationCode;
+			}
+			set {
+				m_locationCode = value;
+
+				m_browser.Source = BrowserURL;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the person.
+		/// </summary>
+		/// <value>The person.</value>
+		public Person Person {
+			get {
+				return m_listView.SelectedItem as Person;
+			}
+			set {
+				m_listView.SelectedItem = value;
+
+				m_browser.Source = BrowserURL;
+			}
+		}
+
+		/// <summary>
+		/// Gets the URL parameters.
+		/// </summary>
+		/// <value>The URL parameters.</value>
+		string URLParameters {
+			get {
+				string parameters = string.Empty;
+				if (Person != null)
+				{
+					parameters += string.Concat("&unitCode=", Person.UnitCode);
+				}
+
+				if (!string.IsNullOrEmpty(LocationCode))
+				{
+					parameters += string.Concat("&locationCode=", LocationCode);
+				}
+				return string.Concat("?scale=", string.IsNullOrEmpty(parameters) ? 1 : 2, parameters);
+			}
+		}
+
+		/// <summary>
+		/// Gets the browser URL.
+		/// </summary>
+		/// <value>The browser URL.</value>
+		string BrowserURL {
+			get {
+
+				return string.Concat(m_enterprise.UrlMap, URLParameters);
+			}
 		}
 	}
 }
