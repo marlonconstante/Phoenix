@@ -14,7 +14,6 @@ namespace Phoenix.Views.EnterpriseSelection
 			ShowSeparator = false;
 			ShowDisclousure = false;
 
-
 			var backgroundImage = new Image
 			{
 				Aspect = Aspect.AspectFill
