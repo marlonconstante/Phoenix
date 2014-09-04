@@ -11,9 +11,13 @@ namespace Renderers
 {
 	public class QrCodeCameraPageRenderer : PageRenderer
 	{
-		protected override void OnElementChanged(VisualElementChangedEventArgs e)
+		/// <summary>
+		/// Raises the element changed event.
+		/// </summary>
+		/// <param name="eventArgs">Event arguments.</param>
+		protected override void OnElementChanged(VisualElementChangedEventArgs eventArgs)
 		{
-			base.OnElementChanged(e);
+			base.OnElementChanged(eventArgs);
 
 			var scanner = new ZXing.Mobile.MobileBarcodeScanner();
 

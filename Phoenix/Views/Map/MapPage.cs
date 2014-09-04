@@ -14,7 +14,7 @@ namespace Phoenix.Views.Map
 		{
 			var browser = new WebView
 			{
-				Source = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html?id=campoVerde",
+				Source = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html",
 				WidthRequest = DeviceScreen.Instance.DisplayWidth
 			};
 
@@ -23,7 +23,7 @@ namespace Phoenix.Views.Map
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 40,
-				Placeholder = "Nome ou CPF"
+				Placeholder = "Buscar um Ente"
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
