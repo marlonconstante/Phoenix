@@ -29,7 +29,12 @@ namespace Renderers
 			task.Wait();
 		
 			if (task.Result != null)
+			{
+				var parent = e.NewElement as MyLocationPage;
+				parent.QrInput.Text = task.Result.Text;
+
 				Console.WriteLine("Scanned Barcode: " + task.Result.Text);
+			}
 		}
 	}
 }

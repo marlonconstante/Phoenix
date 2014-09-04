@@ -1,17 +1,43 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Phoenix/Views/MyLocation/MyLocationPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Phoenix/Views/MyLocation/QrCodeCameraPage.cs">
     <Files>
-      <File FileName="Android/Renderers/QrCodeCameraPageRenderer.cs" Line="4" Column="4" />
-      <File FileName="iOS/Renderers/QrCodeCameraPageRenderer.cs" Line="39" Column="39" />
-      <File FileName="Phoenix/Views/MyLocation/MyLocationPage.cs" Line="38" Column="38" />
+      <File FileName="Android/Renderers/QrCodeCameraPageRenderer.cs" Line="23" Column="23" />
+      <File FileName="iOS/Renderers/QrCodeCameraPageRenderer.cs" Line="13" Column="13" />
+      <File FileName="Phoenix/Views/MyLocation/MyLocationPage.cs" Line="1" Column="1" />
       <File FileName="Phoenix/Views/MyLocation/QrCodeCameraPage.cs" Line="1" Column="1" />
+      <File FileName="Phoenix/Views/Map/MapPage.cs" Line="18" Column="18" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Phoenix" expanded="True">
+            <Node name="Views" expanded="True">
+              <Node name="Map" expanded="True" />
+              <Node name="MyLocation" expanded="True">
+                <Node name="QrCodeCameraPage.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Phoenix.Android" expanded="True">
+            <Node name="Renderers" expanded="True" />
+          </Node>
+          <Node name="Phoenix.iOS" expanded="True">
+            <Node name="Renderers" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/marlon/Documents/Desenvolvimento/Phoenix/Phoenix/Views/EnterpriseSelection/EnterpriseSelectionItemCell.cs" line="28" column="35" />
-      <Breakpoint file="/Users/giusepecasagrande/Git/Lighthouse/Phoenix/Phoenix/Views/MyLocation/MyLocationPage.cs" line="108" column="23" />
+      <Breakpoint file="/Users/giusepecasagrande/Git/Lighthouse/Phoenix/iOS/Renderers/QrCodeCameraPageRenderer.cs" line="33" column="1" />
+      <Breakpoint file="/Users/giusepecasagrande/Git/Lighthouse/Phoenix/iOS/Renderers/QrCodeCameraPageRenderer.cs" line="26" column="1" />
+      <Breakpoint file="/Users/giusepecasagrande/Git/Lighthouse/Phoenix/Android/Renderers/QrCodeCameraPageRenderer.cs" line="33" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -6,6 +6,9 @@ namespace Phoenix.Views.MyLocation
 {
 	public class MyLocationPage : ContentPage
 	{
+
+		public  QrCodeEntry QrInput { set; get; }
+
 		public MyLocationPage()
 		{
 			BackgroundColor = Color.FromHex("15496f");
@@ -35,11 +38,12 @@ namespace Phoenix.Views.MyLocation
 			label.Text = "\n\nDigite o código mais próximo\nda região que você se encontra\n\n";
 			label.TextColor = Color.FromHex("e8edf1");
 
-			var input = new QrCodeEntry();
-			input.OnCodeComplete = () =>
+			QrInput = new QrCodeEntry();
+
+			QrInput.OnCodeComplete = () =>
 			{
 				//TODO: Chamar a mapa com os parametros.
-				DisplayAlert("Feito", "Preeencher os numeros e chamar o mapa.", "Ok");
+				DisplayAlert("Feito", "Preeencher os numeros e chamar o mapa."+QrInput.Text, "Ok");
 			};
 
 			var imgButtonSize = Device.OnPlatform(60, 130, 130);
@@ -60,6 +64,8 @@ namespace Phoenix.Views.MyLocation
 			{
 				var qrCodeReader = new QrCodeCameraPage();
 				qrCodeReader.Title = "Minha Localização";
+				QrInput.Text = string.Empty;
+				qrCodeReader.ParentPage = this;
 				Navigation.PushModalAsync(qrCodeReader);
 			};
 
@@ -93,7 +99,7 @@ namespace Phoenix.Views.MyLocation
 			var layout = new StackLayout();
 
 			layout.Children.Add(label);
-			layout.Children.Add(input);
+			layout.Children.Add(QrInput);
 //			layout.Children.Add(emptyLineLabel);
 			layout.Children.Add(cameraButton);
 			layout.Children.Add(photoLabel);

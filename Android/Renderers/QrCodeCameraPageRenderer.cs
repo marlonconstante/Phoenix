@@ -11,7 +11,7 @@ namespace Renderers
 {
 	public class QrCodeCameraPageRenderer : PageRenderer
 	{
-		protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
+		protected async override void OnElementChanged(ElementChangedEventArgs<Page> e)
 		{
 			base.OnElementChanged(e);
 			var scanner = new ZXing.Mobile.MobileBarcodeScanner(Context);
@@ -21,15 +21,19 @@ namespace Renderers
 				AutoRotate = false,
 				PossibleFormats = new System.Collections.Generic.List<ZXing.BarcodeFormat>() { ZXing.BarcodeFormat.QR_CODE }
 			};
+					
+			var result = await scanner.Scan(options);
 
+			if (result != null)
+			{
+				var page = e.NewElement as QrCodeCameraPage;
+//				parent.QrInput.Text = result.Text;
+//				Console.WriteLine("Text: " + parent.QrInput.Text);
 
-			var task = scanner.Scan(options);
-			
-			task.Start();
-			task.Wait();
-			
-			if (task.Result != null)
-				Console.WriteLine("Scanned Barcode: " + task.Result.Text);
+				page.SetQrCode(result.Text);
+
+				Console.WriteLine("Scanned Barcode: " + result.Text);
+			}
 		}
 	}
 }
