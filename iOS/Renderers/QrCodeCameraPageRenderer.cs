@@ -15,11 +15,11 @@ namespace Renderers
 		/// Raises the element changed event.
 		/// </summary>
 		/// <param name="eventArgs">Event arguments.</param>
-		protected override void OnElementChanged(VisualElementChangedEventArgs eventArgs)
+		protected async override void OnElementChanged(VisualElementChangedEventArgs e)
 		{
-			base.OnElementChanged(eventArgs);
+			base.OnElementChanged(e);
 
-			var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+			var scanner = new MobileBarcodeScanner();
 
 			var options = new MobileBarcodeScanningOptions()
 			{
@@ -27,17 +27,14 @@ namespace Renderers
 				PossibleFormats = new System.Collections.Generic.List<ZXing.BarcodeFormat>() { ZXing.BarcodeFormat.QR_CODE }
 			};
 
-			var task = scanner.Scan(options);
+			var result = await scanner.Scan(options);
 
-			task.Start();
-			task.Wait();
-		
-			if (task.Result != null)
+			if (result != null)
 			{
-				var parent = e.NewElement as MyLocationPage;
-				parent.QrInput.Text = task.Result.Text;
+				var page = e.NewElement as QrCodeCameraPage;
+				page.SetQrCode(result.Text);
 
-				Console.WriteLine("Scanned Barcode: " + task.Result.Text);
+				Console.WriteLine("Scanned Barcode: " + result.Text);
 			}
 		}
 	}

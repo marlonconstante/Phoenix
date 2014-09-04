@@ -116,4 +116,3 @@ namespace Phoenix.Views.MyLocation
 
 	}
 }
-

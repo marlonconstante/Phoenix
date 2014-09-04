@@ -68,4 +68,3 @@ namespace Phoenix.Views.Map
 		}
 	}
 }
-

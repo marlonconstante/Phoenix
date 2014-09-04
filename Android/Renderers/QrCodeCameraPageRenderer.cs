@@ -14,7 +14,7 @@ namespace Renderers
 		protected async override void OnElementChanged(ElementChangedEventArgs<Page> e)
 		{
 			base.OnElementChanged(e);
-			var scanner = new ZXing.Mobile.MobileBarcodeScanner(Context);
+			var scanner = new MobileBarcodeScanner(Context);
 
 			var options = new MobileBarcodeScanningOptions()
 			{
@@ -27,9 +27,6 @@ namespace Renderers
 			if (result != null)
 			{
 				var page = e.NewElement as QrCodeCameraPage;
-//				parent.QrInput.Text = result.Text;
-//				Console.WriteLine("Text: " + parent.QrInput.Text);
-
 				page.SetQrCode(result.Text);
 
 				Console.WriteLine("Scanned Barcode: " + result.Text);
@@ -37,4 +34,3 @@ namespace Renderers
 		}
 	}
 }
-
