@@ -35,27 +35,30 @@ namespace Phoenix.Views.Map
 			var listView = new ListView {
 				TranslationY = searchFamiliarField.HeightRequest,
 				RowHeight = 88,
-				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight - searchFamiliarField.HeightRequest - 316,
-				VerticalOptions = LayoutOptions.Fill,
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
-				ItemsSource = persons,
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
 				IsVisible = false
 			};
 
 			searchFamiliarField.Focused += (sender, e) => {
+				listView.ItemsSource = persons;
 				listView.IsVisible = true;
 			};
 
+			searchFamiliarField.Unfocused += (sender, e) => {
+				searchFamiliarField.Text = string.Empty;
+				listView.IsVisible = false;
+			};
+
 			searchFamiliarField.TextChanged += (sender, e) => {
-				listView.ItemsSource = persons.Where((p) => p.Name.Contains(e.NewTextValue));
+				listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
 			};
 
 			listView.ItemSelected += (sender, e) => {
 				var person = (Person) e.SelectedItem;
-				listView.IsVisible = false;
-				searchFamiliarField.Unfocus();
 				browser.Source = string.Concat(enterprise.UrlMap, "?id=campoVerde");
+
+				searchFamiliarField.Unfocus();
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
