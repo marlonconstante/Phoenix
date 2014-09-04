@@ -125,12 +125,12 @@
     <BundleResource Include="Resources\cameraButton.png" />
     <BundleResource Include="Resources\SourceSansPro-Light.otf" />
     <BundleResource Include="Resources\pin%402x.png" />
-    <BundleResource Include="Resources\pin-leaked%402x.png" />
     <BundleResource Include="Resources\CemiterioECrematorioMetropolitanoSaintHilaire%402x.png" />
     <BundleResource Include="Resources\CemiterioParqueJardinSaoVicente%402x.png" />
     <BundleResource Include="Resources\CemiterioParqueMemorialDaColina%402x.png" />
     <BundleResource Include="Resources\CrematorioMetropolitanoCristoRei%402x.png" />
     <BundleResource Include="Resources\CrematorioMetropolitanoSaoJose%402x.png" />
+    <BundleResource Include="Resources\pinLeaked%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

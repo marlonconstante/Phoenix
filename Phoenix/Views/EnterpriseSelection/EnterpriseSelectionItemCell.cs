@@ -89,7 +89,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			{
 				var pinImage = new Image
 				{
-					Source = ImageSource.FromFile("pin-leaked.png"),
+					Source = ImageSource.FromFile("pinLeaked.png"),
 					Aspect = Aspect.AspectFit,
 					WidthRequest = 14,
 					HeightRequest = 19
