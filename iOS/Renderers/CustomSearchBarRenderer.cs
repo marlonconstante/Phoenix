@@ -21,7 +21,6 @@ namespace Renderers
 
 			if (eventArgs.OldElement == null)
 			{
-				Control.ShowsCancelButton = false;
 				Control.BackgroundImage = new UIImage();
 				Control.BackgroundColor = UIColor.FromRGB(201, 201, 206).ColorWithAlpha(0.7f);
 			}
