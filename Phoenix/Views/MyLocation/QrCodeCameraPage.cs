@@ -12,7 +12,15 @@ namespace Phoenix.Views.MyLocation
 		public void SetQrCode(string qrCode)
 		{
 			ParentPage.QrInput.Text = qrCode;
-			Navigation.PopModalAsync();
+			Navigation.PopAsync();
+		}
+
+		/// <summary>
+		/// Gos the back.
+		/// </summary>
+		public void GoBack()
+		{
+			Navigation.PopAsync();
 		}
 
 		/// <summary>
