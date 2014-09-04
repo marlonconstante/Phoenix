@@ -15,9 +15,9 @@ namespace Renderers
 		/// Raises the element changed event.
 		/// </summary>
 		/// <param name="eventArgs">Event arguments.</param>
-		protected async override void OnElementChanged(VisualElementChangedEventArgs e)
+		protected async override void OnElementChanged(VisualElementChangedEventArgs eventArgs)
 		{
-			base.OnElementChanged(e);
+			base.OnElementChanged(eventArgs);
 
 			var scanner = new MobileBarcodeScanner();
 
@@ -28,7 +28,7 @@ namespace Renderers
 			};
 
 			var result = await scanner.Scan(options);
-			var page = e.NewElement as QrCodeCameraPage;
+			var page = eventArgs.NewElement as QrCodeCameraPage;
 
 			if (result != null)
 			{

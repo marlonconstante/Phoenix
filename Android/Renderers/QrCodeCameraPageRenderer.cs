@@ -11,9 +11,14 @@ namespace Renderers
 {
 	public class QrCodeCameraPageRenderer : PageRenderer
 	{
-		protected async override void OnElementChanged(ElementChangedEventArgs<Page> e)
+		/// <summary>
+		/// Raises the element changed event.
+		/// </summary>
+		/// <param name="eventArgs">Event arguments.</param>
+		protected async override void OnElementChanged(ElementChangedEventArgs<Page> eventArgs)
 		{
-			base.OnElementChanged(e);
+			base.OnElementChanged(eventArgs);
+
 			var scanner = new MobileBarcodeScanner(Context);
 
 			var options = new MobileBarcodeScanningOptions()
@@ -26,7 +31,7 @@ namespace Renderers
 
 			if (result != null)
 			{
-				var page = e.NewElement as QrCodeCameraPage;
+				var page = eventArgs.NewElement as QrCodeCameraPage;
 				page.SetQrCode(result.Text);
 
 				Console.WriteLine("Scanned Barcode: " + result.Text);
