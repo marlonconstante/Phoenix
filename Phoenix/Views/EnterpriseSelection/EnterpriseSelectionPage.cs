@@ -22,19 +22,18 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			m_listView.ItemsSource = new Enterprise []
 			{ 
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" },
-				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo" }
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" },
+				new Enterprise { Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/CristoRei.html" }
 			};
 
 			m_listView.ItemSelected += (sender, e) => {
-				var enterprise = (Enterprise)e.SelectedItem;
-				var mapPage = new MapPage();
-				mapPage.Title = enterprise.Name;
+				var enterprise = (Enterprise) e.SelectedItem;
+				var mapPage = new MapPage(enterprise);
 				Navigation.PushAsync(mapPage);
 			};
 
