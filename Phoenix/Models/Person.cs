@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Phoenix.Models
 {
@@ -21,6 +22,16 @@ namespace Phoenix.Models
 		public string Unit {
 			get;
 			set;
+		}
+
+		/// <summary>
+		/// Gets the unit code.
+		/// </summary>
+		/// <value>The unit code.</value>
+		public string UnitCode {
+			get {
+				return new Regex(@"[^\d]").Replace(Unit, "");
+			}
 		}
 
 		/// <summary>
