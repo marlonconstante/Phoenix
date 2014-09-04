@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Models
+namespace Phoenix.Models
 {
-	public class Enterprise
+	public class Person
 	{
 		/// <summary>
 		/// Gets or sets the name.
@@ -15,19 +15,19 @@ namespace Models
 		}
 
 		/// <summary>
-		/// Gets or sets the name of the place.
+		/// Gets or sets the unit.
 		/// </summary>
-		/// <value>The name of the place.</value>
-		public string PlaceName {
+		/// <value>The unit.</value>
+		public string Unit {
 			get;
 			set;
 		}
 
 		/// <summary>
-		/// Gets or sets the URL map.
+		/// Gets or sets the name of the place.
 		/// </summary>
-		/// <value>The URL map.</value>
-		public string UrlMap {
+		/// <value>The name of the place.</value>
+		public string PlaceName {
 			get;
 			set;
 		}
