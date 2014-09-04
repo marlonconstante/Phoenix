@@ -177,7 +177,6 @@ namespace Phoenix.Views.Map
 		/// <value>The browser URL.</value>
 		string BrowserURL {
 			get {
-
 				return string.Concat(m_enterprise.UrlMap, URLParameters);
 			}
 		}
