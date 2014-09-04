@@ -31,9 +31,12 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			m_listView.ItemSelected += (sender, e) =>
 			{
-				var enterprise = (Enterprise)e.SelectedItem;
-				var mapPage = new MapPage(enterprise);
-				Navigation.PushAsync(mapPage);
+				var enterprise = (Enterprise) e.SelectedItem;
+				if (enterprise != null)
+				{
+					var mapPage = new MapPage(enterprise);
+					Navigation.PushAsync(mapPage);
+				}
 			};
 
 			var layout = new StackLayout
@@ -46,6 +49,16 @@ namespace Phoenix.Views.EnterpriseSelection
 				}
 			};
 			Content = layout;
+		}
+
+		/// <summary>
+		/// Raises the disappearing event.
+		/// </summary>
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+
+			m_listView.SelectedItem = null;
 		}
 	}
 }
