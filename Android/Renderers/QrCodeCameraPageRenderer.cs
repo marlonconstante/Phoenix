@@ -28,13 +28,15 @@ namespace Renderers
 			};
 					
 			var result = await scanner.Scan(options);
+			var page = eventArgs.NewElement as QrCodeCameraPage;
 
 			if (result != null)
 			{
-				var page = eventArgs.NewElement as QrCodeCameraPage;
 				page.SetQrCode(result.Text);
-
-				Console.WriteLine("Scanned Barcode: " + result.Text);
+			}
+			else
+			{
+				page.GoBack();
 			}
 		}
 	}
