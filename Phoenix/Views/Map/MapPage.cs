@@ -23,6 +23,8 @@ namespace Phoenix.Views.Map
 		{
 			Title = enterprise.Name;
 
+			NavigationPage.SetBackButtonTitle(this, string.Empty);
+
 			m_enterprise = enterprise;
 
 			var persons = GetPersons();

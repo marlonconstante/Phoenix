@@ -5,6 +5,11 @@ namespace Phoenix.Views.MyLocation
 {
 	public class QrCodeCameraPage : ContentPage
 	{
+		public QrCodeCameraPage()
+		{
+			NavigationPage.SetBackButtonTitle(this, string.Empty);
+		}
+
 		/// <summary>
 		/// Sets the qr code.
 		/// </summary>

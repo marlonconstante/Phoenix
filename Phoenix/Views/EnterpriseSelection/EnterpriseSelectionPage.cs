@@ -13,6 +13,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			Title = "Empreendimentos";
 
 			NavigationPage.SetHasNavigationBar(this, true);
+			NavigationPage.SetBackButtonTitle(this, string.Empty);
 
 			m_listView = new ListView
 			{
