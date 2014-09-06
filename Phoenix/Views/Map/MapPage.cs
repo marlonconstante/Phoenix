@@ -39,17 +39,17 @@ namespace Phoenix.Views.Map
 				RowHeight = 88,
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
-				IsVisible = false
+				Opacity = 0
 			};
 
 			searchFamiliarField.Focused += (sender, e) => {
 				m_listView.ItemsSource = persons;
-				m_listView.IsVisible = true;
+				m_listView.Opacity = 1;
 			};
 
 			searchFamiliarField.Unfocused += (sender, e) => {
 				searchFamiliarField.Text = string.Empty;
-				m_listView.IsVisible = false;
+				m_listView.Opacity = 0;
 			};
 
 			searchFamiliarField.TextChanged += (sender, e) => {
