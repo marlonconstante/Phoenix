@@ -62,8 +62,7 @@ namespace Phoenix.Views.Map
 			};
 
 			m_browser = new WebView {
-				Source = BrowserURL,
-				WidthRequest = DeviceScreen.Instance.DisplayWidth
+				Source = BrowserURL
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
@@ -113,11 +112,11 @@ namespace Phoenix.Views.Map
 		Person[] GetPersons()
 		{
 			return new Person[] {
-				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
-				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
-				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
-				new Person { Name = "Bernardete Fonseca", Unit = "Unidade 123456", PlaceName = "São Leopoldo" },
-				new Person { Name = "Claudio Gonçalves", Unit = "Unidade 123456", PlaceName = "São Leopoldo" }
+				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", Sector = "setor_9_09_19", PlaceName = "São Leopoldo" },
+				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", Sector = "setor_5_07_13", PlaceName = "São Leopoldo" },
+				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", Sector = "setor_2_04_38", PlaceName = "São Leopoldo" },
+				new Person { Name = "Bernardete Fonseca", Unit = "Unidade 123456", Sector = "criptas_6_04", PlaceName = "São Leopoldo" },
+				new Person { Name = "Claudio Gonçalves", Unit = "Unidade 123456", Sector = "setor_2_02_43", PlaceName = "São Leopoldo" }
 			};
 		}
 
@@ -160,12 +159,12 @@ namespace Phoenix.Views.Map
 				string parameters = string.Empty;
 				if (Person != null)
 				{
-					parameters += string.Concat("&unitCode=", Person.UnitCode);
+					parameters += string.Concat("&sectorCode=", Person.Sector);
 				}
 
 				if (!string.IsNullOrEmpty(LocationCode))
 				{
-					parameters += string.Concat("&locationCode=", LocationCode);
+					parameters += string.Concat("&locationCode=_", LocationCode);
 				}
 				return string.Concat("?scale=", string.IsNullOrEmpty(parameters) ? 1 : 2, parameters);
 			}
