@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace Phoenix.Models
 {
@@ -25,13 +24,12 @@ namespace Phoenix.Models
 		}
 
 		/// <summary>
-		/// Gets the unit code.
+		/// Gets or sets the sector.
 		/// </summary>
-		/// <value>The unit code.</value>
-		public string UnitCode {
-			get {
-				return new Regex(@"[^\d]").Replace(Unit, "");
-			}
+		/// <value>The sector.</value>
+		public string Sector {
+			get;
+			set;
 		}
 
 		/// <summary>
