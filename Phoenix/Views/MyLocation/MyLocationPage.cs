@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Labs.Controls;
 using Phoenix.Views.Map;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.MyLocation
 {
@@ -14,32 +15,31 @@ namespace Phoenix.Views.MyLocation
 			BackgroundColor = Color.FromHex("15496f");
 
 			var label = new ExtendedLabel {
-				YAlign = TextAlignment.Center,
+				TranslationY = 7,
 				XAlign = TextAlignment.Center,
-				FontName = "Source Sans Pro",
+				FontName = "SourceSansPro-Regular",
 				FontSize = 17,
-				TextColor = Color.FromHex("e8edf1"),
-				Text = "\n\nDigite o código mais próximo\nda região que você se encontra\n\n"
-
+				TextColor = Color.FromHex("fefdfd"),
+				Text = "Digite o código mais próximo\nda região que você se encontra"
 			};
 
-			QrInput = new QrCodeEntry();
+			QrInput = new QrCodeEntry {
+				TranslationY = 11,
+				HeightRequest = 30
+			};
 			QrInput.OnCodeComplete = () => {
 				ParentPage.LocationCode = QrInput.Text;
 				Navigation.PopAsync();
 			};
 
-			var imgButtonSize = Device.OnPlatform(60, 130, 130);
-			var buttonSize = Device.OnPlatform(50, 80, 60);
-			var cameraButton = new ImageButton {
-				Source = ImageSource.FromFile("cameraButton.png"),
+			var buttonSize = Device.OnPlatform(67, 134, 134);
+			var cameraButton = new BackgroundButton {
+				TranslationY = 17,
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
-				ImageHeightRequest = imgButtonSize,
-				ImageWidthRequest = imgButtonSize,
-				BackgroundColor = Color.Transparent,
+				ImageFileName = "cameraButton.png",
 				HeightRequest = buttonSize,
-				WidthRequest = buttonSize,
+				WidthRequest = buttonSize
 			};
 
 			cameraButton.Clicked += (sender, e) => {
@@ -51,12 +51,12 @@ namespace Phoenix.Views.MyLocation
 			};
 
 			var photoLabel = new ExtendedLabel {
-				YAlign = TextAlignment.Center,
+				TranslationY = 17,
 				XAlign = TextAlignment.Center,
-				FontName = "Source Sans Pro",
+				FontName = "SourceSansPro-Light",
 				FontSize = 14,
-				TextColor = Color.FromHex("fcfbf9"),
-				Text = "\nOu fotografe o código presente na placa"
+				TextColor = Color.FromHex("b8c0c8"),
+				Text = "Ou fotografe o código presente na placa"
 			};
 
 			var layout = new StackLayout {
@@ -70,6 +70,16 @@ namespace Phoenix.Views.MyLocation
 				}
 			};
 			Content = layout;
+		}
+
+		/// <summary>
+		/// Raises the appearing event.
+		/// </summary>
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			QrInput.Focus();
 		}
 
 		/// <summary>
