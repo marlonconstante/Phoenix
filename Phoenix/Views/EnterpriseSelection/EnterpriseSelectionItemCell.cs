@@ -4,6 +4,7 @@ using Xamarin.Forms.Labs;
 using Xamarin.Forms.Labs.Services;
 using Xamarin.Forms.Labs.Controls;
 using Phoenix.Utils;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.EnterpriseSelection
 {
@@ -20,7 +21,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			};
 			backgroundImage.SetBinding(Image.SourceProperty, "ImageName");
 
-			var labelName = new ExtendedLabel
+			var labelName = new ShadowLabel
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center,

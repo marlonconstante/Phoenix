@@ -120,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\cemita.png" />
     <BundleResource Include="Resources\SourceSansPro-Regular.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
@@ -147,6 +146,9 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\QrCodeCameraPageRenderer.cs" />
     <Compile Include="Renderers\CustomSearchBarRenderer.cs" />
+    <Compile Include="Renderers\CustomWebViewRenderer.cs" />
+    <Compile Include="Renderers\CustomNavigationRenderer.cs" />
+    <Compile Include="Renderers\ShadowLabelRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

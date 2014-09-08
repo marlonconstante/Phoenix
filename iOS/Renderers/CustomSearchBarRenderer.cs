@@ -3,8 +3,6 @@ using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
 using MonoTouch.UIKit;
-using Phoenix.Views.EnterpriseSelection;
-using System.Drawing;
 
 [assembly:ExportRenderer(typeof(SearchBar), typeof(CustomSearchBarRenderer))]
 namespace Renderers

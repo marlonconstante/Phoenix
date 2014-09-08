@@ -92,7 +92,6 @@
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
-    <AndroidResource Include="Resources\drawable\cemita.png" />
     <AndroidResource Include="Resources\drawable\pin.png" />
     <AndroidResource Include="Resources\drawable\cameraButton.png" />
     <AndroidResource Include="Resources\drawable\CemiterioECrematorioMetropolitanoSaintHilaire.png" />

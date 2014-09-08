@@ -9,6 +9,8 @@ namespace Phoenix.Views.MyLocation
 	{
 		public MyLocationPage()
 		{
+			NavigationPage.SetBackButtonTitle(this, string.Empty);
+
 			BackgroundColor = Color.FromHex("15496f");
 
 			var label = new ExtendedLabel {
