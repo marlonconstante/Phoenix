@@ -45,14 +45,29 @@ namespace Phoenix.Views.Map
 				Opacity = 0
 			};
 
+			if (Device.OS == TargetPlatform.Android)
+			{
+				m_listView.IsVisible = false;
+			}
+
 			searchFamiliarField.Focused += (sender, e) => {
 				m_listView.ItemsSource = persons;
 				m_listView.Opacity = 1;
+
+				if (Device.OS == TargetPlatform.Android)
+				{
+					m_listView.IsVisible = true;
+				}
 			};
 
 			searchFamiliarField.Unfocused += (sender, e) => {
 				searchFamiliarField.Text = string.Empty;
 				m_listView.Opacity = 0;
+
+				if (Device.OS == TargetPlatform.Android)
+				{
+					m_listView.IsVisible = false;
+				}
 			};
 
 			searchFamiliarField.TextChanged += (sender, e) => {
