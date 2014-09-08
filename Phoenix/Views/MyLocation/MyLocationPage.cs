@@ -17,7 +17,7 @@ namespace Phoenix.Views.MyLocation
 			var label = new ExtendedLabel {
 				TranslationY = 7,
 				XAlign = TextAlignment.Center,
-				FontName = "SourceSansPro-Regular",
+				FontName = "SourceSansPro-Regular.otf",
 				FontSize = 17,
 				TextColor = Color.FromHex("fefdfd"),
 				Text = "Digite o código mais próximo\nda região que você se encontra"
@@ -53,7 +53,7 @@ namespace Phoenix.Views.MyLocation
 			var photoLabel = new ExtendedLabel {
 				TranslationY = 17,
 				XAlign = TextAlignment.Center,
-				FontName = "SourceSansPro-Light",
+				FontName = "SourceSansPro-Light.otf",
 				FontSize = 14,
 				TextColor = Color.FromHex("b8c0c8"),
 				Text = "Ou fotografe o código presente na placa"

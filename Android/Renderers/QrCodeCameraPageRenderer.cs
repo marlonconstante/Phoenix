@@ -20,6 +20,7 @@ namespace Renderers
 			base.OnElementChanged(eventArgs);
 
 			var scanner = new MobileBarcodeScanner(Context);
+			scanner.CancelButtonText = "Cancelar";
 
 			var options = new MobileBarcodeScanningOptions()
 			{
