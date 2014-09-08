@@ -99,17 +99,17 @@
     <Reference Include="ExifLib">
       <HintPath>..\packages\ExifLib.PCL.1.0.0\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Labs.iOS">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
-    </Reference>
     <Reference Include="ZXing.Net.Mobile">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\ios\ZXing.Net.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="zxing.monotouch">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\ios\zxing.monotouch.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs.iOS">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

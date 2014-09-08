@@ -26,13 +26,9 @@ namespace Phoenix.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_current_month = global::Phoenix.Android.Resource.Attribute.state_current_month;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_highlighted = global::Phoenix.Android.Resource.Attribute.state_highlighted;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_range_first = global::Phoenix.Android.Resource.Attribute.state_range_first;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_range_last = global::Phoenix.Android.Resource.Attribute.state_range_last;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_range_middle = global::Phoenix.Android.Resource.Attribute.state_range_middle;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_selectable = global::Phoenix.Android.Resource.Attribute.state_selectable;
-			global::Xamarin.Forms.Labs.Droid.Resource.Attribute.state_today = global::Phoenix.Android.Resource.Attribute.state_today;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Phoenix.Android.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Phoenix.Android.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Phoenix.Android.Resource.Layout.zxingscannerfragmentlayout;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_active_month_bg = global::Phoenix.Android.Resource.Color.calendar_active_month_bg;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_bg = global::Phoenix.Android.Resource.Color.calendar_bg;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_divider = global::Phoenix.Android.Resource.Color.calendar_divider;
@@ -50,6 +46,7 @@ namespace Phoenix.Android
 			global::Xamarin.Forms.Labs.Droid.Resource.Dimension.calendar_month_topmargin = global::Phoenix.Android.Resource.Dimension.calendar_month_topmargin;
 			global::Xamarin.Forms.Labs.Droid.Resource.Dimension.calendar_text_medium = global::Phoenix.Android.Resource.Dimension.calendar_text_medium;
 			global::Xamarin.Forms.Labs.Droid.Resource.Dimension.calendar_text_small = global::Phoenix.Android.Resource.Dimension.calendar_text_small;
+			global::Xamarin.Forms.Labs.Droid.Resource.Drawable.ad16 = global::Phoenix.Android.Resource.Drawable.ad16;
 			global::Xamarin.Forms.Labs.Droid.Resource.Drawable.calendar_bg_selector = global::Phoenix.Android.Resource.Drawable.calendar_bg_selector;
 			global::Xamarin.Forms.Labs.Droid.Resource.Id.calendar_grid = global::Phoenix.Android.Resource.Id.calendar_grid;
 			global::Xamarin.Forms.Labs.Droid.Resource.Id.calendar_view = global::Phoenix.Android.Resource.Id.calendar_view;
@@ -67,42 +64,10 @@ namespace Phoenix.Android
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarCell_CalendarDate = global::Phoenix.Android.Resource.Style.CalendarCell_CalendarDate;
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarCell_DayHeader = global::Phoenix.Android.Resource.Style.CalendarCell_DayHeader;
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarTitle = global::Phoenix.Android.Resource.Style.CalendarTitle;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell = global::Phoenix.Android.Resource.Styleable.calendar_cell;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_current_month = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_current_month;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_highlighted = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_highlighted;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_range_first = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_range_first;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_range_last = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_range_last;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_range_middle = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_range_middle;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_selectable = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_selectable;
-			global::Xamarin.Forms.Labs.Droid.Resource.Styleable.calendar_cell_state_today = global::Phoenix.Android.Resource.Styleable.calendar_cell_state_today;
-			global::ZXing.Mobile.Resource.Id.contentFrame = global::Phoenix.Android.Resource.Id.contentFrame;
-			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Phoenix.Android.Resource.Layout.zxingscanneractivitylayout;
-			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Phoenix.Android.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Attribute
 		{
-			
-			// aapt resource value: 0x7f010001
-			public const int state_current_month = 2130771969;
-			
-			// aapt resource value: 0x7f010006
-			public const int state_highlighted = 2130771974;
-			
-			// aapt resource value: 0x7f010003
-			public const int state_range_first = 2130771971;
-			
-			// aapt resource value: 0x7f010005
-			public const int state_range_last = 2130771973;
-			
-			// aapt resource value: 0x7f010004
-			public const int state_range_middle = 2130771972;
-			
-			// aapt resource value: 0x7f010000
-			public const int state_selectable = 2130771968;
-			
-			// aapt resource value: 0x7f010002
-			public const int state_today = 2130771970;
 			
 			static Attribute()
 			{
@@ -195,37 +160,40 @@ namespace Phoenix.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int calendar_bg_selector = 2130837504;
+			public const int ad16 = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int cameraButton = 2130837505;
+			public const int calendar_bg_selector = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int CemiterioECrematorioMetropolitanoSaintHilaire = 2130837506;
+			public const int cameraButton = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int CemiterioParqueJardinSaoVicente = 2130837507;
+			public const int CemiterioECrematorioMetropolitanoSaintHilaire = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int CemiterioParqueMemorialDaColina = 2130837508;
+			public const int CemiterioParqueJardinSaoVicente = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int CrematorioMetropolitanoCristoRei = 2130837509;
+			public const int CemiterioParqueMemorialDaColina = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int CrematorioMetropolitanoSaoJose = 2130837510;
+			public const int CrematorioMetropolitanoCristoRei = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int Icon = 2130837511;
+			public const int CrematorioMetropolitanoSaoJose = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int monoandroidsplash = 2130837512;
+			public const int Icon = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int pin = 2130837513;
+			public const int monoandroidsplash = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int pinLeaked = 2130837514;
+			public const int pin = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int pinLeaked = 2130837515;
 			
 			static Drawable()
 			{
@@ -357,50 +325,6 @@ namespace Phoenix.Android
 			}
 			
 			private Style()
-			{
-			}
-		}
-		
-		public partial class Styleable
-		{
-			
-			public static int[] calendar_cell = new int[]
-			{
-					2130771968,
-					2130771969,
-					2130771970,
-					2130771971,
-					2130771972,
-					2130771973,
-					2130771974};
-			
-			// aapt resource value: 1
-			public const int calendar_cell_state_current_month = 1;
-			
-			// aapt resource value: 6
-			public const int calendar_cell_state_highlighted = 6;
-			
-			// aapt resource value: 3
-			public const int calendar_cell_state_range_first = 3;
-			
-			// aapt resource value: 5
-			public const int calendar_cell_state_range_last = 5;
-			
-			// aapt resource value: 4
-			public const int calendar_cell_state_range_middle = 4;
-			
-			// aapt resource value: 0
-			public const int calendar_cell_state_selectable = 0;
-			
-			// aapt resource value: 2
-			public const int calendar_cell_state_today = 2;
-			
-			static Styleable()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Styleable()
 			{
 			}
 		}

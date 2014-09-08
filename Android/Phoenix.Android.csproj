@@ -57,18 +57,19 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.2.2.6243\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Labs.Droid">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.Droid.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.dll</HintPath>
-    </Reference>
     <Reference Include="ZXing.Net.Mobile">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\android\ZXing.Net.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="zxing.monoandroid">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\android\zxing.monoandroid.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Forms.Labs.Droid">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoAndroid\Xamarin.Forms.Labs.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoAndroid\Xamarin.Forms.Labs.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Phoenix\Phoenix.csproj">
