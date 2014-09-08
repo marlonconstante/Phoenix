@@ -124,7 +124,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
-    <BundleResource Include="Resources\cameraButton.png" />
     <BundleResource Include="Resources\SourceSansPro-Light.otf" />
     <BundleResource Include="Resources\pin%402x.png" />
     <BundleResource Include="Resources\CemiterioECrematorioMetropolitanoSaintHilaire%402x.png" />
@@ -135,6 +134,7 @@
     <BundleResource Include="Resources\pinLeaked%402x.png" />
     <BundleResource Include="Resources\SourceSansPro-Semibold.otf" />
     <BundleResource Include="Resources\loupe%402x.png" />
+    <BundleResource Include="Resources\cameraButton%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
