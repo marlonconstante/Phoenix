@@ -65,10 +65,10 @@
     </Reference>
     <Reference Include="Mono.Android.Export" />
     <Reference Include="Xamarin.Forms.Labs.Droid">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.Droid.dll</HintPath>
+      <HintPath>..\references\Xamarin.Forms.Labs\Droid\Xamarin.Forms.Labs.Droid.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.dll</HintPath>
+      <HintPath>..\references\Xamarin.Forms.Labs\Xamarin.Forms.Labs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

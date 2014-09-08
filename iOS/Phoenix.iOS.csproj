@@ -105,11 +105,11 @@
     <Reference Include="zxing.monotouch">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\ios\zxing.monotouch.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Labs.iOS">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
+      <HintPath>..\references\Xamarin.Forms.Labs\Xamarin.Forms.Labs.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs.iOS">
+      <HintPath>..\references\Xamarin.Forms.Labs\iOS\Xamarin.Forms.Labs.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
