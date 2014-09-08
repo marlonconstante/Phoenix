@@ -48,6 +48,7 @@ namespace Phoenix.Views.Map
 			if (Device.OS == TargetPlatform.Android)
 			{
 				m_listView.IsVisible = false;
+				m_listView.IsEnabled = false;
 			}
 
 			searchFamiliarField.Focused += (sender, e) => {
@@ -57,6 +58,7 @@ namespace Phoenix.Views.Map
 				if (Device.OS == TargetPlatform.Android)
 				{
 					m_listView.IsVisible = true;
+					m_listView.IsEnabled = true;
 				}
 			};
 
@@ -67,6 +69,7 @@ namespace Phoenix.Views.Map
 				if (Device.OS == TargetPlatform.Android)
 				{
 					m_listView.IsVisible = false;
+					m_listView.IsEnabled = false;
 				}
 			};
 
