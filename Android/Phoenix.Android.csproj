@@ -63,13 +63,13 @@
     <Reference Include="zxing.monoandroid">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\android\zxing.monoandroid.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Android.Export" />
     <Reference Include="Xamarin.Forms.Labs.Droid">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoAndroid\Xamarin.Forms.Labs.Droid.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.Droid.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoAndroid\Xamarin.Forms.Labs.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoAndroid\Xamarin.Forms.Labs.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Phoenix\Phoenix.csproj">
@@ -103,6 +103,7 @@
     <AndroidResource Include="Resources\drawable\CrematorioMetropolitanoCristoRei.png" />
     <AndroidResource Include="Resources\drawable\CrematorioMetropolitanoSaoJose.png" />
     <AndroidResource Include="Resources\drawable\pinLeaked.png" />
+    <AndroidResource Include="Resources\drawable\loupe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />

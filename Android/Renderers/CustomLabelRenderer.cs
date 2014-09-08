@@ -61,10 +61,10 @@ namespace Renderers
 				control.PaintFlags = control.PaintFlags | PaintFlags.UnderlineText;
 			}
 
-			if (view.IsStrikeThrough)
-			{
-				control.PaintFlags = control.PaintFlags | PaintFlags.StrikeThruText;
-			}
+//			if (view.IsStrikeThrough)
+//			{
+//				control.PaintFlags = control.PaintFlags | PaintFlags.StrikeThruText;
+//			}
 		}
 
 		Typeface TrySetFont(string fontName)

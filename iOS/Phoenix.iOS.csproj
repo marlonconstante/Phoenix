@@ -106,10 +106,10 @@
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\ios\zxing.monotouch.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Labs.iOS">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.1-beta7\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.1.0\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +134,7 @@
     <BundleResource Include="Resources\CrematorioMetropolitanoSaoJose%402x.png" />
     <BundleResource Include="Resources\pinLeaked%402x.png" />
     <BundleResource Include="Resources\SourceSansPro-Semibold.otf" />
+    <BundleResource Include="Resources\loupe%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

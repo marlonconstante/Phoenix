@@ -11,6 +11,16 @@ namespace Phoenix.Views.PersonSelection
 			ShowDisclousure = false;
 			SeparatorPadding = new Thickness(37f, 0f, 0f, 0f);
 
+			var imageSize = Device.OnPlatform(13.75, 25, 25);
+			var image = new Image
+			{
+				HorizontalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.Center,
+				Source = ImageSource.FromFile("loupe.png"),
+				WidthRequest = imageSize,
+				HeightRequest = imageSize
+			};
+
 			var labelName = new ExtendedLabel
 			{
 				YAlign = TextAlignment.Center,
@@ -44,7 +54,7 @@ namespace Phoenix.Views.PersonSelection
 			labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
 
 			var layout = new StackLayout {
-				Padding = new Thickness(37f, 8f, 0f, 0f),
+				Padding = new Thickness(-6f, 8f, 0f, 0f),
 				Children = {
 					labelName,
 					labelUnit,
@@ -52,7 +62,22 @@ namespace Phoenix.Views.PersonSelection
 				}
 			};
 
-			View = layout;
+			var grid = new Grid {
+				ColumnDefinitions = {
+					new ColumnDefinition {
+						Width = 37
+					},
+					new ColumnDefinition {
+						Width = GridLength.Auto
+					}
+				},
+				Children = {
+					{ image, 0, 0 },
+					{ layout, 1, 0 }
+				}
+			};
+
+			View = grid;
 		}
 	}
 }
