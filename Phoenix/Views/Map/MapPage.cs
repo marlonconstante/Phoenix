@@ -9,9 +9,7 @@ using Phoenix.Views.PersonSelection;
 using Phoenix.Models;
 using System.Linq;
 using Models;
-using RestSharp.Portable;
-using System.Net.Http;
-using System.Collections.Generic;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.Map
 {
@@ -32,100 +30,73 @@ namespace Phoenix.Views.Map
 
 			var persons = GetPersons();
 
-			var searchFamiliarField = new SearchBar
-			{
+			var searchFamiliarField = new SearchBar {
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 40,
 				Placeholder = "Buscar um Ente"
 			};
 
-			m_listView = new ListView
-			{
+			m_listView = new ListView {
 				TranslationY = searchFamiliarField.HeightRequest,
 				RowHeight = 88,
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
-				Opacity = 0,
-				IsEnabled = false,
-				IsVisible = false
+				Opacity = 0
 			};
 
-			searchFamiliarField.Focused += (sender, e) =>
-			{
-				m_listView.IsEnabled = true;
-				m_listView.IsVisible = true;
+			searchFamiliarField.Focused += (sender, e) => {
 				m_listView.ItemsSource = persons;
 				m_listView.Opacity = 1;
 			};
 
-			searchFamiliarField.Unfocused += (sender, e) =>
-			{
+			searchFamiliarField.Unfocused += (sender, e) => {
 				searchFamiliarField.Text = string.Empty;
 				m_listView.Opacity = 0;
-				m_listView.IsEnabled = false;
-				m_listView.IsVisible = false;
 			};
 
-			searchFamiliarField.TextChanged += (sender, e) =>
-			{
-//				SearchPeople(e.NewTextValue.ToLower());
-
-
-
-
+			searchFamiliarField.TextChanged += (sender, e) => {
 				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
 			};
 
-			m_listView.ItemSelected += (sender, e) =>
-			{
+			m_listView.ItemSelected += (sender, e) => {
 				m_browser.Source = BrowserURL;
 				searchFamiliarField.Unfocus();
 			};
 
-			m_browser = new WebView
-			{
+			m_browser = new WebView {
 				Source = BrowserURL
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
-			var pinButton = new ImageButton
-			{
+			var pinButton = new BackgroundButton {
+				TranslationY = -11.5,
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
-				Source = ImageSource.FromFile("pin.png"),
-				ImageWidthRequest = pinSize,
-				ImageHeightRequest = pinSize,
+				ImageFileName = "pin.png",
 				WidthRequest = pinSize,
-				HeightRequest = Device.OnPlatform(110, 110, 110)
+				HeightRequest = pinSize
 			};
 
-			pinButton.Clicked += (sender, e) =>
-			{
+			pinButton.Clicked += (sender, e) => {
 				var myLocationPage = new MyLocationPage();
 				myLocationPage.Title = Title;
 				myLocationPage.ParentPage = this;
 				Navigation.PushAsync(myLocationPage);
 			};
 
-			var grid = new Grid
-			{
-				ColumnDefinitions =
-				{
-					new ColumnDefinition
-					{
+			var grid = new Grid {
+				ColumnDefinitions = {
+					new ColumnDefinition {
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions =
-				{
-					new RowDefinition
-					{
+				RowDefinitions = {
+					new RowDefinition {
 						Height = DeviceScreen.Instance.DisplayVisibleHeight
 					}
 				},
-				Children =
-				{
+				Children = {
 					{ m_browser, 0, 0 },
 					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 },
@@ -142,8 +113,7 @@ namespace Phoenix.Views.Map
 		/// <returns>The persons.</returns>
 		Person[] GetPersons()
 		{
-			return new Person[]
-			{
+			return new Person[] {
 				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", Sector = "setor_9_09_19", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", Sector = "setor_5_07_13", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", Sector = "setor_2_04_38", PlaceName = "São Leopoldo" },
@@ -156,14 +126,11 @@ namespace Phoenix.Views.Map
 		/// Gets or sets the location code.
 		/// </summary>
 		/// <value>The location code.</value>
-		public string LocationCode
-		{
-			get
-			{
+		public string LocationCode {
+			get {
 				return m_locationCode;
 			}
-			set
-			{
+			set {
 				m_locationCode = value;
 
 				m_browser.Source = BrowserURL;
@@ -174,14 +141,11 @@ namespace Phoenix.Views.Map
 		/// Gets or sets the person.
 		/// </summary>
 		/// <value>The person.</value>
-		public Person Person
-		{
-			get
-			{
+		public Person Person {
+			get {
 				return m_listView.SelectedItem as Person;
 			}
-			set
-			{
+			set {
 				m_listView.SelectedItem = value;
 
 				m_browser.Source = BrowserURL;
@@ -192,10 +156,8 @@ namespace Phoenix.Views.Map
 		/// Gets the URL parameters.
 		/// </summary>
 		/// <value>The URL parameters.</value>
-		string URLParameters
-		{
-			get
-			{
+		string URLParameters {
+			get {
 				string parameters = string.Empty;
 				if (Person != null)
 				{
@@ -214,24 +176,10 @@ namespace Phoenix.Views.Map
 		/// Gets the browser URL.
 		/// </summary>
 		/// <value>The browser URL.</value>
-		string BrowserURL
-		{
-			get
-			{
+		string BrowserURL {
+			get {
 				return string.Concat(m_enterprise.UrlMap, URLParameters);
 			}
 		}
-
-		//		static async IEnumerable<Person> SearchPeople(string nameToSearch)
-		//		{
-		//			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
-		//			var request = new RestRequest("pessoa", HttpMethod.Post);
-		//			request.AddParameter(new Parameter() { Value = "1" });
-		//			request.AddParameter(new Parameter() { Value = nameToSearch });
-		//
-		//			var response = await client.Execute<IEnumerable<Person>>(request);
-		//
-		//			return response.Data;
-		//		}
 	}
 }

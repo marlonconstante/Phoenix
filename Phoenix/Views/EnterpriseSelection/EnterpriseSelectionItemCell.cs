@@ -21,13 +21,14 @@ namespace Phoenix.Views.EnterpriseSelection
 			};
 			backgroundImage.SetBinding(Image.SourceProperty, "ImageName");
 
-			var labelName = new ShadowLabel
+			var labelName = new CustomLabel
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center,
-				FontName = "SourceSansPro-Bold",
+				FontName = "SourceSansPro-Bold.otf",
 				FontSize = 22.5,
-				TextColor = Color.White
+				TextColor = Color.White,
+				DropShadow = true
 			};
 			labelName.SetBinding(Label.TextProperty, "Name");
 
@@ -99,7 +100,7 @@ namespace Phoenix.Views.EnterpriseSelection
 				{
 					VerticalOptions = LayoutOptions.Center,
 					XAlign = TextAlignment.Start,
-					FontName = "SourceSansPro-Regular",
+					FontName = "SourceSansPro-Regular.otf",
 					FontSize = 16,
 					TextColor = Color.White
 				};

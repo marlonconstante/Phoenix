@@ -15,7 +15,7 @@ namespace Phoenix.Views.PersonSelection
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
-				FontName = "SourceSansPro-Semibold",
+				FontName = "SourceSansPro-Semibold.otf",
 				FontSize = 20,
 				TextColor = Color.FromHex("323233")
 			};
@@ -26,7 +26,7 @@ namespace Phoenix.Views.PersonSelection
 				TranslationY = -2,
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
-				FontName = "SourceSansPro-Regular",
+				FontName = "SourceSansPro-Regular.otf",
 				FontSize = 17,
 				TextColor = Color.FromHex("6b6b6f")
 			};
@@ -37,7 +37,7 @@ namespace Phoenix.Views.PersonSelection
 				TranslationY = -10,
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
-				FontName = "SourceSansPro-Regular",
+				FontName = "SourceSansPro-Regular.otf",
 				FontSize = 17,
 				TextColor = Color.FromHex("6b6b6f")
 			};

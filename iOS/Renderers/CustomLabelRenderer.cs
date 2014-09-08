@@ -7,10 +7,10 @@ using Xamarin.Forms.Labs.iOS.Controls;
 using Phoenix.Controls;
 using System.Drawing;
 
-[assembly:ExportRenderer(typeof(ShadowLabel), typeof(ShadowLabelRenderer))]
+[assembly:ExportRenderer(typeof(CustomLabel), typeof(CustomLabelRenderer))]
 namespace Renderers
 {
-	public class ShadowLabelRenderer : ExtendedLabelRenderer
+	public class CustomLabelRenderer : ExtendedLabelRenderer
 	{
 		/// <summary>
 		/// The on element changed callback.
@@ -20,7 +20,10 @@ namespace Renderers
 		{
 			base.OnElementChanged(eventArgs);
 
-			if (eventArgs.OldElement == null)
+			var label = eventArgs.NewElement as CustomLabel;
+
+
+			if (eventArgs.OldElement == null && label.DropShadow)
 			{
 				Control.Layer.ShadowColor = UIColor.Black.CGColor;
 				Control.Layer.ShadowOffset = new SizeF(0, 0);

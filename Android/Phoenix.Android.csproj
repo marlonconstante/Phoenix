@@ -82,6 +82,8 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderers\QrCodeCameraPageRenderer.cs" />
+    <Compile Include="Renderers\BackgroundButtonRenderer.cs" />
+    <Compile Include="Renderers\CustomLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -105,13 +107,16 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.2.6243\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
   <ItemGroup>
-    <AndroidAsset Include="Assets\SourceSansPro-Regular.otf" />
-    <AndroidAsset Include="Assets\SourceSansPro-Bold.otf" />
-    <AndroidAsset Include="Assets\SourceSansPro-Light.otf" />
-    <AndroidAsset Include="Assets\SourceSansPro-Semibold.otf" />
+    <AndroidAsset Include="Assets\fonts\SourceSansPro-Bold.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\fonts\SourceSansPro-Light.otf" />
+    <AndroidAsset Include="Assets\fonts\SourceSansPro-Regular.otf" />
+    <AndroidAsset Include="Assets\fonts\SourceSansPro-Semibold.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />
+    <Folder Include="Assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
