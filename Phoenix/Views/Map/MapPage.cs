@@ -9,6 +9,7 @@ using Phoenix.Views.PersonSelection;
 using Phoenix.Models;
 using System.Linq;
 using Models;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.Map
 {
@@ -68,14 +69,13 @@ namespace Phoenix.Views.Map
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
-			var pinButton = new ImageButton {
+			var pinButton = new BackgroundButton {
+				TranslationY = -11.5,
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
-				Source = ImageSource.FromFile("pin.png"),
-				ImageWidthRequest = pinSize,
-				ImageHeightRequest = pinSize,
+				ImageFileName = "pin.png",
 				WidthRequest = pinSize,
-				HeightRequest = Device.OnPlatform(110, 110, 110)
+				HeightRequest = pinSize
 			};
 
 			pinButton.Clicked += (sender, e) => {
