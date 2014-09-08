@@ -9,6 +9,9 @@ using Phoenix.Views.PersonSelection;
 using Phoenix.Models;
 using System.Linq;
 using Models;
+using RestSharp.Portable;
+using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Phoenix.Views.Map
 {
@@ -53,6 +56,11 @@ namespace Phoenix.Views.Map
 			};
 
 			searchFamiliarField.TextChanged += (sender, e) => {
+				SearchPeople(e.NewTextValue.ToLower());
+
+
+
+
 				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
 			};
 
@@ -179,6 +187,18 @@ namespace Phoenix.Views.Map
 			get {
 				return string.Concat(m_enterprise.UrlMap, URLParameters);
 			}
+		}
+
+		static async IEnumerable<Person> SearchPeople(string nameToSearch)
+		{
+			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+			var request = new RestRequest("pessoa", HttpMethod.Post);
+			request.AddParameter(new Parameter() { Value = "1" });
+			request.AddParameter(new Parameter() { Value = nameToSearch });
+
+			var response = await client.Execute<IEnumerable<Person>>(request);
+
+			return response.Data;
 		}
 	}
 }
