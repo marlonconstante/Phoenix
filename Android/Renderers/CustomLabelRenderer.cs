@@ -6,14 +6,11 @@ using Android.Widget;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
 using Android.Graphics;
-using Xamarin.Forms.Labs.Controls;
-using Xamarin.Forms.Labs.Droid;
-
 
 [assembly:ExportRenderer(typeof(CustomLabel), typeof(CustomLabelRenderer))]
 namespace Renderers
 {
-	public class CustomLabelRenderer : ExtendedLabelRender
+	public class CustomLabelRenderer : LabelRenderer
 	{
 		/// <summary>
 		/// Raises the element changed event.
@@ -23,18 +20,18 @@ namespace Renderers
 		{
 			base.OnElementChanged(eventArgs);
 
-			var view = CustomLabel;
-			var control = Control;
-
-			UpdateUI(view, control);
+			if (eventArgs.OldElement == null)
+			{
+				UpdateUI(CustomLabel, Control);
+			}
 		}
 
 		/// <summary>
-		/// Updates the U.
+		/// Updates the UI.
 		/// </summary>
 		/// <param name="view">View.</param>
 		/// <param name="control">Control.</param>
-		void UpdateUI(ExtendedLabel view, TextView control)
+		void UpdateUI(CustomLabel view, TextView control)
 		{
 			if (!string.IsNullOrEmpty(view.FontName))
 			{
@@ -59,6 +56,11 @@ namespace Renderers
 			if (view.IsUnderline)
 			{
 				control.PaintFlags = control.PaintFlags | PaintFlags.UnderlineText;
+			}
+
+			if (view.DropShadow)
+			{
+				control.SetShadowLayer(1, 0, 0, Android.Graphics.Color.Black);
 			}
 		}
 
