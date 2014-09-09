@@ -1,27 +1,24 @@
 ﻿using System;
-using Xamarin.Forms.Platform.iOS;
+using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
-using System.Drawing;
 
 [assembly:ExportRenderer(typeof(WebView), typeof(CustomWebViewRenderer))]
 namespace Renderers
 {
-	public class CustomWebViewRenderer : WebViewRenderer
+	public class CustomWebViewRenderer : WebRenderer
 	{
 		/// <summary>
 		/// Raises the element changed event.
 		/// </summary>
 		/// <param name="eventArgs">Event arguments.</param>
-		protected override void OnElementChanged(VisualElementChangedEventArgs eventArgs)
+		protected override void OnElementChanged(ElementChangedEventArgs<WebView> eventArgs)
 		{
 			base.OnElementChanged(eventArgs);
 
 			if (eventArgs.OldElement == null)
 			{
-				var webView = NativeView as UIWebView;
-				webView.ScalesPageToFit = true;
+				Control.SetInitialScale(-1);
 			}
 		}
 	}

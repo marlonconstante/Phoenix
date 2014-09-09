@@ -84,6 +84,7 @@
     <Compile Include="Renderers\QrCodeCameraPageRenderer.cs" />
     <Compile Include="Renderers\BackgroundButtonRenderer.cs" />
     <Compile Include="Renderers\CustomLabelRenderer.cs" />
+    <Compile Include="Renderers\CustomWebViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
