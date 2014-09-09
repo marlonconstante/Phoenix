@@ -26,7 +26,7 @@ namespace Phoenix.Views.EnterpriseSelection
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Center,
 				FontName = "SourceSansPro-Bold.otf",
-				FontSize = 22.5,
+				FontSize = DeviceScreen.Instance.RelativeHeight(45),
 				TextColor = Color.White,
 				DropShadow = true
 			};
@@ -45,13 +45,13 @@ namespace Phoenix.Views.EnterpriseSelection
 				{
 					new RowDefinition
 					{
-						Height = 200
+						Height = DeviceScreen.Instance.RelativeHeight(400)
 					}
 				},
 				Children =
 				{
 					{ backgroundImage, 0, 0 },
-					{ BoxView, 0, 0 },
+					{ BoxImage, 0, 0 },
 					{ labelName, 0, 0 },
 					{ PlaceGrid, 0, 0 }
 				}
@@ -61,22 +61,21 @@ namespace Phoenix.Views.EnterpriseSelection
 		}
 
 		/// <summary>
-		/// Gets the box view.
+		/// Gets the box image.
 		/// </summary>
-		/// <value>The box view.</value>
-		BoxView BoxView
+		/// <value>The box image.</value>
+		Image BoxImage
 		{
 			get
 			{
-				var boxView = new BoxView
+				var boxImage = new Image
 				{
+					Aspect = Aspect.AspectFill,
 					VerticalOptions = LayoutOptions.End,
-					WidthRequest = DeviceScreen.Instance.DisplayWidth,
-					HeightRequest = 32,
-					BackgroundColor = Color.FromRgb(0, 114, 188),
-					Opacity = 0.7
+					Source = ImageSource.FromFile("clearBox.png"),
+					HeightRequest = DeviceScreen.Instance.RelativeHeight(64)
 				};
-				return boxView;
+				return boxImage;
 			}
 		}
 
@@ -92,8 +91,8 @@ namespace Phoenix.Views.EnterpriseSelection
 				{
 					Source = ImageSource.FromFile("pinLeaked.png"),
 					Aspect = Aspect.AspectFit,
-					WidthRequest = 14,
-					HeightRequest = 19
+					WidthRequest = DeviceScreen.Instance.RelativeWidth(28),
+					HeightRequest = DeviceScreen.Instance.RelativeHeight(38)
 				};
 
 				var labelPlaceName = new ExtendedLabel
@@ -101,7 +100,7 @@ namespace Phoenix.Views.EnterpriseSelection
 					VerticalOptions = LayoutOptions.Center,
 					XAlign = TextAlignment.Start,
 					FontName = "SourceSansPro-Regular.otf",
-					FontSize = 16,
+					FontSize = DeviceScreen.Instance.RelativeHeight(32),
 					TextColor = Color.White
 				};
 				labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
@@ -125,7 +124,7 @@ namespace Phoenix.Views.EnterpriseSelection
 					{
 						new RowDefinition
 						{
-							Height = 32
+							Height = DeviceScreen.Instance.RelativeHeight(64)
 						}
 					},
 					Children =

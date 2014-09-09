@@ -33,13 +33,13 @@ namespace Phoenix.Views.Map
 			var searchFamiliarField = new SearchBar {
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
-				HeightRequest = 40,
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(88),
 				Placeholder = "Buscar um Ente"
 			};
 
 			m_listView = new ListView {
 				TranslationY = searchFamiliarField.HeightRequest,
-				RowHeight = 88,
+				RowHeight = (int) DeviceScreen.Instance.RelativeHeight(176),
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
 				Opacity = 0
@@ -83,17 +83,17 @@ namespace Phoenix.Views.Map
 			};
 
 			m_browser = new WebView {
-				Source = BrowserURL
+				Source = BrowserURL,
+				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight
 			};
 
-			var pinSize = Device.OnPlatform(87, 87, 87);
 			var pinButton = new BackgroundButton {
-				TranslationY = -11.5,
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-23),
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				ImageFileName = "pin.png",
-				WidthRequest = pinSize,
-				HeightRequest = pinSize
+				WidthRequest = DeviceScreen.Instance.RelativeWidth(174),
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(174)
 			};
 
 			pinButton.Clicked += (sender, e) => {
@@ -104,14 +104,11 @@ namespace Phoenix.Views.Map
 			};
 
 			var grid = new Grid {
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
 				ColumnDefinitions = {
 					new ColumnDefinition {
 						Width = DeviceScreen.Instance.DisplayWidth
-					}
-				},
-				RowDefinitions = {
-					new RowDefinition {
-						Height = DeviceScreen.Instance.DisplayVisibleHeight
 					}
 				},
 				Children = {
