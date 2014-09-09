@@ -43,8 +43,8 @@ namespace Phoenix.Views.Map
 				RowHeight = (int) DeviceScreen.Instance.RelativeHeight(176),
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
-				IsEnabled = Device.OS == TargetPlatform.iOS,
-				IsVisible = Device.OS == TargetPlatform.iOS,
+				IsEnabled = Device.OS != TargetPlatform.Android,
+				IsVisible = Device.OS != TargetPlatform.Android,
 				Opacity = 0
 			};
 
