@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Renderers;
 using Phoenix.Controls;
 using Xamarin.Forms.Platform.Android;
+using Phoenix.Android;
 
 [assembly:ExportRenderer(typeof(BackgroundButton), typeof(BackgroundButtonRenderer))]
 namespace Renderers
@@ -19,7 +20,8 @@ namespace Renderers
 
 			if (eventArgs.OldElement == null)
 			{
-				Control.SetBackgroundResource(Resources.GetIdentifier(BackgroundButton.ImageName, "drawable", "Phoenix.Android"));
+				var resourceId = (int) typeof(Resource.Drawable).GetField(BackgroundButton.ImageName).GetValue(null);
+				Control.SetBackgroundResource(resourceId);
 			}
 		}
 
