@@ -26,10 +26,10 @@ namespace Renderers
 
 				if (CustomLabel.DropShadow)
 				{
-				Control.Layer.ShadowColor = UIColor.Black.CGColor;
-				Control.Layer.ShadowOffset = new SizeF(0, 0);
-				Control.Layer.ShadowOpacity = 1;
-				Control.Layer.ShadowRadius = 1;
+					Control.Layer.ShadowColor = UIColor.Black.CGColor;
+					Control.Layer.ShadowOffset = new SizeF(0, 0);
+					Control.Layer.ShadowOpacity = 1;
+					Control.Layer.ShadowRadius = 1;
 				}
 			}
 		}
