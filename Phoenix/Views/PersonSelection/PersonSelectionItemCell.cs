@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms.Labs.Controls;
 using Xamarin.Forms;
+using Phoenix.Utils;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.PersonSelection
 {
@@ -9,52 +11,51 @@ namespace Phoenix.Views.PersonSelection
 		public PersonSelectionItemCell()
 		{
 			ShowDisclousure = false;
-			SeparatorPadding = new Thickness(37f, 0f, 0f, 0f);
+			SeparatorPadding = new Thickness(DeviceScreen.Instance.RelativeWidth(74), 0, 0, 0);
 
-			var imageSize = Device.OnPlatform(13.75, 25, 25);
 			var image = new Image
 			{
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Center,
 				Source = ImageSource.FromFile("loupe.png"),
-				WidthRequest = imageSize,
-				HeightRequest = imageSize
+				WidthRequest = DeviceScreen.Instance.RelativeWidth(25),
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(25)
 			};
 
-			var labelName = new ExtendedLabel
+			var labelName = new CustomLabel
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Semibold.otf",
-				FontSize = 20,
+				FontSize = DeviceScreen.Instance.RelativeHeight(40),
 				TextColor = Color.FromHex("323233")
 			};
 			labelName.SetBinding(Label.TextProperty, "Name");
 
-			var labelUnit = new ExtendedLabel
+			var labelUnit = new CustomLabel
 			{
-				TranslationY = -2,
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-4),
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular.otf",
-				FontSize = 17,
+				FontSize = DeviceScreen.Instance.RelativeHeight(34),
 				TextColor = Color.FromHex("6b6b6f")
 			};
 			labelUnit.SetBinding(Label.TextProperty, "Unit");
 
-			var labelPlaceName = new ExtendedLabel
+			var labelPlaceName = new CustomLabel
 			{
-				TranslationY = -10,
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-20),
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular.otf",
-				FontSize = 17,
+				FontSize = DeviceScreen.Instance.RelativeHeight(34),
 				TextColor = Color.FromHex("6b6b6f")
 			};
 			labelPlaceName.SetBinding(Label.TextProperty, "PlaceName");
 
 			var layout = new StackLayout {
-				Padding = new Thickness(-6f, 8f, 0f, 0f),
+				Padding = new Thickness(DeviceScreen.Instance.RelativeWidth(-12), DeviceScreen.Instance.RelativeWidth(16), 0, 0),
 				Children = {
 					labelName,
 					labelUnit,
@@ -65,7 +66,7 @@ namespace Phoenix.Views.PersonSelection
 			var grid = new Grid {
 				ColumnDefinitions = {
 					new ColumnDefinition {
-						Width = 37
+						Width = DeviceScreen.Instance.RelativeWidth(74)
 					},
 					new ColumnDefinition {
 						Width = GridLength.Auto

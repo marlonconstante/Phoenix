@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Models;
 using Phoenix.Views.Map;
+using Phoenix.Utils;
 
 namespace Phoenix.Views.EnterpriseSelection
 {
@@ -17,7 +18,7 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			m_listView = new ListView
 			{
-				RowHeight = 200,
+				RowHeight = (int) DeviceScreen.Instance.RelativeHeight(400),
 				ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell))
 			};
 

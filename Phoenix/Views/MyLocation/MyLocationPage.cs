@@ -1,8 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Labs.Controls;
 using Phoenix.Views.Map;
 using Phoenix.Controls;
+using Phoenix.Utils;
 
 namespace Phoenix.Views.MyLocation
 {
@@ -14,32 +14,31 @@ namespace Phoenix.Views.MyLocation
 
 			BackgroundColor = Color.FromHex("15496f");
 
-			var label = new ExtendedLabel {
-				TranslationY = 7,
+			var label = new CustomLabel {
+				TranslationY = DeviceScreen.Instance.RelativeHeight(14),
 				XAlign = TextAlignment.Center,
 				FontName = "SourceSansPro-Regular.otf",
-				FontSize = 17,
+				FontSize = DeviceScreen.Instance.RelativeHeight(34),
 				TextColor = Color.FromHex("fefdfd"),
 				Text = "Digite o código mais próximo\nda região que você se encontra"
 			};
 
 			QrInput = new QrCodeEntry {
-				TranslationY = 11,
-				HeightRequest = 30
+				TranslationY = DeviceScreen.Instance.RelativeHeight(22),
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(60)
 			};
 			QrInput.OnCodeComplete = () => {
 				ParentPage.LocationCode = QrInput.Text;
 				Navigation.PopAsync();
 			};
 
-			var buttonSize = Device.OnPlatform(67, 134, 134);
 			var cameraButton = new BackgroundButton {
-				TranslationY = 17,
+				TranslationY = DeviceScreen.Instance.RelativeHeight(34),
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
 				ImageFileName = "cameraButton.png",
-				HeightRequest = buttonSize,
-				WidthRequest = buttonSize
+				WidthRequest = DeviceScreen.Instance.RelativeWidth(134),
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(134)
 			};
 
 			cameraButton.Clicked += (sender, e) => {
@@ -50,16 +49,17 @@ namespace Phoenix.Views.MyLocation
 				Navigation.PushAsync(qrCodeReader);
 			};
 
-			var photoLabel = new ExtendedLabel {
-				TranslationY = 17,
+			var photoLabel = new CustomLabel {
+				TranslationY = DeviceScreen.Instance.RelativeHeight(34),
 				XAlign = TextAlignment.Center,
 				FontName = "SourceSansPro-Light.otf",
-				FontSize = 14,
+				FontSize = DeviceScreen.Instance.RelativeHeight(28),
 				TextColor = Color.FromHex("b8c0c8"),
 				Text = "Ou fotografe o código presente na placa"
 			};
 
-			var layout = new StackLayout {
+			var layout = new StackLayout
+			{
 				VerticalOptions = LayoutOptions.Start,
 				HorizontalOptions = LayoutOptions.Center,
 				Children = {
