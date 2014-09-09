@@ -10,6 +10,15 @@ using Phoenix.Models;
 using System.Linq;
 using Models;
 using Phoenix.Controls;
+using System.Collections.Generic;
+using RestSharp.Portable;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Text;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Net;
+
 
 namespace Phoenix.Views.Map
 {
@@ -30,14 +39,16 @@ namespace Phoenix.Views.Map
 
 			var persons = GetPersons();
 
-			var searchFamiliarField = new SearchBar {
+			var searchFamiliarField = new SearchBar
+			{
 				VerticalOptions = LayoutOptions.Start,
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = 40,
 				Placeholder = "Buscar um Ente"
 			};
 
-			m_listView = new ListView {
+			m_listView = new ListView
+			{
 				TranslationY = searchFamiliarField.HeightRequest,
 				RowHeight = 88,
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
@@ -51,7 +62,8 @@ namespace Phoenix.Views.Map
 				m_listView.IsEnabled = false;
 			}
 
-			searchFamiliarField.Focused += (sender, e) => {
+			searchFamiliarField.Focused += (sender, e) =>
+			{
 				m_listView.ItemsSource = persons;
 				m_listView.Opacity = 1;
 
@@ -62,7 +74,8 @@ namespace Phoenix.Views.Map
 				}
 			};
 
-			searchFamiliarField.Unfocused += (sender, e) => {
+			searchFamiliarField.Unfocused += (sender, e) =>
+			{
 				searchFamiliarField.Text = string.Empty;
 				m_listView.Opacity = 0;
 
@@ -73,21 +86,28 @@ namespace Phoenix.Views.Map
 				}
 			};
 
-			searchFamiliarField.TextChanged += (sender, e) => {
+			searchFamiliarField.TextChanged += async (sender, e) =>
+			{
+				var task = await SearchPeople(string.Empty);
+
+
 				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
 			};
 
-			m_listView.ItemSelected += (sender, e) => {
+			m_listView.ItemSelected += (sender, e) =>
+			{
 				m_browser.Source = BrowserURL;
 				searchFamiliarField.Unfocus();
 			};
 
-			m_browser = new WebView {
+			m_browser = new WebView
+			{
 				Source = BrowserURL
 			};
 
 			var pinSize = Device.OnPlatform(87, 87, 87);
-			var pinButton = new BackgroundButton {
+			var pinButton = new BackgroundButton
+			{
 				TranslationY = -11.5,
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
@@ -96,25 +116,32 @@ namespace Phoenix.Views.Map
 				HeightRequest = pinSize
 			};
 
-			pinButton.Clicked += (sender, e) => {
+			pinButton.Clicked += (sender, e) =>
+			{
 				var myLocationPage = new MyLocationPage();
 				myLocationPage.Title = Title;
 				myLocationPage.ParentPage = this;
 				Navigation.PushAsync(myLocationPage);
 			};
 
-			var grid = new Grid {
-				ColumnDefinitions = {
-					new ColumnDefinition {
+			var grid = new Grid
+			{
+				ColumnDefinitions =
+				{
+					new ColumnDefinition
+					{
 						Width = DeviceScreen.Instance.DisplayWidth
 					}
 				},
-				RowDefinitions = {
-					new RowDefinition {
+				RowDefinitions =
+				{
+					new RowDefinition
+					{
 						Height = DeviceScreen.Instance.DisplayVisibleHeight
 					}
 				},
-				Children = {
+				Children =
+				{
 					{ m_browser, 0, 0 },
 					{ pinButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 },
@@ -131,7 +158,8 @@ namespace Phoenix.Views.Map
 		/// <returns>The persons.</returns>
 		Person[] GetPersons()
 		{
-			return new Person[] {
+			return new Person[]
+			{
 				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", Sector = "setor_9_09_19", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", Sector = "setor_5_07_13", PlaceName = "São Leopoldo" },
 				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", Sector = "setor_2_04_38", PlaceName = "São Leopoldo" },
@@ -144,11 +172,14 @@ namespace Phoenix.Views.Map
 		/// Gets or sets the location code.
 		/// </summary>
 		/// <value>The location code.</value>
-		public string LocationCode {
-			get {
+		public string LocationCode
+		{
+			get
+			{
 				return m_locationCode;
 			}
-			set {
+			set
+			{
 				m_locationCode = value;
 
 				m_browser.Source = BrowserURL;
@@ -159,11 +190,14 @@ namespace Phoenix.Views.Map
 		/// Gets or sets the person.
 		/// </summary>
 		/// <value>The person.</value>
-		public Person Person {
-			get {
+		public Person Person
+		{
+			get
+			{
 				return m_listView.SelectedItem as Person;
 			}
-			set {
+			set
+			{
 				m_listView.SelectedItem = value;
 
 				m_browser.Source = BrowserURL;
@@ -174,8 +208,10 @@ namespace Phoenix.Views.Map
 		/// Gets the URL parameters.
 		/// </summary>
 		/// <value>The URL parameters.</value>
-		string URLParameters {
-			get {
+		string URLParameters
+		{
+			get
+			{
 				string parameters = string.Empty;
 				if (Person != null)
 				{
@@ -194,10 +230,222 @@ namespace Phoenix.Views.Map
 		/// Gets the browser URL.
 		/// </summary>
 		/// <value>The browser URL.</value>
-		string BrowserURL {
-			get {
+		string BrowserURL
+		{
+			get
+			{
 				return string.Concat(m_enterprise.UrlMap, URLParameters);
 			}
 		}
+
+		//		async Task<IEnumerable<Person>> SearchPeople(string nameToSearch)
+		//		{
+		//			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+		//			var request = new RestRequest("pessoa", HttpMethod.Post);
+		//			request.AddHeader("Accept", "application/json");
+		//			request.Parameters.Clear();
+		//
+		//
+		//			var postContent = new {
+		//				empreendimento = new { id = 2 },
+		//				pessoa = new {nome = "ale" }
+		//			};
+		//
+		//
+		//			var sb = new StringBuilder();
+		//			var sw = new StringWriter(sb);
+		//			var strJSONContent = new JsonTextWriter(sw);
+		//
+		//			(new JsonSerializer()).Serialize(strJSONContent, postContent);
+		//
+		//			request.AddParameter("application/json", strJSONContent, ParameterType.RequestBody);
+		//
+		//
+		////			request.AddParameter(new Parameter() { Name = "empreendimento", Value = new {id = 2} });
+		////			request.AddParameter(new Parameter() { Name = "pessoa", Value = new {nome = "ale"} });
+		//	
+		//			IRestResponse<IEnumerable<Person>> response = null;
+		//
+		//			try
+		//			{
+		//				response = await client.Execute<IEnumerable<Person>>(request);	
+		//			}
+		//			catch (Exception ex)
+		//			{
+		//				throw ex;
+		//			}
+		//		
+		//
+		//		
+		//			return response.Data;
+		//		}
+
+		//		async Task<IEnumerable<Person>> SearchPeople(string nameToSearch)
+		//		{
+		//			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+		//			var request = new RestRequest("pessoa", HttpMethod.Post);
+		//			request.AddHeader("Accept", "application/json");
+		//			request.AddHeader("Content-Type", "application/json");
+		//			request.Parameters.Clear();
+		//
+		////			request.AddParameter("empreendimento", "{id = 2}", ParameterType.RequestBody);
+		////			request.AddParameter("pessoa", "{nome = \"ale\"}", ParameterType.RequestBody);
+		//
+		//			request.AddParameter("{ \"empreendimento\": {\"id\": 2}, \"pessoa\": {  \"nome\": \"ale\" } }", ParameterType.RequestBody);
+		//
+		//			IRestResponse<IEnumerable<Person>> response = null;
+		//
+		//			try
+		//			{
+		//				response = await client.Execute<IEnumerable<Person>>(request);	
+		//			}
+		//			catch (Exception ex)
+		//			{
+		//				throw ex;
+		//			}
+		//				
+		//			return response.Data;
+		//		}
+
+
+		//		async Task<IEnumerable<Person>> SearchPeople(string nameToSearch)
+		//		{
+		//			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+		//			var request = new RestRequest("pessoa", HttpMethod.Post);
+		//			request.AddHeader("Accept", "application/json");
+		//			request.AddHeader("Content-Type", "application/json");
+		//			request.Parameters.Clear();
+		//
+		//			request.AddParameter("empreendimento", "{id = 2}", ParameterType.RequestBody);
+		//			request.AddParameter("pessoa", "{nome = \"ale\"}", ParameterType.RequestBody);
+		//
+		//			IRestResponse<IEnumerable<Person>> response = null;
+		//
+		//			try
+		//			{
+		//				response = await client.Execute<IEnumerable<Person>>(request);	
+		//			}
+		//			catch (Exception ex)
+		//			{
+		//				throw ex;
+		//			}
+		//
+		//			return response.Data;
+		//		}
+
+		//		async Task<IEnumerable<Person>> SearchPeople(string nameToSearch)
+		//		{
+		//			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+		//			var request = new RestRequest("pessoa", HttpMethod.Post);
+		//			request.AddHeader("Accept", "application/json");
+		//			request.AddHeader("Content-Type", "application/json");
+		//			request.Parameters.Clear();
+		//
+		//			request.AddParameter("empreendimento", new {id = 2}, ParameterType.RequestBody);
+		//			request.AddParameter("pessoa", new {nome = "ale"}, ParameterType.RequestBody);
+		//
+		//			IRestResponse<IEnumerable<Person>> response = null;
+		//
+		//			try
+		//			{
+		//				response = await client.Execute<IEnumerable<Person>>(request);	
+		//			}
+		//			catch (Exception ex)
+		//			{
+		//				throw ex;
+		//			}
+		//
+		//			return response.Data;
+		//		}
+
+		//		async Task SearchPeople(string nameToSearch)
+		//		{
+		//			HttpWebRequest httpWReq =
+		//				(HttpWebRequest)WebRequest.Create("http://kyryon-cortel.jelasticlw.com.br/rest/pessoa");
+		//
+		//			Encoding encoding = new UTF8Encoding();
+		//			string postData = "{ \"empreendimento\": {\"id\": 2}, \"pessoa\": {  \"nome\": \"ale\" } }";
+		//			byte[] data = encoding.GetBytes(postData);
+		//
+		//
+		//			httpWReq.Method = "POST";
+		//			httpWReq.ContentType = "application/json";//charset=UTF-8";
+		//
+		//			Stream stream = await httpWReq.GetRequestStreamAsync();
+		//			stream.Write(data, 0, data.Length);
+		//			stream.Close();
+		//
+		//			var response = await httpWReq.GetResponseAsync();
+		//			string s=response.ToString();
+		//			StreamReader reader = new StreamReader(response.GetResponseStream());
+		//			String jsonresponse = "";
+		//			String temp = null;
+		//			while ((temp = reader.ReadLine()) != null)
+		//			{
+		//				jsonresponse += temp;
+		//			}
+		//
+		//		}
+
+		//		async Task SearchPeople(string nameToSearch)
+		//		{
+		//			string url = "http://kyryon-cortel.jelasticlw.com.br/rest/pessoa";
+		//			HttpWebRequest request = (HttpWebRequest)WebRequest.Create (url); 
+		//			request.Method = "POST"; 
+		//			request.Headers.Add("Param1", "kiran"); 
+		//			request.ContentType = "application/json";
+		//			string postData = "{ \"empreendimento\": {\"id\": 2}, \"pessoa\": {  \"nome\": \"ale\" } }";
+		//
+		//			HttpWebResponse myResp = (HttpWebResponse)request.GetResponseAsync();
+		//	}
+
+		async Task<IRestResponse> SearchPeople(string nameToSearch)
+		{
+			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+			{
+				Formatting = Formatting.Indented,
+				ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+
+			};
+
+			var client = new RestClient("http://kyryon-cortel.jelasticlw.com.br/rest/");
+			var request = new RestRequest("pessoa", HttpMethod.Post);
+			request.AddHeader("Accept", "application/json");
+			request.Parameters.Clear();
+		
+		
+			var postContent = new {
+						empreendimento = new { id = 2 },
+						pessoa = new {nome = "ale" }
+					};
+		
+		
+			var sb = new StringBuilder();
+			var sw = new StringWriter(sb);
+			var strJSONContent = new JsonTextWriter(sw);
+
+
+			(new JsonSerializer()).Serialize(strJSONContent, postContent);
+		
+			request.AddParameter("application/json", strJSONContent, ParameterType.RequestBody);
+		
+			IRestResponse response = null;
+		
+			try
+			{
+				response = await client.Execute(request);	
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+				
+			return response;
+		}
+
+
+
+
+
 	}
 }
