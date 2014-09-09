@@ -85,6 +85,7 @@
     <Compile Include="Renderers\BackgroundButtonRenderer.cs" />
     <Compile Include="Renderers\CustomLabelRenderer.cs" />
     <Compile Include="Renderers\CustomWebViewRenderer.cs" />
+    <Compile Include="Renderers\CustomSearchBarRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
