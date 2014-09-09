@@ -56,8 +56,8 @@ namespace Phoenix.Views.Map
 				m_listView.Opacity = visible ? 1 : 0;
 				if (Device.OS == TargetPlatform.Android)
 				{
-					m_listView.IsVisible = visible;
 					m_listView.IsEnabled = visible;
+					m_listView.IsVisible = visible;
 				}
 			};
 
