@@ -32,6 +32,7 @@ namespace Phoenix.Views.Map
 
 			var searchFamiliarField = new SearchBar {
 				VerticalOptions = LayoutOptions.Start,
+				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8").MultiplyAlpha(0.8f) : Color.FromHex("c9c9ce").MultiplyAlpha(0.7f),
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(88),
 				Placeholder = "Buscar um Ente"
@@ -42,44 +43,28 @@ namespace Phoenix.Views.Map
 				RowHeight = (int) DeviceScreen.Instance.RelativeHeight(176),
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
+				IsEnabled = Device.OS == TargetPlatform.iOS,
+				IsVisible = Device.OS == TargetPlatform.iOS,
 				Opacity = 0
 			};
 
-			if (Device.OS == TargetPlatform.Android)
-			{
-				m_listView.IsVisible = false;
-				m_listView.IsEnabled = false;
-			}
-
-			searchFamiliarField.Focused += (sender, e) => {
-				m_listView.ItemsSource = persons;
-				m_listView.Opacity = 1;
-
-				if (Device.OS == TargetPlatform.Android)
-				{
-					m_listView.IsVisible = true;
-					m_listView.IsEnabled = true;
-				}
-			};
-
-			searchFamiliarField.Unfocused += (sender, e) => {
-				searchFamiliarField.Text = string.Empty;
-				m_listView.Opacity = 0;
-
-				if (Device.OS == TargetPlatform.Android)
-				{
-					m_listView.IsVisible = false;
-					m_listView.IsEnabled = false;
-				}
-			};
-
 			searchFamiliarField.TextChanged += (sender, e) => {
-				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(e.NewTextValue.ToLower()));
+				var text = e.NewTextValue.ToLower();
+				var visible = !string.IsNullOrEmpty(text);
+
+				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(text));
+				m_listView.Opacity = visible ? 1 : 0;
+				if (Device.OS == TargetPlatform.Android)
+				{
+					m_listView.IsVisible = visible;
+					m_listView.IsEnabled = visible;
+				}
 			};
 
 			m_listView.ItemSelected += (sender, e) => {
 				m_browser.Source = BrowserURL;
 				searchFamiliarField.Unfocus();
+				searchFamiliarField.Text = string.Empty;
 			};
 
 			m_browser = new WebView {
