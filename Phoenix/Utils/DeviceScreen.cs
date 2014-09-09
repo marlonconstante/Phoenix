@@ -18,9 +18,9 @@ namespace Phoenix.Utils
 		/// Gets the display width.
 		/// </summary>
 		/// <value>The display width.</value>
-		public int DisplayWidth {
+		public double DisplayWidth {
 			get {
-				return Device.OnPlatform(Display.Width / 2, Display.Width / 2, Display.Width);
+				return RelativeWidth(Display.Width);
 			}
 		}
 
@@ -28,19 +28,39 @@ namespace Phoenix.Utils
 		/// Gets the display height.
 		/// </summary>
 		/// <value>The display height.</value>
-		public int DisplayHeight {
+		public double DisplayHeight {
 			get {
-				return Device.OnPlatform(Display.Height / 2, Display.Height, Display.Height);
+				return RelativeHeight(Display.Height);
 			}
 		}
 
 		/// <summary>
-		/// Gets the display height of the visible area of the device.
+		/// Relatives the width.
+		/// </summary>
+		/// <returns>The width.</returns>
+		/// <param name="width">Width.</param>
+		public double RelativeWidth(double width)
+		{
+			return Display.WidthRequestInInches(width / Display.Xdpi);
+		}
+
+		/// <summary>
+		/// Relatives the height.
+		/// </summary>
+		/// <returns>The height.</returns>
+		/// <param name="height">Height.</param>
+		public double RelativeHeight(double height)
+		{
+			return Display.HeightRequestInInches(height / Display.Ydpi);
+		}
+
+		/// <summary>
+		/// Gets the display height of the visible.
 		/// </summary>
 		/// <value>The display height of the visible.</value>
-		public int DisplayVisibleHeight {
+		public double DisplayVisibleHeight {
 			get {
-				return Device.OnPlatform((Display.Height / 2) - 64, (Display.Height / 2) - 100, Display.Height - 100);
+				return Device.OnPlatform(DisplayHeight - RelativeHeight(128), DisplayHeight - RelativeHeight(96), DisplayHeight);
 			}
 		}
 
