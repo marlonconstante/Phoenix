@@ -2,6 +2,7 @@
 using Xamarin.Forms.Labs.Controls;
 using Xamarin.Forms;
 using Phoenix.Utils;
+using Phoenix.Controls;
 
 namespace Phoenix.Views.PersonSelection
 {
@@ -21,7 +22,7 @@ namespace Phoenix.Views.PersonSelection
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(25)
 			};
 
-			var labelName = new ExtendedLabel
+			var labelName = new CustomLabel
 			{
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
@@ -31,7 +32,7 @@ namespace Phoenix.Views.PersonSelection
 			};
 			labelName.SetBinding(Label.TextProperty, "Name");
 
-			var labelUnit = new ExtendedLabel
+			var labelUnit = new CustomLabel
 			{
 				TranslationY = DeviceScreen.Instance.RelativeHeight(-4),
 				YAlign = TextAlignment.Center,
@@ -42,7 +43,7 @@ namespace Phoenix.Views.PersonSelection
 			};
 			labelUnit.SetBinding(Label.TextProperty, "Unit");
 
-			var labelPlaceName = new ExtendedLabel
+			var labelPlaceName = new CustomLabel
 			{
 				TranslationY = DeviceScreen.Instance.RelativeHeight(-20),
 				YAlign = TextAlignment.Center,

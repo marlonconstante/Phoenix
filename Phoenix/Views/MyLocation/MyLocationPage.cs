@@ -1,6 +1,5 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Labs.Controls;
 using Phoenix.Views.Map;
 using Phoenix.Controls;
 using Phoenix.Utils;
@@ -15,7 +14,7 @@ namespace Phoenix.Views.MyLocation
 
 			BackgroundColor = Color.FromHex("15496f");
 
-			var label = new ExtendedLabel {
+			var label = new CustomLabel {
 				TranslationY = DeviceScreen.Instance.RelativeHeight(14),
 				XAlign = TextAlignment.Center,
 				FontName = "SourceSansPro-Regular.otf",
@@ -50,7 +49,7 @@ namespace Phoenix.Views.MyLocation
 				Navigation.PushAsync(qrCodeReader);
 			};
 
-			var photoLabel = new ExtendedLabel {
+			var photoLabel = new CustomLabel {
 				TranslationY = DeviceScreen.Instance.RelativeHeight(34),
 				XAlign = TextAlignment.Center,
 				FontName = "SourceSansPro-Light.otf",

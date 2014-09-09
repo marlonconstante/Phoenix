@@ -95,7 +95,7 @@ namespace Phoenix.Views.EnterpriseSelection
 					HeightRequest = DeviceScreen.Instance.RelativeHeight(38)
 				};
 
-				var labelPlaceName = new ExtendedLabel
+				var labelPlaceName = new CustomLabel
 				{
 					VerticalOptions = LayoutOptions.Center,
 					XAlign = TextAlignment.Start,
