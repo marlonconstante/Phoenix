@@ -87,12 +87,12 @@ namespace Phoenix.Views.Map
 
 			var pinButton = new BackgroundButton
 			{
-				TranslationY = DeviceScreen.Instance.RelativeHeight(-23),
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-24.0),
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				ImageFileName = "pin.png",
-				WidthRequest = DeviceScreen.Instance.RelativeWidth(174),
-				HeightRequest = DeviceScreen.Instance.RelativeHeight(174)
+				WidthRequest = DeviceScreen.Instance.RelativeWidth(174.0),
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(174.0)
 			};
 
 			pinButton.Clicked += (sender, e) =>

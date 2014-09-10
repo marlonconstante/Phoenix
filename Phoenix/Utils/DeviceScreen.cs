@@ -60,7 +60,7 @@ namespace Phoenix.Utils
 		/// <value>The display height of the visible.</value>
 		public double DisplayVisibleHeight {
 			get {
-				return Device.OnPlatform(DisplayHeight - RelativeHeight(128), DisplayHeight - RelativeHeight(96), DisplayHeight);
+				return Device.OnPlatform(DisplayHeight - RelativeHeight(128.0), DisplayHeight - RelativeHeight(124.0), DisplayHeight);
 			}
 		}
 
