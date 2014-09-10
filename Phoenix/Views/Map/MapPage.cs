@@ -23,7 +23,6 @@ namespace Phoenix.Views.Map
 		Enterprise m_enterprise;
 		Person m_person;
 		string m_locationCode;
-		DateTime m_lastUpdate;
 
 		public MapPage(Enterprise enterprise)
 		{
@@ -32,8 +31,6 @@ namespace Phoenix.Views.Map
 			NavigationPage.SetBackButtonTitle(this, string.Empty);
 
 			m_enterprise = enterprise;
-
-			var persons = GetPersons();
 
 			var searchFamiliarField = new SearchBar
 			{
@@ -55,15 +52,10 @@ namespace Phoenix.Views.Map
 				Opacity = 0
 			};
 
-			m_lastUpdate = DateTime.MinValue;
-
 			searchFamiliarField.TextChanged += async (sender, e) =>
 			{
 				var text = e.NewTextValue.ToLower();
 				var visible = !string.IsNullOrEmpty(text);
-
-//				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(text));
-
 
 				m_listView.ItemsSource = await SearchPeople(text);
 				m_listView.Opacity = visible ? 1 : 0;
@@ -132,22 +124,6 @@ namespace Phoenix.Views.Map
 			};
 
 			Content = grid;
-		}
-
-		/// <summary>
-		/// Gets the persons.
-		/// </summary>
-		/// <returns>The persons.</returns>
-		Person[] GetPersons()
-		{
-			return new Person[]
-			{
-				new Person { Name = "Anderson Silva", Unit = "Unidade 123456", Sector = "setor_9_09_19", PlaceName = "São Leopoldo" },
-				new Person { Name = "Andreia Souza", Unit = "Unidade 123456", Sector = "setor_5_07_13", PlaceName = "São Leopoldo" },
-				new Person { Name = "Andrei Duarte", Unit = "Unidade 123456", Sector = "setor_2_04_38", PlaceName = "São Leopoldo" },
-				new Person { Name = "Bernardete Fonseca", Unit = "Unidade 123456", Sector = "criptas_6_04", PlaceName = "São Leopoldo" },
-				new Person { Name = "Claudio Gonçalves", Unit = "Unidade 123456", Sector = "setor_2_02_43", PlaceName = "São Leopoldo" }
-			};
 		}
 
 		/// <summary>
