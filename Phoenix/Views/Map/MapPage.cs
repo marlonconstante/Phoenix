@@ -18,6 +18,7 @@ namespace Phoenix.Views.Map
 		WebView m_browser;
 		ListView m_listView;
 		Enterprise m_enterprise;
+		Person m_person;
 		string m_locationCode;
 
 		public MapPage(Enterprise enterprise)
@@ -62,9 +63,14 @@ namespace Phoenix.Views.Map
 			};
 
 			m_listView.ItemSelected += (sender, e) => {
-				Person = m_listView.SelectedItem as Person;
-				searchFamiliarField.Unfocus();
-				searchFamiliarField.Text = string.Empty;
+				var person = (Person) e.SelectedItem;
+				if (person != null)
+				{
+					Person = person;
+					searchFamiliarField.Unfocus();
+					searchFamiliarField.Text = string.Empty;
+					m_listView.SelectedItem = null;
+				}
 			};
 
 			m_browser = new WebView {
@@ -143,10 +149,10 @@ namespace Phoenix.Views.Map
 		/// <value>The person.</value>
 		public Person Person {
 			get {
-				return m_listView.SelectedItem as Person;
+				return m_person;
 			}
 			set {
-				m_listView.SelectedItem = value;
+				m_person = value;
 
 				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
 			}
