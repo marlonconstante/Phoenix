@@ -58,7 +58,8 @@ namespace Phoenix.Views.Map
 				var text = e.NewTextValue.ToLower();
 				var visible = !string.IsNullOrEmpty(text);
 
-				m_listView.ItemsSource = await SearchPeople(text);
+				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(text));
+//				m_listView.ItemsSource = await SearchPeople(text);
 				m_listView.Opacity = visible ? 1 : 0;
 				if (Device.OS == TargetPlatform.Android)
 				{
