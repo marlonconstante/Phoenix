@@ -62,7 +62,7 @@ namespace Phoenix.Views.Map
 			};
 
 			m_listView.ItemSelected += (sender, e) => {
-				m_browser.Source = BrowserURL;
+				Person = m_listView.SelectedItem as Person;
 				searchFamiliarField.Unfocus();
 				searchFamiliarField.Text = string.Empty;
 			};
@@ -133,7 +133,7 @@ namespace Phoenix.Views.Map
 			set {
 				m_locationCode = value;
 
-				m_browser.Source = BrowserURL;
+				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=_", value);
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace Phoenix.Views.Map
 			set {
 				m_listView.SelectedItem = value;
 
-				m_browser.Source = BrowserURL;
+				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
 			}
 		}
 
