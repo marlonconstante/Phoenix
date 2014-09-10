@@ -16,7 +16,7 @@ namespace Phoenix.Models.Json
 			set;
 		}
 
-		public string empreendimento
+		public EnterpriseJson empreendimento
 		{
 			get;
 			set;

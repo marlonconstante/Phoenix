@@ -23,6 +23,7 @@ namespace Phoenix.Views.Map
 		Enterprise m_enterprise;
 		Person m_person;
 		string m_locationCode;
+		DateTime m_lastUpdate;
 
 		public MapPage(Enterprise enterprise)
 		{
@@ -54,12 +55,16 @@ namespace Phoenix.Views.Map
 				Opacity = 0
 			};
 
+			m_lastUpdate = DateTime.MinValue;
+
 			searchFamiliarField.TextChanged += async (sender, e) =>
 			{
 				var text = e.NewTextValue.ToLower();
 				var visible = !string.IsNullOrEmpty(text);
 
 //				m_listView.ItemsSource = persons.Where((p) => p.Name.ToLower().Contains(text));
+
+
 				m_listView.ItemsSource = await SearchPeople(text);
 				m_listView.Opacity = visible ? 1 : 0;
 				if (Device.OS == TargetPlatform.Android)
@@ -67,10 +72,12 @@ namespace Phoenix.Views.Map
 					m_listView.IsEnabled = visible;
 					m_listView.IsVisible = visible;
 				}
+
 			};
 
-			m_listView.ItemSelected += (sender, e) => {
-				var person = (Person) e.SelectedItem;
+			m_listView.ItemSelected += (sender, e) =>
+			{
+				var person = (Person)e.SelectedItem;
 				if (person != null)
 				{
 					Person = person;
@@ -165,11 +172,14 @@ namespace Phoenix.Views.Map
 		/// Gets or sets the person.
 		/// </summary>
 		/// <value>The person.</value>
-		public Person Person {
-			get {
+		public Person Person
+		{
+			get
+			{
 				return m_person;
 			}
-			set {
+			set
+			{
 				m_person = value;
 
 				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
@@ -210,44 +220,62 @@ namespace Phoenix.Views.Map
 			}
 		}
 
+		/// <summary>
+		/// Searchs the people.
+		/// </summary>
+		/// <returns>The people.</returns>
+		/// <param name="nameToSearch">Name to search.</param>
 		async Task<List<Person>> SearchPeople(string nameToSearch)
 		{
-			if (nameToSearch == string.Empty)
+			if (nameToSearch.Length < 4)
 				return null;
+				
+			var responseStr = await GetPersonsFromRestServer(nameToSearch);
+			var persons = DeserializePersons(responseStr);
 
+			return persons;
+		}
+
+		/// <summary>
+		/// Gets the persons from rest server.
+		/// </summary>
+		/// <returns>The persons from rest server.</returns>
+		/// <param name="nameToSearch">Name to search.</param>
+		async Task<string> GetPersonsFromRestServer(string nameToSearch)
+		{
 			var httpClient = new HttpClient();
 			var content = "{\"empreendimento\": {\"id\": " + m_enterprise.Id + "},\"pessoa\": {  \"nome\": \"" + nameToSearch + "\" }}";
 			string responseStr;
-
 			try
 			{
-				var getResponse = await httpClient.PostAsync("http://kyryon-cortel.jelasticlw.com.br/rest/pessoa", new StringContent(
-					                  content,
-					                  Encoding.UTF8,
-					                  "application/json"));
-
+				var getResponse = await httpClient.PostAsync("http://177.52.183.128/rest/pessoa", new StringContent(content, Encoding.UTF8, "application/json"));
 				responseStr = await getResponse.Content.ReadAsStringAsync();
 			}
 			catch (Exception ex)
 			{
 				throw ex;
 			}
+			return responseStr;
+		}
 
+		/// <summary>
+		/// Deserializes the persons.
+		/// </summary>
+		/// <returns>The persons.</returns>
+		/// <param name="responseStr">Response string.</param>
+		List<Person> DeserializePersons(string responseStr)
+		{
 			var responseList = JsonConvert.DeserializeObject<List<PersonJson>>(responseStr);
-
 			var persons = new List<Person>();
-
 			foreach (var item in responseList)
 			{
-				persons.Add(new Person
-				{
+				persons.Add(new Person {
 					Name = item.nome,
 					PlaceName = m_enterprise.PlaceName,
 					Sector = item.localizador,
 					Unit = item.unidade
 				});
 			}
-
 			return persons;
 		}
 	}
