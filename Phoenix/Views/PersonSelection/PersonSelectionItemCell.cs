@@ -24,6 +24,7 @@ namespace Phoenix.Views.PersonSelection
 
 			var labelName = new CustomLabel
 			{
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(55),
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Semibold.otf",
@@ -34,7 +35,7 @@ namespace Phoenix.Views.PersonSelection
 
 			var labelUnit = new CustomLabel
 			{
-				TranslationY = DeviceScreen.Instance.RelativeHeight(-4),
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-10),
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular.otf",
@@ -45,7 +46,7 @@ namespace Phoenix.Views.PersonSelection
 
 			var labelPlaceName = new CustomLabel
 			{
-				TranslationY = DeviceScreen.Instance.RelativeHeight(-20),
+				TranslationY = DeviceScreen.Instance.RelativeHeight(-26),
 				YAlign = TextAlignment.Center,
 				XAlign = TextAlignment.Start,
 				FontName = "SourceSansPro-Regular.otf",
