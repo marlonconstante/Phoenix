@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Labs.iOS;
 using Xamarin.Forms.Labs.Services;
 using Xamarin.Forms.Labs;
+using Phoenix.Utils;
 
 namespace Phoenix.iOS
 {
@@ -28,6 +29,7 @@ namespace Phoenix.iOS
 			Forms.Init();
 
 			ConfigResolver();
+			ConfigDeviceScreen();
 
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 			
@@ -52,7 +54,7 @@ namespace Phoenix.iOS
 		/// <summary>
 		/// Configs the resolver.
 		/// </summary>
-		private void ConfigResolver()
+		void ConfigResolver()
 		{
 			var resolverContainer = new SimpleContainer();
 
@@ -65,6 +67,13 @@ namespace Phoenix.iOS
 
 			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
+
+		/// <summary>
+		/// Configs the device screen.
+		/// </summary>
+		void ConfigDeviceScreen()
+		{
+			DeviceScreen.Instance.ReservedHeight = 128d;
+		}
 	}
 }
-

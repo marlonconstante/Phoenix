@@ -12,6 +12,7 @@ namespace Phoenix.Utils
 		private DeviceScreen()
 		{
 			Display = Resolver.Resolve<IDisplay>();
+			ReservedHeight = 0d;
 		}
 
 		/// <summary>
@@ -60,8 +61,17 @@ namespace Phoenix.Utils
 		/// <value>The display height of the visible.</value>
 		public double DisplayVisibleHeight {
 			get {
-				return Device.OnPlatform(DisplayHeight - RelativeHeight(128.0), DisplayHeight - RelativeHeight(124.0), DisplayHeight);
+				return DisplayHeight - RelativeHeight(ReservedHeight);
 			}
+		}
+
+		/// <summary>
+		/// Gets or sets the height of the reserved.
+		/// </summary>
+		/// <value>The height of the reserved.</value>
+		public double ReservedHeight {
+			get;
+			set;
 		}
 
 		/// <summary>
