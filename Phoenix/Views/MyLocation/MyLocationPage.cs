@@ -25,7 +25,7 @@ namespace Phoenix.Views.MyLocation
 
 			QrInput = new QrCodeEntry {
 				TranslationY = DeviceScreen.Instance.RelativeHeight(22),
-				HeightRequest = DeviceScreen.Instance.RelativeHeight(60)
+				HeightRequest = DeviceScreen.Instance.RelativeHeight(70)
 			};
 			QrInput.OnCodeComplete = () => {
 				ParentPage.LocationCode = QrInput.Text;

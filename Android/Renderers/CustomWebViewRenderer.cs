@@ -18,7 +18,6 @@ namespace Renderers
 
 			if (eventArgs.OldElement == null)
 			{
-				Control.SetInitialScale(-1);
 			}
 		}
 	}

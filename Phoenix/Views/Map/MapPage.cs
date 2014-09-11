@@ -64,7 +64,6 @@ namespace Phoenix.Views.Map
 					m_listView.IsEnabled = visible;
 					m_listView.IsVisible = visible;
 				}
-
 			};
 
 			m_listView.ItemSelected += (sender, e) =>
@@ -170,17 +169,18 @@ namespace Phoenix.Views.Map
 		{
 			get
 			{
-				string parameters = string.Empty;
+				StringBuilder parameters = new StringBuilder();
+				parameters.Append(string.Concat("?width=", DeviceScreen.Instance.DisplayWidth));
+				parameters.Append(string.Concat("&height=", DeviceScreen.Instance.DisplayVisibleHeight));
 				if (Person != null)
 				{
-					parameters += string.Concat("&sectorCode=", Person.Sector);
+					parameters.Append(string.Concat("&sectorCode=", Person.Sector));
 				}
-
 				if (!string.IsNullOrEmpty(LocationCode))
 				{
-					parameters += string.Concat("&locationCode=_", LocationCode);
+					parameters.Append(string.Concat("&locationCode=_", LocationCode));
 				}
-				return string.Concat("?scale=", string.IsNullOrEmpty(parameters) ? 1 : 2, parameters);
+				return parameters.ToString();
 			}
 		}
 
