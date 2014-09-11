@@ -18,6 +18,9 @@ namespace Renderers
 
 			if (eventArgs.OldElement == null)
 			{
+				Control.Settings.BuiltInZoomControls = true;
+				Control.Settings.DisplayZoomControls = false;
+				Control.SetWebChromeClient(new Android.Webkit.WebChromeClient());
 			}
 		}
 	}
