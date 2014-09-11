@@ -12,6 +12,7 @@ using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Labs.Droid;
 using Xamarin.Forms.Labs.Services;
 using Xamarin.Forms.Labs;
+using Phoenix.Utils;
 
 namespace Phoenix.Android
 {
@@ -28,6 +29,7 @@ namespace Phoenix.Android
 			base.OnCreate(bundle);
 
 			ConfigResolver();
+			ConfigDeviceScreen();
 
 			Xamarin.Forms.Forms.Init(this, bundle);
 
@@ -37,7 +39,7 @@ namespace Phoenix.Android
 		/// <summary>
 		/// Configs the resolver.
 		/// </summary>
-		private void ConfigResolver()
+		void ConfigResolver()
 		{
 			var resolverContainer = new SimpleContainer();
 
@@ -50,6 +52,26 @@ namespace Phoenix.Android
 
 			Resolver.SetResolver(resolverContainer.GetResolver());
 		}
+
+		/// <summary>
+		/// Configs the device screen.
+		/// </summary>
+		void ConfigDeviceScreen()
+		{
+			DeviceScreen.Instance.ReservedHeight = GetDimensionPixelSize("status_bar_height") + GetDimensionPixelSize("action_bar_default_height");
+		}
+
+		/// <summary>
+		/// Gets the size of the dimension pixel.
+		/// </summary>
+		/// <returns>The dimension pixel size.</returns>
+		/// <param name="id">Identifier.</param>
+		int GetDimensionPixelSize(string id) { 
+			var resourceId = Resources.GetIdentifier(id, "dimen", "android");
+			if (resourceId > 0) {
+				return Resources.GetDimensionPixelSize(resourceId);
+			} 
+			return 0;
+		}
 	}
 }
-

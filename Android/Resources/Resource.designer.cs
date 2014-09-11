@@ -193,10 +193,13 @@ namespace Phoenix.Android
 			public const int loupe = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int pin = 2130837515;
+			public const int monoandroidsplash = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int pinLeaked = 2130837516;
+			public const int pin = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int pinLeaked = 2130837517;
 			
 			static Drawable()
 			{
@@ -318,6 +321,9 @@ namespace Phoenix.Android
 			
 			// aapt resource value: 0x7f070000
 			public const int CalendarTitle = 2131165184;
+			
+			// aapt resource value: 0x7f070004
+			public const int Mono_Android_Theme_Splash = 2131165188;
 			
 			static Style()
 			{
