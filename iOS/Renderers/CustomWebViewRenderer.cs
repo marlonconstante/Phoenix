@@ -21,7 +21,7 @@ namespace Renderers
 			if (eventArgs.OldElement == null)
 			{
 				var webView = NativeView as UIWebView;
-				webView.ScalesPageToFit = true;
+				webView.ScalesPageToFit = false;
 			}
 		}
 	}
