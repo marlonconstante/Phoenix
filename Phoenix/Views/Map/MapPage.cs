@@ -84,17 +84,17 @@ namespace Phoenix.Views.Map
 				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight
 			};
 
-			var pinButton = new BackgroundButton
+			var qrCodeButton = new BackgroundButton
 			{
 				TranslationY = DeviceScreen.Instance.RelativeHeight(-24.0),
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
-				ImageFileName = "pin.png",
+				ImageFileName = "qrCode.png",
 				WidthRequest = DeviceScreen.Instance.RelativeWidth(174.0),
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(174.0)
 			};
 
-			pinButton.Clicked += (sender, e) =>
+			qrCodeButton.Clicked += (sender, e) =>
 			{
 				var myLocationPage = new MyLocationPage();
 				myLocationPage.Title = Title;
@@ -116,7 +116,7 @@ namespace Phoenix.Views.Map
 				Children =
 				{
 					{ m_browser, 0, 0 },
-					{ pinButton, 0, 0 },
+					{ qrCodeButton, 0, 0 },
 					{ searchFamiliarField, 0, 0 },
 					{ m_listView, 0, 0 }
 				}
