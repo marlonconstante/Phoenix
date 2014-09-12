@@ -129,7 +129,6 @@
     </BundleResource>
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
     <BundleResource Include="Resources\SourceSansPro-Light.otf" />
-    <BundleResource Include="Resources\pin%402x.png" />
     <BundleResource Include="Resources\CemiterioECrematorioMetropolitanoSaintHilaire%402x.png" />
     <BundleResource Include="Resources\CemiterioParqueJardinSaoVicente%402x.png" />
     <BundleResource Include="Resources\CemiterioParqueMemorialDaColina%402x.png" />
@@ -140,6 +139,7 @@
     <BundleResource Include="Resources\loupe%402x.png" />
     <BundleResource Include="Resources\cameraButton%402x.png" />
     <BundleResource Include="Resources\clearBox%402x.png" />
+    <BundleResource Include="Resources\qrCode%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
