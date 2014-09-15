@@ -23,6 +23,8 @@ namespace Phoenix.Views.Map
 		Enterprise m_enterprise;
 		Person m_person;
 		string m_locationCode;
+		ActivityIndicator m_indicator;
+		SearchBar m_searchFamiliarField;
 
 		public MapPage(Enterprise enterprise)
 		{
@@ -32,7 +34,7 @@ namespace Phoenix.Views.Map
 
 			m_enterprise = enterprise;
 
-			var searchFamiliarField = new SearchBar
+			m_searchFamiliarField = new SearchBar
 			{
 				VerticalOptions = LayoutOptions.Start,
 				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8").MultiplyAlpha(0.8f) : Color.FromHex("c9c9ce").MultiplyAlpha(0.7f),
@@ -41,9 +43,18 @@ namespace Phoenix.Views.Map
 				Placeholder = "Buscar um Ente"
 			};
 
+			m_indicator = new ActivityIndicator()
+			{
+				VerticalOptions = LayoutOptions.Start,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				TranslationY = m_searchFamiliarField.HeightRequest + DeviceScreen.Instance.RelativeHeight(20),
+				IsVisible = false,
+				Color = Color.Black
+			};
+
 			m_listView = new ListView
 			{
-				TranslationY = searchFamiliarField.HeightRequest,
+				TranslationY = m_searchFamiliarField.HeightRequest,
 				RowHeight = (int)DeviceScreen.Instance.RelativeHeight(176),
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
@@ -52,12 +63,15 @@ namespace Phoenix.Views.Map
 				Opacity = 0
 			};
 
-			searchFamiliarField.TextChanged += async (sender, e) =>
+			m_searchFamiliarField.TextChanged += async (sender, e) =>
 			{
 				var text = e.NewTextValue.ToLower();
 				var visible = !string.IsNullOrEmpty(text);
 
+				ShowIndicator(true);
 				m_listView.ItemsSource = await SearchPeople(text);
+				ShowIndicator(false);
+
 				m_listView.Opacity = visible ? 1 : 0;
 				if (Device.OS == TargetPlatform.Android)
 				{
@@ -72,8 +86,8 @@ namespace Phoenix.Views.Map
 				if (person != null)
 				{
 					Person = person;
-					searchFamiliarField.Unfocus();
-					searchFamiliarField.Text = string.Empty;
+					m_searchFamiliarField.Unfocus();
+					m_searchFamiliarField.Text = string.Empty;
 					m_listView.SelectedItem = null;
 				}
 			};
@@ -117,8 +131,9 @@ namespace Phoenix.Views.Map
 				{
 					{ m_browser, 0, 0 },
 					{ qrCodeButton, 0, 0 },
-					{ searchFamiliarField, 0, 0 },
-					{ m_listView, 0, 0 }
+					{ m_searchFamiliarField, 0, 0 },
+					{ m_listView, 0, 0 },
+					{ m_indicator, 0, 0 }
 				}
 			};
 
@@ -209,6 +224,8 @@ namespace Phoenix.Views.Map
 			var responseStr = await GetPersonsFromRestServer(nameToSearch);
 			var persons = DeserializePersons(responseStr);
 
+			await Task.Delay(10000);
+
 			return persons;
 		}
 
@@ -245,7 +262,8 @@ namespace Phoenix.Views.Map
 			var persons = new List<Person>();
 			foreach (var item in responseList)
 			{
-				persons.Add(new Person {
+				persons.Add(new Person
+				{
 					Name = item.nome,
 					PlaceName = m_enterprise.PlaceName,
 					Sector = item.localizador,
@@ -253,6 +271,12 @@ namespace Phoenix.Views.Map
 				});
 			}
 			return persons;
+		}
+
+		void ShowIndicator(bool isVisible)
+		{
+			m_indicator.IsRunning = isVisible;
+			m_indicator.IsVisible = isVisible;
 		}
 	}
 }
