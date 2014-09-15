@@ -28,7 +28,7 @@ namespace Phoenix.Views.Map
 
 		public MapPage(Enterprise enterprise)
 		{
-			Title = enterprise.Name;
+			Title = enterprise.ShortName;
 
 			NavigationPage.SetBackButtonTitle(this, string.Empty);
 
@@ -172,6 +172,7 @@ namespace Phoenix.Views.Map
 			{
 				m_person = value;
 
+				Title = value.Name;
 				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
 			}
 		}
@@ -223,8 +224,6 @@ namespace Phoenix.Views.Map
 				
 			var responseStr = await GetPersonsFromRestServer(nameToSearch);
 			var persons = DeserializePersons(responseStr);
-
-			await Task.Delay(10000);
 
 			return persons;
 		}
