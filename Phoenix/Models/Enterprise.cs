@@ -25,6 +25,16 @@ namespace Models
 		}
 
 		/// <summary>
+		/// Gets the short name.
+		/// </summary>
+		/// <value>The short name.</value>
+		public string ShortName {
+			get {
+				return Name.Substring(Name.LastIndexOf("\n") + 1);
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the name of the place.
 		/// </summary>
 		/// <value>The name of the place.</value>
