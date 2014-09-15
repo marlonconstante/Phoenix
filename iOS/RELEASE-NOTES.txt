@@ -1,2 +1,3 @@
-Versão 1.0 Beta 3
-Mapas agora hospedados no servidor da Cortel
+Versão 1.0 Beta 5
+Mapas atualizados
+Adicionados ícones e SpalshScreen
