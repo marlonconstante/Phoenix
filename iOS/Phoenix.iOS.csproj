@@ -157,6 +157,8 @@
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default-Portrait%402x.png" />
     <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\cameraButton.png" />
+    <BundleResource Include="Resources\qrCode.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
