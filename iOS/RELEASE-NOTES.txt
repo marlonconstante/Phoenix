@@ -1,3 +1,2 @@
-Versão 1.0 Beta 5
-Mapas atualizados
-Adicionados ícones e SpalshScreen
+Versão 1.0 Final
+Esta é a versão que será enviada a App Store.
