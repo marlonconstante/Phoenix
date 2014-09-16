@@ -66,12 +66,12 @@ namespace Phoenix.Views.Map
 			m_searchFamiliarField.TextChanged += async (sender, e) =>
 			{
 				var text = e.NewTextValue.ToLower();
-				var visible = !string.IsNullOrEmpty(text);
 
 				ShowIndicator(true);
 				m_listView.ItemsSource = await SearchPeople(text);
 				ShowIndicator(false);
 
+				var visible = !string.IsNullOrEmpty(m_searchFamiliarField.Text);
 				m_listView.Opacity = visible ? 1 : 0;
 				if (Device.OS == TargetPlatform.Android)
 				{
