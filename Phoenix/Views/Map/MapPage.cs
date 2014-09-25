@@ -60,7 +60,8 @@ namespace Phoenix.Views.Map
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
 				IsEnabled = Device.OS != TargetPlatform.Android,
 				IsVisible = Device.OS != TargetPlatform.Android,
-				Opacity = 0
+				Opacity = 0,
+				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight - m_searchFamiliarField.HeightRequest
 			};
 
 			m_searchFamiliarField.TextChanged += async (sender, e) =>
