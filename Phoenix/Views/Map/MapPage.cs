@@ -37,7 +37,7 @@ namespace Phoenix.Views.Map
 			m_searchFamiliarField = new SearchBar
 			{
 				VerticalOptions = LayoutOptions.Start,
-				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8").MultiplyAlpha(0.8f) : Color.FromHex("c9c9ce").MultiplyAlpha(0.7f),
+				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8") : Color.FromHex("c9c9ce"),
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(88),
 				Placeholder = "Informe o Nome"
@@ -96,12 +96,13 @@ namespace Phoenix.Views.Map
 			m_browser = new WebView
 			{
 				Source = BrowserURL,
-				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight
+				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight - m_searchFamiliarField.HeightRequest,
+				TranslationY = m_searchFamiliarField.HeightRequest 
 			};
 
 			var qrCodeButton = new BackgroundButton
 			{
-				TranslationY = DeviceScreen.Instance.RelativeHeight(-24.0),
+				TranslationY = m_searchFamiliarField.HeightRequest - DeviceScreen.Instance.RelativeHeight(24.0),
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				ImageFileName = "qrCode.png",
