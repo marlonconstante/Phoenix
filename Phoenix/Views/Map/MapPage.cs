@@ -40,7 +40,7 @@ namespace Phoenix.Views.Map
 				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8").MultiplyAlpha(0.8f) : Color.FromHex("c9c9ce").MultiplyAlpha(0.7f),
 				WidthRequest = DeviceScreen.Instance.DisplayWidth,
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(88),
-				Placeholder = "Buscar um Ente"
+				Placeholder = "Informe o Nome"
 			};
 
 			m_indicator = new ActivityIndicator()
@@ -77,6 +77,7 @@ namespace Phoenix.Views.Map
 				{
 					m_listView.IsEnabled = visible;
 					m_listView.IsVisible = visible;
+					m_listView.VerticalOptions = LayoutOptions.Fill;
 				}
 			};
 
@@ -107,6 +108,12 @@ namespace Phoenix.Views.Map
 				WidthRequest = DeviceScreen.Instance.RelativeWidth(174.0),
 				HeightRequest = DeviceScreen.Instance.RelativeHeight(174.0)
 			};
+
+			if (DeviceScreen.Instance.Display.Width <= 320)
+			{
+				qrCodeButton.WidthRequest = DeviceScreen.Instance.RelativeWidth(90.0);
+				qrCodeButton.HeightRequest = DeviceScreen.Instance.RelativeHeight(90.0);
+			}
 
 			qrCodeButton.Clicked += (sender, e) =>
 			{

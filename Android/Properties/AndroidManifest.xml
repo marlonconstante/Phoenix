@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="br.com.cortel.mapascortel">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:icon="@drawable/icon" android:label="Cortel Mapas">
+	<application android:icon="@drawable/icon" android:label="Cortel Mapas" android:theme="@style/CustomTheme">
 	</application>
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

@@ -319,6 +319,9 @@ namespace Phoenix.Android
 			// aapt resource value: 0x7f070000
 			public const int CalendarTitle = 2131165184;
 			
+			// aapt resource value: 0x7f070004
+			public const int CustomTheme = 2131165188;
+			
 			static Style()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

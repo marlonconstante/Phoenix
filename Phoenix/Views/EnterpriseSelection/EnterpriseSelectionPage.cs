@@ -30,7 +30,7 @@ namespace Phoenix.Views.EnterpriseSelection
 			{ 
 				new Enterprise { Id = 5, Name = "Crematório Metropolitano\nCristo Rei", PlaceName = "São Leopoldo", UrlMap = string.Concat(baseURL, "CristoRei.html"), ImageName = "CrematorioMetropolitanoCristoRei.png" },
 				new Enterprise { Id = 8, Name = "Cemitério E Crematório Metropolitano\nSaint Hilaire", PlaceName = "Viamão", UrlMap = string.Concat(baseURL,"SaintHilaire.html"), ImageName = "CemiterioECrematorioMetropolitanoSaintHilaire.png" },
-				new Enterprise { Id = 2, Name = "Cemitério Parque\nJardin São Vicente", PlaceName = "Canoas", UrlMap = string.Concat(baseURL,"SaoVicente.html"), ImageName = "CemiterioParqueJardinSaoVicente.png" },
+				new Enterprise { Id = 2, Name = "Cemitério Parque\nJardim São Vicente", PlaceName = "Canoas", UrlMap = string.Concat(baseURL,"SaoVicente.html"), ImageName = "CemiterioParqueJardinSaoVicente.png" },
 				new Enterprise { Id = 6, Name = "Cemitério Parque\nMemorial da Colina", PlaceName = "Cachoerinha", UrlMap = string.Concat(baseURL,"MemorialColina.html"), ImageName = "CemiterioParqueMemorialDaColina.png" },
 				new Enterprise { Id = 7, Name = "Crematório Metropolitano\nSão José", PlaceName = "Porto Alegre", UrlMap = string.Concat(baseURL,"SaoJose.html"), ImageName = "CrematorioMetropolitanoSaoJose.png" }
 			};
