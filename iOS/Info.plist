@@ -55,5 +55,7 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>6</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
 </dict>
 </plist>
