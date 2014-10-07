@@ -164,6 +164,16 @@ namespace Phoenix.Views.Map
 				m_locationCode = value;
 
 				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=_", value);
+
+				var url = new Uri(string.Concat(BrowserURL, 
+					          "&zoomIn=_", value,
+					          "&name=", Person.Name,
+					          "&date=", Person.BurialDate.ToString("d"),
+					          "&number=", Person.Unit
+				          ));
+
+
+				m_browser.Source = url.AbsoluteUri;
 			}
 		}
 
@@ -182,7 +192,18 @@ namespace Phoenix.Views.Map
 				m_person = value;
 
 				Title = value.Name;
-				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
+
+
+
+				var url = new Uri(string.Concat(BrowserURL, 
+					          "&zoomIn=", value.Sector,
+					          "&name=", value.Name,
+					          "&date=", value.BurialDate.ToString("d"),
+					          "&number=", value.Unit
+				          ));
+
+
+				m_browser.Source = url.AbsoluteUri;
 			}
 		}
 
@@ -275,7 +296,8 @@ namespace Phoenix.Views.Map
 					Name = item.nome,
 					PlaceName = m_enterprise.PlaceName,
 					Sector = item.localizador,
-					Unit = item.unidade
+					Unit = item.unidade,
+					BurialDate = item.sepultamento
 				});
 			}
 			return persons;

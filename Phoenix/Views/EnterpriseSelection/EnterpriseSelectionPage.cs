@@ -21,11 +21,10 @@ namespace Phoenix.Views.EnterpriseSelection
 				RowHeight = (int)DeviceScreen.Instance.RelativeHeight(400),
 				ItemTemplate = new DataTemplate(typeof(EnterpriseSelectionItemCell))
 			};
-
-
-//			var baseURL = "https://rawgit.com/marlonconstante/Phoenix-Maps/master/demo/";
+					
 			var baseURL = "http://177.52.183.128/themes/sourceApp/";
 //			var baseURL = "http://192.168.25.10:3001/dist/";
+
 
 			m_listView.ItemsSource = new Enterprise []
 			{ 

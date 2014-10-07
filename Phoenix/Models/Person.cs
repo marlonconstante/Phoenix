@@ -40,5 +40,15 @@ namespace Phoenix.Models
 			get;
 			set;
 		}
+
+		/// <summary>
+		/// Gets or sets the sepultamento.
+		/// </summary>
+		/// <value>The sepultamento.</value>
+		public DateTime BurialDate
+		{
+			get;
+			set;
+		}
 	}
 }

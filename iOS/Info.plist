@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Cortel Mapas</string>
+	<string>Cortel</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.grouplighthouse.phoenix</string>
+	<string>br.com.cortel.cortel</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -53,9 +53,9 @@
 		<string>Icon-Small-40</string>
 		<string>Icon-Small-40@2x</string>
 	</array>
-	<key>CFBundleVersion</key>
-	<string>6</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>CFBundleVersion</key>
+	<string>8</string>
 </dict>
 </plist>
