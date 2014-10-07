@@ -165,15 +165,21 @@ namespace Phoenix.Views.Map
 
 				m_browser.Source = string.Concat(BrowserURL, "&zoomIn=_", value);
 
-				var url = new Uri(string.Concat(BrowserURL, 
-					          "&zoomIn=_", value,
-					          "&name=", Person.Name,
-					          "&date=", Person.BurialDate.ToString("d"),
-					          "&number=", Person.Unit
-				          ));
 
 
-				m_browser.Source = url.AbsoluteUri;
+				var url = string.Concat(BrowserURL, "&zoomIn=_", value);
+					        
+				if (Person != null)
+				{
+					url = string.Concat(url,   
+						"&name=", Person.Name,
+						"&date=", Person.BurialDate.ToString("d"),
+						"&number=", Person.Unit
+					);
+				}
+
+
+				m_browser.Source = new Uri(url).AbsoluteUri;
 			}
 		}
 
@@ -193,17 +199,18 @@ namespace Phoenix.Views.Map
 
 				Title = value.Name;
 
+				var url = string.Concat(BrowserURL, "&zoomIn=", value.Sector);
 
-
-				var url = new Uri(string.Concat(BrowserURL, 
-					          "&zoomIn=", value.Sector,
-					          "&name=", value.Name,
-					          "&date=", value.BurialDate.ToString("d"),
-					          "&number=", value.Unit
-				          ));
-
-
-				m_browser.Source = url.AbsoluteUri;
+				if (Person != null)
+				{
+					url = string.Concat(url,   
+						"&name=", value.Name,
+						"&date=", value.BurialDate.ToString("d"),
+						"&number=", value.Unit
+					);
+				}
+					
+				m_browser.Source = new Uri(url).AbsoluteUri;
 			}
 		}
 

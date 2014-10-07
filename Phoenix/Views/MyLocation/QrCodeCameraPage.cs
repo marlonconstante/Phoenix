@@ -16,7 +16,7 @@ namespace Phoenix.Views.MyLocation
 		/// <param name="qrCode">Qr code.</param>
 		public void SetQrCode(string qrCode)
 		{
-			ParentPage.QrInput.Text = qrCode.Remove(0, 1);
+			ParentPage.QrInput.Text = qrCode;
 
 			if (Device.OS == TargetPlatform.iOS)
 			{
