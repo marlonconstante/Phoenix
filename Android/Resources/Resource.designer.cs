@@ -26,9 +26,6 @@ namespace Phoenix.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::ZXing.Mobile.Resource.Id.contentFrame = global::Phoenix.Android.Resource.Id.contentFrame;
-			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Phoenix.Android.Resource.Layout.zxingscanneractivitylayout;
-			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Phoenix.Android.Resource.Layout.zxingscannerfragmentlayout;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_active_month_bg = global::Phoenix.Android.Resource.Color.calendar_active_month_bg;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_bg = global::Phoenix.Android.Resource.Color.calendar_bg;
 			global::Xamarin.Forms.Labs.Droid.Resource.Color.calendar_divider = global::Phoenix.Android.Resource.Color.calendar_divider;
@@ -64,6 +61,9 @@ namespace Phoenix.Android
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarCell_CalendarDate = global::Phoenix.Android.Resource.Style.CalendarCell_CalendarDate;
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarCell_DayHeader = global::Phoenix.Android.Resource.Style.CalendarCell_DayHeader;
 			global::Xamarin.Forms.Labs.Droid.Resource.Style.CalendarTitle = global::Phoenix.Android.Resource.Style.CalendarTitle;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::Phoenix.Android.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::Phoenix.Android.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::Phoenix.Android.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Attribute

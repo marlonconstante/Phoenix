@@ -7,6 +7,12 @@ namespace Phoenix
 	public class App
 	{
 		/// <summary>
+		/// Gets the navigation.
+		/// </summary>
+		/// <value>The navigation.</value>
+		public static INavigation Navigation { get; private set; }
+
+		/// <summary>
 		/// Gets the main page.
 		/// </summary>
 		/// <returns>The main page.</returns>

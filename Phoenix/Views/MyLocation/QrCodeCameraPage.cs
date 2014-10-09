@@ -17,11 +17,6 @@ namespace Phoenix.Views.MyLocation
 		public void SetQrCode(string qrCode)
 		{
 			ParentPage.QrInput.Text = qrCode;
-
-			if (Device.OS == TargetPlatform.iOS)
-			{
-				Navigation.PopAsync();
-			}
 		}
 
 		/// <summary>

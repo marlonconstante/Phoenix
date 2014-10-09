@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Phoenix.Views.Map;
 using Phoenix.Controls;
 using Phoenix.Utils;
+using System.Threading.Tasks;
 
 namespace Phoenix.Views.MyLocation
 {
@@ -29,7 +30,7 @@ namespace Phoenix.Views.MyLocation
 			};
 			QrInput.OnCodeComplete = () => {
 				ParentPage.LocationCode = QrInput.Text;
-				Navigation.PopAsync();
+				GoBackToMap();
 			};
 
 			var cameraButton = new BackgroundButton {
@@ -70,6 +71,12 @@ namespace Phoenix.Views.MyLocation
 				}
 			};
 			Content = layout;
+		}
+
+		async Task GoBackToMap()
+		{
+			await Navigation.PopAsync();
+			await Navigation.PopAsync();
 		}
 
 		/// <summary>
