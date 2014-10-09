@@ -17,7 +17,7 @@ using Phoenix.Utils;
 namespace Phoenix.Android
 {
 
-	[Activity(Label = "Phoenix.Android.Android", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "Cortel", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : XFormsApplicationDroid
 	{
 		/// <summary>
@@ -66,11 +66,11 @@ namespace Phoenix.Android
 		/// </summary>
 		/// <returns>The dimension pixel size.</returns>
 		/// <param name="id">Identifier.</param>
-		int GetDimensionPixelSize(string id) { 
+		int GetDimensionPixelSize(string id) {
 			var resourceId = Resources.GetIdentifier(id, "dimen", "android");
 			if (resourceId > 0) {
 				return Resources.GetDimensionPixelSize(resourceId);
-			} 
+			}
 			return 0;
 		}
 	}
