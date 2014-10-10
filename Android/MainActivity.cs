@@ -13,6 +13,8 @@ using Xamarin.Forms.Labs.Droid;
 using Xamarin.Forms.Labs.Services;
 using Xamarin.Forms.Labs;
 using Phoenix.Utils;
+using Xamarin;
+
 
 namespace Phoenix.Android
 {
@@ -27,6 +29,8 @@ namespace Phoenix.Android
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
+
+			Insights.Initialize("43b88cf79bca4b59670dc37ca353adf6bc03fba3", ApplicationContext);
 
 			ConfigResolver();
 			ConfigDeviceScreen();

@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Cortel</string>
 	<key>CFBundleIdentifier</key>
-	<string>br.com.cortel.cortel</string>
+	<string>com.grouplighthouse.phoenix</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -13,6 +13,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Phoenix.Models.Json;
+using Xamarin;
 
 namespace Phoenix.Views.Map
 {
@@ -84,13 +85,20 @@ namespace Phoenix.Views.Map
 
 			m_listView.ItemSelected += (sender, e) =>
 			{
-				var person = (Person)e.SelectedItem;
-				if (person != null)
+				try
 				{
-					Person = person;
-					m_searchFamiliarField.Unfocus();
-					m_searchFamiliarField.Text = string.Empty;
-					m_listView.SelectedItem = null;
+					var person = (Person)e.SelectedItem;
+					if (person != null)
+					{
+						Person = person;
+						m_searchFamiliarField.Unfocus();
+						m_searchFamiliarField.Text = string.Empty;
+						m_listView.SelectedItem = null;
+					}
+				}
+				catch (Exception ex)
+				{
+					Insights.Report(ex);
 				}
 			};
 
