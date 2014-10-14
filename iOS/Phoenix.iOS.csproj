@@ -110,12 +110,6 @@
     <Reference Include="zxing.monotouch">
       <HintPath>..\Components\zxing.net.mobile-1.4.6\lib\ios\zxing.monotouch.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Labs.iOS">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.2.0-pre3\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Labs">
-      <HintPath>..\packages\Xamarin.Forms.Labs.1.2.0-pre3\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Platform.iOS">
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoTouch10\Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
@@ -124,6 +118,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.1.2.3.6257\lib\MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs.iOS">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.2.0\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs">
+      <HintPath>..\packages\Xamarin.Forms.Labs.1.2.0\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

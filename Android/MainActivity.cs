@@ -19,7 +19,7 @@ using Xamarin;
 namespace Phoenix.Android
 {
 
-	[Activity(Label = "Cortel", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity(Label = "Cortel", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,Theme = "@style/CustomTheme")]
 	public class MainActivity : XFormsApplicationDroid
 	{
 		/// <summary>

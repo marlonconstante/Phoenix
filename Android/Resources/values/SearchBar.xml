@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchBar">
+        <item name="android:background">#f9f8f8</item>
+    </style>
+</resources>
