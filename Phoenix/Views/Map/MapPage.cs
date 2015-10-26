@@ -111,7 +111,7 @@ namespace Phoenix.Views.Map
 
 			var qrCodeButton = new BackgroundButton
 			{
-				TranslationY = m_searchFamiliarField.HeightRequest - DeviceScreen.Instance.RelativeHeight(24.0),
+				TranslationY = -DeviceScreen.Instance.RelativeHeight(24.0),
 				VerticalOptions = LayoutOptions.End,
 				HorizontalOptions = LayoutOptions.Center,
 				ImageFileName = "qrCode.png",
