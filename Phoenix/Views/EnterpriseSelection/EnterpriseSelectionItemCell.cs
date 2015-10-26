@@ -1,10 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Labs;
-using Xamarin.Forms.Labs.Services;
-using Xamarin.Forms.Labs.Controls;
 using Phoenix.Utils;
 using Phoenix.Controls;
+using XLabs.Forms.Controls;
 
 namespace Phoenix.Views.EnterpriseSelection
 {

@@ -2,8 +2,8 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
 using System.Drawing;
+using UIKit;
 
 [assembly:ExportRenderer(typeof(WebView), typeof(CustomWebViewRenderer))]
 namespace Renderers

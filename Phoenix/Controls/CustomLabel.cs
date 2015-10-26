@@ -1,5 +1,5 @@
 ﻿using System;
-using Xamarin.Forms.Labs.Controls;
+using XLabs.Forms.Controls;
 
 namespace Phoenix.Controls
 {

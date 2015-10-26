@@ -285,7 +285,7 @@ namespace Phoenix.Views.Map
 			string responseStr;
 			try
 			{
-				var getResponse = await httpClient.PostAsync("http://177.52.183.128/rest/pessoa", new StringContent(content, Encoding.UTF8, "application/json"));
+				var getResponse = await httpClient.PostAsync("https://177.52.183.128/rest/pessoa", new StringContent(content, Encoding.UTF8, "application/json"));
 				responseStr = await getResponse.Content.ReadAsStringAsync();
 			}
 			catch (Exception ex)
@@ -323,5 +323,11 @@ namespace Phoenix.Views.Map
 			m_indicator.IsRunning = isVisible;
 			m_indicator.IsVisible = isVisible;
 		}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            m_browser.Source = m_browser.Source;
+        }
 	}
 }

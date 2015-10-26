@@ -5,8 +5,10 @@
 	<key>CFBundleDisplayName</key>
 	<string>Cortel</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.grouplighthouse.phoenix</string>
+	<string>com.companyname.cortel</string>
 	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -24,38 +26,43 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
+	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>SourceSansPro-Regular.otf</string>
-		<string>SourceSansPro-Bold.otf</string>
-		<string>SourceSansPro-Light.otf</string>
-		<string>SourceSansPro-Semibold.otf</string>
-	</array>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>English</string>
-		<string>Portuguese</string>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Icon</string>
-		<string>Icon@2x</string>
 		<string>Icon-60@2x</string>
-		<string>Icon-72</string>
-		<string>Icon-72@2x</string>
+		<string>Icon-60@3x</string>
 		<string>Icon-76</string>
 		<string>Icon-76@2x</string>
-		<string>Icon-Small</string>
-		<string>Icon-Small@2x</string>
-		<string>Icon-Small-50</string>
-		<string>Icon-Small-50@2x</string>
+		<string>Default</string>
+		<string>Default@2x</string>
+		<string>Default-568h</string>
+		<string>Default-568h@2x</string>
+		<string>Default-Landscape</string>
+		<string>Default-Landscape@2x</string>
+		<string>Default-Portrait</string>
+		<string>Default-Portrait@2x</string>
 		<string>Icon-Small-40</string>
 		<string>Icon-Small-40@2x</string>
+		<string>Icon-Small-40@3x</string>
+		<string>Icon-Small</string>
+		<string>Icon-Small@2x</string>
+		<string>Icon-Small@3x</string>
 	</array>
-	<key>UIStatusBarHidden</key>
-	<true/>
-	<key>CFBundleVersion</key>
-	<string>9</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

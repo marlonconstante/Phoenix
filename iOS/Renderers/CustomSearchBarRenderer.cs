@@ -2,7 +2,7 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
+using UIKit;
 
 [assembly:ExportRenderer(typeof(SearchBar), typeof(CustomSearchBarRenderer))]
 namespace Renderers

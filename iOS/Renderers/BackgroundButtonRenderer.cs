@@ -2,8 +2,8 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
 using Phoenix.Controls;
+using UIKit;
 
 [assembly:ExportRenderer(typeof(BackgroundButton), typeof(BackgroundButtonRenderer))]
 namespace Renderers

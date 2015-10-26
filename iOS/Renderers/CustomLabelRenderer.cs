@@ -2,10 +2,10 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
-using Xamarin.Forms.Labs.iOS.Controls;
 using Phoenix.Controls;
 using System.Drawing;
+using UIKit;
+using XLabs.Forms.Controls;
 
 [assembly:ExportRenderer(typeof(CustomLabel), typeof(CustomLabelRenderer))]
 namespace Renderers

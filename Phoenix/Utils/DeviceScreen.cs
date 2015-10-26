@@ -1,7 +1,7 @@
 ﻿using System;
-using Xamarin.Forms.Labs.Services;
-using Xamarin.Forms.Labs;
 using Xamarin.Forms;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
 
 namespace Phoenix.Utils
 {

@@ -2,7 +2,8 @@
 using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using Renderers;
-using MonoTouch.UIKit;
+using UIKit;
+
 
 [assembly:ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationRenderer))]
 namespace Renderers
@@ -19,11 +20,11 @@ namespace Renderers
 			NavigationBar.TintColor = UIColor.FromRGB(0, 121, 255);
 			NavigationBar.BarTintColor = NavigationPage.BarBackgroundColor.ToUIColor();
 
-			var textAttributes = new UITextAttributes {
+            var textAttributes = new UIStringAttributes {
 				Font = UIFont.FromName("SourceSansPro-Semibold", 17),
-				TextColor = NavigationPage.BarTextColor.ToUIColor()
 			};
-			NavigationBar.SetTitleTextAttributes(textAttributes);
+            //TODO: Ta certo isso?
+            NavigationBar.TintColor = NavigationPage.BarTextColor.ToUIColor();
 		}
 
 		/// <summary>

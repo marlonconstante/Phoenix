@@ -1,4 +1,0 @@
-Versão 1.0 Final com os ajustes solicitados.
-Esta é a versão que será enviada a App Store.
-
-Adicionado um tooltip com os dados do sepultado.

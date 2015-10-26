@@ -2,78 +2,60 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Labs.iOS;
-using Xamarin.Forms.Labs.Services;
-using Xamarin.Forms.Labs;
+using Foundation;
+using UIKit;
+using XLabs.Forms;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
 using Phoenix.Utils;
 
 namespace Phoenix.iOS
 {
-	[Register("AppDelegate")]
-	public partial class AppDelegate : XFormsApplicationDelegate
-	{
-		UIWindow window;
+    [Register("AppDelegate")]
+    public partial class AppDelegate : XFormsApplicationDelegate
+    {
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        {
+            global::Xamarin.Forms.Forms.Init();
 
-		/// <summary>
-		/// Finisheds the launching.
-		/// </summary>
-		/// <returns><c>true</c>, if launching was finisheded, <c>false</c> otherwise.</returns>
-		/// <param name="app">App.</param>
-		/// <param name="options">Options.</param>
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-		{
-			Forms.Init();
+            // Code for starting up the Xamarin Test Cloud Agent
+            #if ENABLE_TEST_CLOUD
+			Xamarin.Calabash.Start();
+            #endif
 
-			ConfigResolver();
-			ConfigDeviceScreen();
+            ConfigResolver();
+            ConfigDeviceScreen();
 
-			window = new UIWindow(UIScreen.MainScreen.Bounds);
-			
-			window.RootViewController = App.GetMainPage().CreateViewController();
-			window.MakeKeyAndVisible();
-			
-			return true;
-		}
+            LoadApplication(new App());
 
-		/// <Docs>Reference to the UIApplication that invoked this delegate method.</Docs>
-		/// <summary>
-		/// Gets the supported interface orientations.
-		/// </summary>
-		/// <returns>The supported interface orientations.</returns>
-		/// <param name="application">Application.</param>
-		/// <param name="window">Window.</param>
-		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow window)
-		{
-			return UIInterfaceOrientationMask.Portrait;
-		}
+            return base.FinishedLaunching(app, options);
+        }
 
-		/// <summary>
-		/// Configs the resolver.
-		/// </summary>
-		void ConfigResolver()
-		{
-			var resolverContainer = new SimpleContainer();
+        /// <summary>
+        /// Configs the resolver.
+        /// </summary>
+        void ConfigResolver()
+        {
+            var resolverContainer = new SimpleContainer();
 
-			var app = new XFormsAppiOS();
-			app.Init(this);
+            var app = new XFormsAppiOS();
+            app.Init(this);
 
-			resolverContainer.Register<IDevice>(t => AppleDevice.CurrentDevice)
-				.Register<IDisplay>(t => t.Resolve<IDevice>().Display)
-				.Register<IDependencyContainer>(t => resolverContainer);
+            resolverContainer.Register<IDevice>(t => AppleDevice.CurrentDevice)
+                .Register<IDisplay>(t => t.Resolve<IDevice>().Display)
+                .Register<IDependencyContainer>(t => resolverContainer);
 
-			Resolver.SetResolver(resolverContainer.GetResolver());
-		}
+            Resolver.SetResolver(resolverContainer.GetResolver());
+        }
 
-		/// <summary>
-		/// Configs the device screen.
-		/// </summary>
-		void ConfigDeviceScreen()
-		{
-			DeviceScreen.Instance.ReservedHeight = 128d;
-		}
-	}
+        /// <summary>
+        /// Configs the device screen.
+        /// </summary>
+        void ConfigDeviceScreen()
+        {
+            DeviceScreen.Instance.ReservedHeight = 128d;
+        }
+
+    }
 }
+

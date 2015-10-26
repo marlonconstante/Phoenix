@@ -1,8 +1,8 @@
 ﻿using System;
-using Xamarin.Forms.Labs.Controls;
 using Xamarin.Forms;
 using Phoenix.Utils;
 using Phoenix.Controls;
+using XLabs.Forms.Controls;
 
 namespace Phoenix.Views.PersonSelection
 {
