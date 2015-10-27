@@ -61,7 +61,8 @@ namespace Phoenix.Views.Map
 				IsEnabled = Device.OS != TargetPlatform.Android,
 				IsVisible = Device.OS != TargetPlatform.Android,
 				Opacity = 0,
-				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight - m_searchFamiliarField.HeightRequest
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand
 			};
 
 			m_searchFamiliarField.TextChanged += async (sender, e) =>
