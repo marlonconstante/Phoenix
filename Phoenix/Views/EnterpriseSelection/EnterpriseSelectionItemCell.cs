@@ -32,13 +32,6 @@ namespace Phoenix.Views.EnterpriseSelection
 
 			var grid = new Grid
 			{
-				ColumnDefinitions =
-				{
-					new ColumnDefinition
-					{
-						Width = DeviceScreen.Instance.DisplayWidth
-					}
-				},
 				RowDefinitions =
 				{
 					new RowDefinition

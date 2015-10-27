@@ -13,7 +13,7 @@ using Phoenix.Utils;
 
 namespace Phoenix.Droid
 {
-	[Activity(Label = "Cortel", Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/CustomTheme")]
+	[Activity(Label = "Cortel", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/CustomTheme")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)

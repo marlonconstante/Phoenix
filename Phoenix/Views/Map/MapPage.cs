@@ -135,13 +135,6 @@ namespace Phoenix.Views.Map
 			{
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
-				ColumnDefinitions =
-				{
-					new ColumnDefinition
-					{
-						Width = DeviceScreen.Instance.DisplayWidth
-					}
-				},
 				Children =
 				{
 					{ m_browser, 0, 0 },
@@ -152,6 +145,8 @@ namespace Phoenix.Views.Map
 			};
 
 			Content = new StackLayout {
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Spacing = 0d,
 				Children = {
 					m_searchFamiliarField,
