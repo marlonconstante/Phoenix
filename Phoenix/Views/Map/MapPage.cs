@@ -39,8 +39,6 @@ namespace Phoenix.Views.Map
 			{
 				VerticalOptions = LayoutOptions.Start,
 				BackgroundColor = (Device.OS == TargetPlatform.Android) ? Color.FromHex("f9f8f8") : Color.FromHex("c9c9ce"),
-				WidthRequest = DeviceScreen.Instance.DisplayWidth,
-				HeightRequest = DeviceScreen.Instance.RelativeHeight(88),
 				Placeholder = "Informe o Nome"
 			};
 
