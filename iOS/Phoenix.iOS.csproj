@@ -199,10 +199,18 @@
     <BundleResource Include="Resources\pinLeaked%402x.png" />
     <BundleResource Include="Resources\qrCode.png" />
     <BundleResource Include="Resources\qrCode%402x.png" />
-    <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
-    <BundleResource Include="Resources\SourceSansPro-Light.otf" />
-    <BundleResource Include="Resources\SourceSansPro-Regular.otf" />
-    <BundleResource Include="Resources\SourceSansPro-Semibold.otf" />
+    <BundleResource Include="Resources\SourceSansPro-Bold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\SourceSansPro-Light.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\SourceSansPro-Regular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\SourceSansPro-Semibold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
