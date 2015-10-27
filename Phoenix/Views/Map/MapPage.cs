@@ -47,15 +47,14 @@ namespace Phoenix.Views.Map
 			m_indicator = new ActivityIndicator()
 			{
 				VerticalOptions = LayoutOptions.Start,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				TranslationY = m_searchFamiliarField.HeightRequest + DeviceScreen.Instance.RelativeHeight(20),
+				HorizontalOptions = LayoutOptions.Center,
+				TranslationY = DeviceScreen.Instance.RelativeHeight(20),
 				IsVisible = false,
 				Color = Color.Black
 			};
 
 			m_listView = new ListView
 			{
-				TranslationY = m_searchFamiliarField.HeightRequest,
 				RowHeight = (int)DeviceScreen.Instance.RelativeHeight(176),
 				ItemTemplate = new DataTemplate(typeof(PersonSelectionItemCell)),
 				BackgroundColor = Color.FromHex("f9f8f8").MultiplyAlpha(0.8f),
@@ -67,7 +66,7 @@ namespace Phoenix.Views.Map
 
 			m_searchFamiliarField.TextChanged += async (sender, e) =>
 			{
-				var text = e.NewTextValue.ToLower();
+				var text = e.NewTextValue?.ToLower() ?? string.Empty;
 
 				ShowIndicator(true);
 				m_listView.ItemsSource = await SearchPeople(text);
@@ -105,8 +104,8 @@ namespace Phoenix.Views.Map
 			m_browser = new WebView
 			{
 				Source = BrowserURL,
-				HeightRequest = DeviceScreen.Instance.DisplayVisibleHeight - m_searchFamiliarField.HeightRequest,
-				TranslationY = m_searchFamiliarField.HeightRequest 
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand
 			};
 
 			var qrCodeButton = new BackgroundButton
@@ -148,13 +147,18 @@ namespace Phoenix.Views.Map
 				{
 					{ m_browser, 0, 0 },
 					{ qrCodeButton, 0, 0 },
-					{ m_searchFamiliarField, 0, 0 },
 					{ m_listView, 0, 0 },
 					{ m_indicator, 0, 0 }
 				}
 			};
 
-			Content = grid;
+			Content = new StackLayout {
+				Spacing = 0d,
+				Children = {
+					m_searchFamiliarField,
+					grid
+				}
+			};
 		}
 
 		/// <summary>
@@ -285,12 +289,12 @@ namespace Phoenix.Views.Map
 			string responseStr;
 			try
 			{
-				var getResponse = await httpClient.PostAsync("https://177.52.183.128/rest/pessoa", new StringContent(content, Encoding.UTF8, "application/json"));
+				var getResponse = await httpClient.PostAsync("http://177.52.183.128/rest/pessoa", new StringContent(content, Encoding.UTF8, "application/json"));
 				responseStr = await getResponse.Content.ReadAsStringAsync();
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+				responseStr = "[]";
 			}
 			return responseStr;
 		}
