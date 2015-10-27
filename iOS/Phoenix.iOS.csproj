@@ -181,13 +181,8 @@
     <BundleResource Include="Resources\CrematorioMetropolitanoCristoRei%402x.png" />
     <BundleResource Include="Resources\CrematorioMetropolitanoSaoJose%402x.png" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\default-640x1136.png" />
-    <BundleResource Include="Resources\default-768x1004.png" />
-    <BundleResource Include="Resources\default-1536x2008.png" />
     <BundleResource Include="Resources\Default-Portrait.png" />
     <BundleResource Include="Resources\Default-Portrait%402x.png" />
-    <BundleResource Include="Resources\default.png" />
-    <BundleResource Include="Resources\default%402x.png" />
     <BundleResource Include="Resources\Icon-60%402x.png" />
     <BundleResource Include="Resources\Icon-72.png" />
     <BundleResource Include="Resources\Icon-72%402x.png" />
@@ -217,6 +212,11 @@
     <BundleResource Include="Resources\SourceSansPro-Semibold.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-1536x2008.png" />
+    <BundleResource Include="Resources\Default-640x1136.png" />
+    <BundleResource Include="Resources\Default-768x1004.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="zxing.net.mobile">
