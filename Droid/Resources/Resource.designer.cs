@@ -3463,8 +3463,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090055
 			public const int action_bar = 2131296341;
 			
-			// aapt resource value: 0x7f090001
-			public const int action_bar_activity_content = 2131296257;
+			// aapt resource value: 0x7f09002f
+			public const int action_bar_activity_content = 2131296303;
 			
 			// aapt resource value: 0x7f090054
 			public const int action_bar_container = 2131296340;
@@ -3472,8 +3472,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090050
 			public const int action_bar_root = 2131296336;
 			
-			// aapt resource value: 0x7f090002
-			public const int action_bar_spinner = 2131296258;
+			// aapt resource value: 0x7f090030
+			public const int action_bar_spinner = 2131296304;
 			
 			// aapt resource value: 0x7f090039
 			public const int action_bar_subtitle = 2131296313;
@@ -3487,11 +3487,11 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f09007d
 			public const int action_divider = 2131296381;
 			
-			// aapt resource value: 0x7f090003
-			public const int action_menu_divider = 2131296259;
+			// aapt resource value: 0x7f090031
+			public const int action_menu_divider = 2131296305;
 			
-			// aapt resource value: 0x7f090004
-			public const int action_menu_presenter = 2131296260;
+			// aapt resource value: 0x7f090032
+			public const int action_menu_presenter = 2131296306;
 			
 			// aapt resource value: 0x7f090052
 			public const int action_mode_bar = 2131296338;
@@ -3508,17 +3508,17 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090045
 			public const int alertTitle = 2131296325;
 			
-			// aapt resource value: 0x7f090032
-			public const int always = 2131296306;
+			// aapt resource value: 0x7f09002b
+			public const int always = 2131296299;
 			
 			// aapt resource value: 0x7f090071
 			public const int art = 2131296369;
 			
-			// aapt resource value: 0x7f090030
-			public const int beginning = 2131296304;
+			// aapt resource value: 0x7f090027
+			public const int beginning = 2131296295;
 			
-			// aapt resource value: 0x7f090011
-			public const int bottom = 2131296273;
+			// aapt resource value: 0x7f090008
+			public const int bottom = 2131296264;
 			
 			// aapt resource value: 0x7f09004b
 			public const int buttonPanel = 2131296331;
@@ -3535,14 +3535,14 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f09007a
 			public const int cancel_action = 2131296378;
 			
-			// aapt resource value: 0x7f090012
-			public const int center = 2131296274;
+			// aapt resource value: 0x7f09000e
+			public const int center = 2131296270;
 			
-			// aapt resource value: 0x7f090013
-			public const int center_horizontal = 2131296275;
+			// aapt resource value: 0x7f09000d
+			public const int center_horizontal = 2131296269;
 			
-			// aapt resource value: 0x7f090014
-			public const int center_vertical = 2131296276;
+			// aapt resource value: 0x7f09000b
+			public const int center_vertical = 2131296267;
 			
 			// aapt resource value: 0x7f09004d
 			public const int checkbox = 2131296333;
@@ -3550,14 +3550,14 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090080
 			public const int chronometer = 2131296384;
 			
-			// aapt resource value: 0x7f09001b
-			public const int clip_horizontal = 2131296283;
+			// aapt resource value: 0x7f090014
+			public const int clip_horizontal = 2131296276;
 			
-			// aapt resource value: 0x7f09001c
-			public const int clip_vertical = 2131296284;
+			// aapt resource value: 0x7f090013
+			public const int clip_vertical = 2131296275;
 			
-			// aapt resource value: 0x7f090033
-			public const int collapseActionView = 2131296307;
+			// aapt resource value: 0x7f09002d
+			public const int collapseActionView = 2131296301;
 			
 			// aapt resource value: 0x7f090086
 			public const int contentFrame = 2131296390;
@@ -3580,8 +3580,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090070
 			public const int default_control_frame = 2131296368;
 			
-			// aapt resource value: 0x7f090025
-			public const int disableHome = 2131296293;
+			// aapt resource value: 0x7f090021
+			public const int disableHome = 2131296289;
 			
 			// aapt resource value: 0x7f090077
 			public const int disconnect = 2131296375;
@@ -3589,20 +3589,20 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090057
 			public const int edit_query = 2131296343;
 			
-			// aapt resource value: 0x7f090015
-			public const int end = 2131296277;
+			// aapt resource value: 0x7f090010
+			public const int end = 2131296272;
 			
 			// aapt resource value: 0x7f090085
 			public const int end_padder = 2131296389;
 			
-			// aapt resource value: 0x7f09000a
-			public const int enterAlways = 2131296266;
+			// aapt resource value: 0x7f090002
+			public const int enterAlways = 2131296258;
 			
-			// aapt resource value: 0x7f09000b
-			public const int enterAlwaysCollapsed = 2131296267;
+			// aapt resource value: 0x7f090003
+			public const int enterAlwaysCollapsed = 2131296259;
 			
-			// aapt resource value: 0x7f09000c
-			public const int exitUntilCollapsed = 2131296268;
+			// aapt resource value: 0x7f090001
+			public const int exitUntilCollapsed = 2131296257;
 			
 			// aapt resource value: 0x7f09003c
 			public const int expand_activities_button = 2131296316;
@@ -3610,29 +3610,29 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f09004c
 			public const int expanded_menu = 2131296332;
 			
-			// aapt resource value: 0x7f09001d
-			public const int fill = 2131296285;
+			// aapt resource value: 0x7f090012
+			public const int fill = 2131296274;
+			
+			// aapt resource value: 0x7f090011
+			public const int fill_horizontal = 2131296273;
+			
+			// aapt resource value: 0x7f09000c
+			public const int fill_vertical = 2131296268;
+			
+			// aapt resource value: 0x7f090018
+			public const int @fixed = 2131296280;
+			
+			// aapt resource value: 0x7f090033
+			public const int home = 2131296307;
 			
 			// aapt resource value: 0x7f09001e
-			public const int fill_horizontal = 2131296286;
-			
-			// aapt resource value: 0x7f090016
-			public const int fill_vertical = 2131296278;
-			
-			// aapt resource value: 0x7f090021
-			public const int @fixed = 2131296289;
-			
-			// aapt resource value: 0x7f090005
-			public const int home = 2131296261;
-			
-			// aapt resource value: 0x7f090026
-			public const int homeAsUp = 2131296294;
+			public const int homeAsUp = 2131296286;
 			
 			// aapt resource value: 0x7f090040
 			public const int icon = 2131296320;
 			
-			// aapt resource value: 0x7f090034
-			public const int ifRoom = 2131296308;
+			// aapt resource value: 0x7f09002a
+			public const int ifRoom = 2131296298;
 			
 			// aapt resource value: 0x7f09003d
 			public const int image = 2131296317;
@@ -3640,8 +3640,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090084
 			public const int info = 2131296388;
 			
-			// aapt resource value: 0x7f090017
-			public const int left = 2131296279;
+			// aapt resource value: 0x7f090009
+			public const int left = 2131296265;
 			
 			// aapt resource value: 0x7f090066
 			public const int left_arrow = 2131296358;
@@ -3652,8 +3652,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090082
 			public const int line3 = 2131296386;
 			
-			// aapt resource value: 0x7f090023
-			public const int listMode = 2131296291;
+			// aapt resource value: 0x7f09001a
+			public const int listMode = 2131296282;
 			
 			// aapt resource value: 0x7f09003f
 			public const int list_item = 2131296319;
@@ -3673,50 +3673,50 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090075
 			public const int media_route_volume_slider = 2131296373;
 			
-			// aapt resource value: 0x7f090031
-			public const int middle = 2131296305;
+			// aapt resource value: 0x7f090028
+			public const int middle = 2131296296;
 			
-			// aapt resource value: 0x7f09001f
-			public const int mini = 2131296287;
+			// aapt resource value: 0x7f090016
+			public const int mini = 2131296278;
 			
-			// aapt resource value: 0x7f09002b
-			public const int multiply = 2131296299;
+			// aapt resource value: 0x7f090025
+			public const int multiply = 2131296293;
 			
 			// aapt resource value: 0x7f090069
 			public const int myButton = 2131296361;
 			
-			// aapt resource value: 0x7f090035
-			public const int never = 2131296309;
+			// aapt resource value: 0x7f090029
+			public const int never = 2131296297;
 			
-			// aapt resource value: 0x7f09000e
-			public const int none = 2131296270;
+			// aapt resource value: 0x7f090004
+			public const int none = 2131296260;
 			
-			// aapt resource value: 0x7f090020
-			public const int normal = 2131296288;
+			// aapt resource value: 0x7f090015
+			public const int normal = 2131296277;
 			
-			// aapt resource value: 0x7f09000f
-			public const int parallax = 2131296271;
+			// aapt resource value: 0x7f090006
+			public const int parallax = 2131296262;
 			
 			// aapt resource value: 0x7f090042
 			public const int parentPanel = 2131296322;
 			
-			// aapt resource value: 0x7f090010
-			public const int pin = 2131296272;
+			// aapt resource value: 0x7f090005
+			public const int pin = 2131296261;
 			
 			// aapt resource value: 0x7f090072
 			public const int play_pause = 2131296370;
 			
-			// aapt resource value: 0x7f090006
-			public const int progress_circular = 2131296262;
+			// aapt resource value: 0x7f090034
+			public const int progress_circular = 2131296308;
 			
-			// aapt resource value: 0x7f090007
-			public const int progress_horizontal = 2131296263;
+			// aapt resource value: 0x7f090035
+			public const int progress_horizontal = 2131296309;
 			
 			// aapt resource value: 0x7f09004f
 			public const int radio = 2131296335;
 			
-			// aapt resource value: 0x7f090018
-			public const int right = 2131296280;
+			// aapt resource value: 0x7f09000a
+			public const int right = 2131296266;
 			
 			// aapt resource value: 0x7f090065
 			public const int right_arrow = 2131296357;
@@ -3724,17 +3724,17 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f09006d
 			public const int route_name = 2131296365;
 			
-			// aapt resource value: 0x7f09002c
-			public const int screen = 2131296300;
+			// aapt resource value: 0x7f090026
+			public const int screen = 2131296294;
 			
-			// aapt resource value: 0x7f09000d
-			public const int scroll = 2131296269;
+			// aapt resource value: 0x7f090000
+			public const int scroll = 2131296256;
 			
 			// aapt resource value: 0x7f090047
 			public const int scrollView = 2131296327;
 			
-			// aapt resource value: 0x7f090022
-			public const int scrollable = 2131296290;
+			// aapt resource value: 0x7f090017
+			public const int scrollable = 2131296279;
 			
 			// aapt resource value: 0x7f090059
 			public const int search_badge = 2131296345;
@@ -3775,14 +3775,14 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f09004e
 			public const int shortcut = 2131296334;
 			
-			// aapt resource value: 0x7f090027
-			public const int showCustom = 2131296295;
+			// aapt resource value: 0x7f090020
+			public const int showCustom = 2131296288;
 			
-			// aapt resource value: 0x7f090028
-			public const int showHome = 2131296296;
+			// aapt resource value: 0x7f09001d
+			public const int showHome = 2131296285;
 			
-			// aapt resource value: 0x7f090029
-			public const int showTitle = 2131296297;
+			// aapt resource value: 0x7f09001f
+			public const int showTitle = 2131296287;
 			
 			// aapt resource value: 0x7f090068
 			public const int snackbar_action = 2131296360;
@@ -3790,20 +3790,20 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090067
 			public const int snackbar_text = 2131296359;
 			
-			// aapt resource value: 0x7f090008
-			public const int split_action_bar = 2131296264;
+			// aapt resource value: 0x7f090036
+			public const int split_action_bar = 2131296310;
 			
-			// aapt resource value: 0x7f09002d
-			public const int src_atop = 2131296301;
+			// aapt resource value: 0x7f090024
+			public const int src_atop = 2131296292;
 			
-			// aapt resource value: 0x7f09002e
-			public const int src_in = 2131296302;
+			// aapt resource value: 0x7f090023
+			public const int src_in = 2131296291;
 			
-			// aapt resource value: 0x7f09002f
-			public const int src_over = 2131296303;
+			// aapt resource value: 0x7f090022
+			public const int src_over = 2131296290;
 			
-			// aapt resource value: 0x7f090019
-			public const int start = 2131296281;
+			// aapt resource value: 0x7f09000f
+			public const int start = 2131296271;
 			
 			// aapt resource value: 0x7f09007b
 			public const int status_bar_latest_event_content = 2131296379;
@@ -3817,8 +3817,8 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090073
 			public const int subtitle = 2131296371;
 			
-			// aapt resource value: 0x7f090024
-			public const int tabMode = 2131296292;
+			// aapt resource value: 0x7f09001b
+			public const int tabMode = 2131296283;
 			
 			// aapt resource value: 0x7f090083
 			public const int text = 2131296387;
@@ -3841,26 +3841,26 @@ namespace Phoenix.Droid
 			// aapt resource value: 0x7f090044
 			public const int title_template = 2131296324;
 			
-			// aapt resource value: 0x7f09001a
-			public const int top = 2131296282;
+			// aapt resource value: 0x7f090007
+			public const int top = 2131296263;
 			
 			// aapt resource value: 0x7f090043
 			public const int topPanel = 2131296323;
 			
-			// aapt resource value: 0x7f090009
-			public const int up = 2131296265;
-			
-			// aapt resource value: 0x7f09002a
-			public const int useLogo = 2131296298;
-			
-			// aapt resource value: 0x7f090000
-			public const int view_offset_helper = 2131296256;
-			
-			// aapt resource value: 0x7f090036
-			public const int withText = 2131296310;
-			
 			// aapt resource value: 0x7f090037
-			public const int wrap_content = 2131296311;
+			public const int up = 2131296311;
+			
+			// aapt resource value: 0x7f09001c
+			public const int useLogo = 2131296284;
+			
+			// aapt resource value: 0x7f090019
+			public const int view_offset_helper = 2131296281;
+			
+			// aapt resource value: 0x7f09002c
+			public const int withText = 2131296300;
+			
+			// aapt resource value: 0x7f09002e
+			public const int wrap_content = 2131296302;
 			
 			static Id()
 			{
