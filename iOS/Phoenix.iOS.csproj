@@ -78,12 +78,6 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.1.5.1.6471\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Diagnostics">
-      <HintPath>..\packages\SimpleInjector.2.7.3\lib\portable-net4+sl4+wp8+win8+wpa81\SimpleInjector.Diagnostics.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector">
-      <HintPath>..\packages\SimpleInjector.2.7.3\lib\portable-net4+sl4+wp8+win8+wpa81\SimpleInjector.dll</HintPath>
-    </Reference>
     <Reference Include="XLabs.Ioc">
       <HintPath>..\packages\XLabs.IoC.2.0.5679\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\XLabs.Ioc.dll</HintPath>
     </Reference>
@@ -116,6 +110,9 @@
     </Reference>
     <Reference Include="zxing.portable">
       <HintPath>..\Components\zxing.net.mobile-1.5.1.0\lib\ios-unified\zxing.portable.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>..\packages\SimpleInjector.3.1.0\lib\portable-net4+sl4+wp8+win8+wpa81\SimpleInjector.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
