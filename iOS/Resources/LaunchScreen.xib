@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-1536x2008.png" translatesAutoresizingMaskIntoConstraints="NO" id="WMO-3f-a9x">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default-1536x2008.png" translatesAutoresizingMaskIntoConstraints="NO" id="WMO-3f-a9x">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                     <animations/>
                 </imageView>
@@ -30,6 +30,6 @@
         </view>
     </objects>
     <resources>
-        <image name="default-1536x2008.png" width="1536" height="2008"/>
+        <image name="Default-1536x2008.png" width="1536" height="2008"/>
     </resources>
 </document>
