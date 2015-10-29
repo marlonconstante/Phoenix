@@ -3,4 +3,5 @@
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
 	<application android:label="Cortel">
 	</application>
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>
