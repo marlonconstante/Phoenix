@@ -10,6 +10,7 @@ using XLabs.Ioc;
 using XLabs.Forms;
 using XLabs.Platform.Device;
 using Phoenix.Utils;
+using ZXing.Mobile;
 
 namespace Phoenix.Droid
 {
@@ -25,6 +26,7 @@ namespace Phoenix.Droid
             ConfigResolver();
             ConfigDeviceScreen();
 
+			MobileBarcodeScanner.Initialize(Application);
 
             LoadApplication(new App());
         }
